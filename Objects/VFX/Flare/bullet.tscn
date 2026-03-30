@@ -1,0 +1,201 @@
+[gd_scene load_steps=16 format=3 uid="uid://imvmadhnn0mq"]
+
+[ext_resource type="Script" uid="uid://b4y7vnyoxo3n3" path="res://Objects/VFX/Flare/bullet.gd" id="1_ymtd5"]
+[ext_resource type="Texture2D" uid="uid://b754hx4j2h1v4" path="res://Objects/VFX/Flare/T_Fireball_OuterShell_BaseColor.png" id="2_1utt0"]
+[ext_resource type="Texture2D" uid="uid://obthmqfbxm85" path="res://Objects/VFX/Flare/T_FlareFlicks01_n.png" id="3_vlfj8"]
+[ext_resource type="Texture2D" uid="uid://bg2rn74s1m3ub" path="res://Objects/VFX/Flare/T_FlareFlicks01_dda.png" id="7_1pk44"]
+[ext_resource type="Texture2D" uid="uid://khj4dtepatj2" path="res://Objects/VFX/Flare/T_FlareFlicks01_e.png" id="8_3xxqv"]
+[ext_resource type="AudioStream" uid="uid://xouof3gi07ie" path="res://Player/Sound/Hands/Flare/SW_Flare_Fizzle.wav" id="10_6f4tx"]
+[ext_resource type="AudioStream" uid="uid://8rj78f6140mg" path="res://Player/Sound/Hands/Flare/SW_Flare_Impact_01.wav" id="11_w0727"]
+
+[sub_resource type="ORMMaterial3D" id="ORMMaterial3D_m3m4v"]
+albedo_texture = ExtResource("2_1utt0")
+normal_enabled = true
+normal_texture = ExtResource("3_vlfj8")
+
+[sub_resource type="SphereMesh" id="SphereMesh_bpvog"]
+material = SubResource("ORMMaterial3D_m3m4v")
+radius = 0.07
+height = 0.14
+radial_segments = 16
+rings = 8
+
+[sub_resource type="Shader" id="Shader_24cya"]
+code = "// NOTE: Shader automatically converted from Godot Engine 4.4.1.stable's StandardMaterial3D.
+
+shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
+
+uniform bool emission_enabled;
+uniform sampler2D emission_texture : source_color, filter_linear_mipmap, repeat_enable;
+uniform sampler2D alpha_texture : source_color;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
+uniform ivec2 albedo_texture_size;
+uniform float point_size : hint_range(0.1, 128.0, 0.1);
+
+uniform float roughness : hint_range(0.0, 1.0);
+uniform sampler2D texture_metallic : hint_default_white, filter_linear_mipmap, repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r, filter_linear_mipmap, repeat_enable;
+
+uniform float specular : hint_range(0.0, 1.0, 0.01);
+uniform float metallic : hint_range(0.0, 1.0, 0.01);
+
+uniform int particles_anim_h_frames : hint_range(1, 128);
+uniform int particles_anim_v_frames : hint_range(1, 128);
+uniform bool particles_anim_loop;
+
+uniform sampler2D texture_normal : hint_roughness_normal, filter_linear_mipmap, repeat_enable;
+uniform float normal_scale : hint_range(-16.0, 16.0);
+
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+void vertex() {
+	UV = UV * uv1_scale.xy + uv1_offset.xy;
+
+	// Billboard Mode: Particles
+	mat4 mat_world = mat4(
+			normalize(INV_VIEW_MATRIX[0]),
+			normalize(INV_VIEW_MATRIX[1]),
+			normalize(INV_VIEW_MATRIX[2]),
+			MODEL_MATRIX[3]);
+	mat_world = mat_world * mat4(
+			vec4(cos(INSTANCE_CUSTOM.x), -sin(INSTANCE_CUSTOM.x), 0.0, 0.0),
+			vec4(sin(INSTANCE_CUSTOM.x), cos(INSTANCE_CUSTOM.x), 0.0, 0.0),
+			vec4(0.0, 0.0, 1.0, 0.0),
+			vec4(0.0, 0.0, 0.0, 1.0));
+	MODELVIEW_MATRIX = VIEW_MATRIX * mat_world;
+
+	MODELVIEW_NORMAL_MATRIX = mat3(MODELVIEW_MATRIX);
+
+	float h_frames = float(particles_anim_h_frames);
+	float v_frames = float(particles_anim_v_frames);
+	float particle_total_frames = float(particles_anim_h_frames * particles_anim_v_frames);
+	float particle_frame = floor(INSTANCE_CUSTOM.z * float(particle_total_frames));
+	if (!particles_anim_loop) {
+		particle_frame = clamp(particle_frame, 0.0, particle_total_frames - 1.0);
+	} else {
+		particle_frame = mod(particle_frame, particle_total_frames);
+	}
+	UV /= vec2(h_frames, v_frames);
+	UV += vec2(mod(particle_frame, h_frames) / h_frames, floor((particle_frame + 0.5) / h_frames) / v_frames);
+}
+
+void fragment() {
+	vec2 base_uv = UV;
+
+	vec4 albedo_tex = texture(texture_albedo, base_uv);
+	ALBEDO = albedo.rgb * albedo_tex.rgb;
+
+	float metallic_tex = dot(texture(texture_metallic, base_uv), metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	SPECULAR = specular;
+
+	vec4 roughness_texture_channel = vec4(1.0, 0.0, 0.0, 0.0);
+	float roughness_tex = dot(texture(texture_roughness, base_uv), roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+
+	// Normal Map: Enabled
+	NORMAL_MAP = texture(texture_normal, base_uv).rgb;
+	NORMAL_MAP_DEPTH = normal_scale;
+
+	if (emission_enabled) {
+		vec4 emission_tex = texture(emission_texture, base_uv);
+		EMISSION = emission_tex.rgb;
+	}
+	vec4 alpha = texture(alpha_texture, UV);
+	ALPHA = alpha.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5vufq"]
+render_priority = 0
+shader = SubResource("Shader_24cya")
+shader_parameter/emission_enabled = false
+shader_parameter/alpha_texture = ExtResource("7_1pk44")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/texture_albedo = ExtResource("8_3xxqv")
+shader_parameter/albedo_texture_size = Vector2i(0, 0)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = Vector4(1, 0, 0, 0)
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/particles_anim_h_frames = 8
+shader_parameter/particles_anim_v_frames = 8
+shader_parameter/particles_anim_loop = true
+shader_parameter/texture_normal = ExtResource("3_vlfj8")
+shader_parameter/normal_scale = 1.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_02oyj"]
+direction = Vector3(0, 4, 0)
+initial_velocity_max = 1.0
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = 0.699978
+gravity = Vector3(0, -2, 0)
+anim_speed_min = 1.0
+anim_speed_max = 2.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_e7ksn"]
+size = Vector2(0.2, 0.2)
+orientation = 2
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dedsw"]
+radius = 0.3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_24cya"]
+radius = 0.4
+
+[node name="FlareBall" type="RigidBody3D"]
+collision_layer = 0
+script = ExtResource("1_ymtd5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_bpvog")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_5vufq")
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_02oyj")
+draw_pass_1 = SubResource("PlaneMesh_e7ksn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_dedsw")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0, 0)
+light_color = Color(1, 0.541176, 0, 1)
+light_energy = 2.0
+omni_range = 2.3
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6, 0, 0)
+light_color = Color(1, 0.541176, 0, 1)
+light_energy = 2.0
+omni_range = 2.1
+
+[node name="Fizzle" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_6f4tx")
+autoplay = true
+
+[node name="Impact" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_w0727")
+volume_db = -20.0
+
+[node name="Area3D" type="Area3D" parent="." groups=["FlareBall"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_24cya")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

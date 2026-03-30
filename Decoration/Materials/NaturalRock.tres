@@ -1,0 +1,13 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://cldpijqgi4ucd"]
+
+[ext_resource type="Texture2D" uid="uid://ct56lqrn50igm" path="res://Decoration/Materials/Textures/Rock/T_NaturalRock_Med_BC.png" id="1_qjt1t"]
+[ext_resource type="Texture2D" uid="uid://djdu3bf62elbq" path="res://Decoration/Materials/Textures/Rock/T_NaturalRock_Med_N.png" id="2_pnwhv"]
+[ext_resource type="Texture2D" uid="uid://bj4eycp1bemdd" path="res://Decoration/Materials/Textures/Rock/T_NaturalRock_Med_ORMH.png" id="3_n8cdp"]
+
+[resource]
+albedo_texture = ExtResource("1_qjt1t")
+orm_texture = ExtResource("3_n8cdp")
+normal_enabled = true
+normal_texture = ExtResource("2_pnwhv")
+uv1_scale = Vector3(0.85, 0.85, 0.85)
+uv1_triplanar = true

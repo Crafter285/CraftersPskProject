@@ -1,0 +1,102 @@
+[gd_scene load_steps=11 format=3 uid="uid://blbde3nsukjhl"]
+
+[ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="1_js3q3"]
+[ext_resource type="Script" uid="uid://cxowskoo66nfw" path="res://Interface/Loading/LoadGameMenu/load_game_button.gd" id="2_0lp7s"]
+[ext_resource type="FontFile" uid="uid://d02qiqkper325" path="res://Interface/Font/OverusedGrotesk-Medium.otf" id="4_js3q3"]
+[ext_resource type="Texture2D" uid="uid://bivri32i53cow" path="res://Interface/Loading/LoadGameMenu/Objective.png" id="5_rwlj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_js3q3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y0hvq"]
+content_margin_left = 0.0
+bg_color = Color(1, 1, 1, 0.101961)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rwlj6"]
+
+[sub_resource type="FontVariation" id="FontVariation_nv82o"]
+base_font = ExtResource("1_js3q3")
+
+[sub_resource type="Theme" id="Theme_y0hvq"]
+default_font = SubResource("FontVariation_nv82o")
+default_font_size = 30
+Button/colors/font_color = Color(0.6830766, 0.6830776, 0.68307686, 0.8862745)
+Button/colors/font_focus_color = Color(0.68235296, 0.68235296, 0.68235296, 0.8862745)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_js3q3")
+Button/styles/hover = SubResource("StyleBoxFlat_y0hvq")
+Button/styles/normal = SubResource("StyleBoxEmpty_rwlj6")
+Button/styles/pressed = SubResource("StyleBoxFlat_y0hvq")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_5jc76"]
+_surfaces = [{
+"2d": true,
+"aabb": AABB(-952, -490.5, 0, 1904, 981, 0),
+"attribute_data": PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 128, 63, 0, 0, 0, 0),
+"format": 34393296913,
+"index_count": 6,
+"index_data": PackedByteArray(0, 0, 3, 0, 2, 0, 2, 0, 1, 0, 0, 0),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 4,
+"vertex_data": PackedByteArray(0, 0, 110, 196, 0, 64, 245, 195, 0, 0, 110, 196, 0, 64, 245, 67, 0, 0, 110, 68, 0, 64, 245, 67, 0, 0, 110, 68, 0, 64, 245, 195)
+}]
+
+[node name="Load" type="Button"]
+custom_minimum_size = Vector2(1040, 113)
+anchors_preset = -1
+anchor_left = 0.17
+anchor_top = 0.117000006
+anchor_right = 0.711
+anchor_bottom = 0.22800002
+offset_left = -0.3999939
+offset_top = 6.6399918
+offset_right = 0.8800049
+offset_bottom = -0.24002075
+theme = SubResource("Theme_y0hvq")
+script = ExtResource("2_0lp7s")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.06538462
+anchor_top = -0.25663725
+anchor_right = 0.33217216
+anchor_bottom = 0.30306095
+offset_left = 149.0
+offset_top = 22.00001
+offset_right = 524.0
+offset_bottom = 44.000008
+scale = Vector2(0.61, 0.61)
+theme_override_font_sizes/font_size = 34
+text = "LIFT CONTROL ROOM"
+vertical_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Objective" type="Label" parent="."]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 60.000008
+offset_right = 596.0
+offset_bottom = 93.00001
+scale = Vector2(0.82, 0.82)
+theme_override_colors/font_color = Color(0.98039216, 0.8392157, 0.16862746, 1)
+theme_override_fonts/font = ExtResource("4_js3q3")
+theme_override_font_sizes/font_size = 22
+text = "INVESTIGATE THE CONTROL ROOM"
+
+[node name="Objective2" type="Sprite2D" parent="."]
+modulate = Color(0.98039216, 0.8392157, 0.16862746, 1)
+position = Vector2(233, 73)
+scale = Vector2(0.109375, 0.101563)
+texture = ExtResource("5_rwlj6")
+
+[node name="Sprite2D" type="MeshInstance2D" parent="."]
+position = Vector2(93.999985, 56)
+scale = Vector2(0.093487374, 0.10193679)
+mesh = SubResource("ArrayMesh_5jc76")

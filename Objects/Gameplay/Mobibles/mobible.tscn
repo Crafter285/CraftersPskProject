@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8u1tbp26qskf"]
+
+[ext_resource type="Script" uid="uid://xck4e6a3nfof" path="res://Objects/Gameplay/Mobibles/mobible.gd" id="1_0eubx"]
+[ext_resource type="Texture2D" uid="uid://dc6u2avyfp1j0" path="res://Objects/Gameplay/Mobibles/Textibles/2.png" id="2_7saec"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2bnrm"]
+radius = 0.5803
+
+[node name="Mobible" type="RigidBody3D"]
+script = ExtResource("1_0eubx")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("2_7saec")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_2bnrm")
+
+[node name="au" type="AudioStreamPlayer3D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

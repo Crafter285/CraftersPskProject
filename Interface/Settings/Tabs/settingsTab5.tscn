@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://b4qeg77eflnu1"]
+
+[ext_resource type="PackedScene" uid="uid://b1gvmkr1ehdnk" path="res://Interface/Settings/ButtonTypes/ButtonMultiOption.tscn" id="1_cjlni"]
+[ext_resource type="FontFile" uid="uid://cfvfiw1qtrep1" path="res://Interface/Font/OverusedGrotesk-Bold.otf" id="2_sxpuv"]
+[ext_resource type="PackedScene" uid="uid://bwefrsfxu7lxd" path="res://Interface/Settings/ButtonTypes/ButtonSlider.tscn" id="3_vxfov"]
+[ext_resource type="Script" uid="uid://cfy8p6bec5h6o" path="res://Interface/Settings/settingsButtonSFX.gd" id="4_668tj"]
+[ext_resource type="AudioStream" uid="uid://cr1h44t3w130f" path="res://Interface/MainMenu/Sound/hover.wav" id="5_xe30s"]
+[ext_resource type="AudioStream" uid="uid://c7wgcc6jimvtc" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Forward.wav" id="6_xffmf"]
+[ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="7_6id5b"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="8_51kaa"]
+
+[node name="Tab5" type="Node2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 144.8
+offset_top = 168.8
+offset_right = 144.8
+offset_bottom = 168.8
+theme_override_constants/separation = 3
+
+[node name="SettingsBox" parent="VBoxContainer" instance=ExtResource("1_cjlni")]
+layout_mode = 2
+text = "GAME LANGUAGE"
+setting_name = "GAME LANGUAGE"
+setting_description = "Set the language for all the in-game text."
+settings_root = NodePath("../../../../..")
+setting_code_name = "language"
+setting_default_value = 0.0
+options = Array[String](["ENGLISH"])
+
+[node name="Section1" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.341176, 0.819608, 1, 1)
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_sxpuv")
+theme_override_font_sizes/font_size = 25
+text = "Subtitles"
+autowrap_mode = 2
+
+[node name="SettingsBox2" parent="VBoxContainer" instance=ExtResource("1_cjlni")]
+layout_mode = 2
+text = "SUBTITLES"
+setting_name = "SUBTITLES"
+setting_description = "Adjust the subtitles settings."
+settings_root = NodePath("../../../../..")
+setting_code_name = "subtitles"
+
+[node name="SettingsBox3" parent="VBoxContainer" instance=ExtResource("3_vxfov")]
+layout_mode = 2
+text = "SUBTITLE BACKGROUND OPACITY"
+setting_name = "SUBTITLE BACKGROUND OPACITY"
+setting_description = "Adjust the opacity of the subtitles background."
+settings_root = NodePath("../../../../..")
+setting_code_name = "subtitle_bg"
+setting_default_value = 40.0
+slider_step = 10.0
+slider_symbol = "%"
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("4_668tj")
+root_path = NodePath("..")
+
+[node name="Hover" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("5_xe30s")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("6_xffmf")
+
+[node name="Backward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("7_6id5b")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("8_51kaa")

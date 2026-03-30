@@ -1,0 +1,12 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://bu5pivb2jcdqa"]
+
+[ext_resource type="Texture2D" uid="uid://dfv0qicsa5xoo" path="res://Objects/Gameplay/Puzzles/Turret(BROKEN)/Mesh/T_CoatedMetalPaint_Rusted_DIF.png" id="1_5wub5"]
+[ext_resource type="Texture2D" uid="uid://b4o2u21pc8tu0" path="res://Objects/Gameplay/Puzzles/Turret(BROKEN)/Mesh/T_CoatedMetalPaint_Rusted_NRM.png" id="2_pyod6"]
+[ext_resource type="Texture2D" uid="uid://b8vu1sxltxo35" path="res://Objects/Gameplay/Puzzles/Turret(BROKEN)/Mesh/T_CoatedMetalPaint_Rusted_ORMH.png" id="3_1jin1"]
+
+
+[resource]
+albedo_texture = ExtResource("1_5wub5")
+orm_texture = ExtResource("3_1jin1")
+normal_enabled = true
+normal_texture = ExtResource("2_pyod6")

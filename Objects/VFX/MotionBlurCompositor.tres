@@ -1,0 +1,40 @@
+[gd_resource type="Compositor" script_class="MotionBlurCompositor" format=3 uid="uid://cojs02qunkdeq"]
+
+[ext_resource type="Resource" uid="uid://cslvcweyejh3c" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_movement_component.tres" id="1_vfkts"]
+[ext_resource type="Resource" uid="uid://iru8ynu04i00" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_camera_rotation_component.tres" id="2_kie83"]
+[ext_resource type="Resource" uid="uid://rp3mpjmisoyh" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/default_object_movement_component.tres" id="3_x3qv6"]
+[ext_resource type="Resource" uid="uid://c8ulad7utgrg7" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processing_stage.tres" id="4_daklc"]
+[ext_resource type="Script" uid="uid://b4n1i7gnlrx1n" path="res://addons/SphynxMotionBlurToolkit/PreBlurProcessing/pre_blur_processor.gd" id="5_mxwui"]
+[ext_resource type="Resource" uid="uid://cp5pmuoa15e5g" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_blur_stage.tres" id="6_yjdjr"]
+[ext_resource type="Resource" uid="uid://bk8tn7n5k0b1r" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_neighbor_max_stage.tres" id="7_umi1a"]
+[ext_resource type="Resource" uid="uid://chg1vh0sap86j" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_overlay_stage.tres" id="8_e6ls2"]
+[ext_resource type="Script" uid="uid://dvtvgovkm5l20" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_motion_blur.gd" id="9_g3u6q"]
+[ext_resource type="Resource" uid="uid://kgrk5sdoor7t" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_tile_max_x_stage.tres" id="10_edlhx"]
+[ext_resource type="Resource" uid="uid://d2rdmkpi41wf1" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_tile_max_y_stage.tres" id="11_axydf"]
+[ext_resource type="Resource" uid="uid://d1ckx52l74p0" path="res://addons/SphynxMotionBlurToolkit/McGuire/mcguire_tile_variance_stage.tres" id="12_ohgv7"]
+[ext_resource type="Script" uid="uid://miqeye1gjimr" path="res://addons/SphynxMotionBlurToolkit/BaseClasses/mb_compositor.gd" id="13_k5r2v"]
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_j8i54"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("5_mxwui")
+metadata/_custom_type_script = "uid://b4n1i7gnlrx1n"
+
+[sub_resource type="CompositorEffect" id="CompositorEffect_qhsyg"]
+resource_local_to_scene = false
+resource_name = ""
+enabled = true
+effect_callback_type = 4
+needs_motion_vectors = false
+needs_normal_roughness = false
+script = ExtResource("9_g3u6q")
+metadata/_custom_type_script = "uid://dvtvgovkm5l20"
+
+[resource]
+compositor_effects = Array[CompositorEffect]([SubResource("CompositorEffect_j8i54"), SubResource("CompositorEffect_qhsyg")])
+script = ExtResource("13_k5r2v")
+metadata/_custom_type_script = "uid://miqeye1gjimr"

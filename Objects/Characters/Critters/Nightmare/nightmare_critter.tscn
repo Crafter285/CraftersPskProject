@@ -1,0 +1,70 @@
+[gd_scene load_steps=18 format=3 uid="uid://bpruee46ltdep"]
+
+[ext_resource type="Script" uid="uid://c8hnsa5u12bx2" path="res://Objects/Characters/Critters/critter_ai.gd" id="1_t5vnk"]
+[ext_resource type="AudioStream" uid="uid://5wm8tj8v66rf" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Lunge_01.wav" id="2_mq4fl"]
+[ext_resource type="AudioStream" uid="uid://btqix1m7b3b8l" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Spawn_01.wav" id="2_sxhm3"]
+[ext_resource type="AudioStream" uid="uid://b01b4p5l50i37" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Lunge_02.wav" id="3_r5k3s"]
+[ext_resource type="AudioStream" uid="uid://dgtxmtnii8x12" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Spawn_02.wav" id="3_sqh5a"]
+[ext_resource type="AudioStream" uid="uid://rrd5cegbj8tq" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Spawn_03.wav" id="4_q8q6k"]
+[ext_resource type="AudioStream" uid="uid://cx40xiyr0jss1" path="res://Objects/Characters/Critters/Sound/SW_SFX_Critters_Lunge_03.wav" id="4_yd28u"]
+[ext_resource type="AudioStream" uid="uid://c84fq8rqt3h2v" path="res://Objects/Characters/Critters/Sound/SW_SFX_Big_Nightmare_Critter_Roar_01.wav" id="5_61j4f"]
+[ext_resource type="AudioStream" uid="uid://buqswx3toln0q" path="res://Objects/Characters/Critters/Sound/SW_SFX_Big_Nightmare_Critter_Roar_02.wav" id="6_2insp"]
+[ext_resource type="AudioStream" uid="uid://dl5swfd713mm2" path="res://Objects/Characters/Critters/Sound/SW_SFX_Big_Nightmare_Critter_Roar_03.wav" id="7_2hwt5"]
+[ext_resource type="PackedScene" uid="uid://d3hg4li4ab7ut" path="res://Objects/Characters/Critters/Nightmare/CritterModels/bat_critter.tscn" id="11_2insp"]
+[ext_resource type="Script" uid="uid://baiscy50x04i2" path="res://Objects/Characters/Critters/critter_randomizor.gd" id="12_2hwt5"]
+[ext_resource type="PackedScene" uid="uid://uyhpn6mijk8p" path="res://Objects/Characters/Critters/Nightmare/CritterModels/rat_critter.tscn" id="13_2hwt5"]
+[ext_resource type="Script" uid="uid://cg00b07a2atra" path="res://Objects/VFX/Flare/flare_detector.gd" id="21_sqh5a"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1f3i5"]
+height = 1.0
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lhd3v"]
+radius = 0.7
+height = 1.4
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_q8q6k"]
+
+[node name="NightmareCritter" type="CharacterBody3D"]
+script = ExtResource("1_t5vnk")
+spawn_sounds = Array[AudioStream]([ExtResource("2_sxhm3"), ExtResource("3_sqh5a"), ExtResource("4_q8q6k")])
+lunge_sounds = Array[AudioStream]([ExtResource("2_mq4fl"), ExtResource("3_r5k3s"), ExtResource("4_yd28u")])
+lunge_roars = Array[AudioStream]([ExtResource("5_61j4f"), ExtResource("6_2insp"), ExtResource("7_2hwt5")])
+zigzag = false
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_1f3i5")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="PlayerDetection" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerDetection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+shape = SubResource("CapsuleShape3D_lhd3v")
+
+[node name="BatCritter" parent="." instance=ExtResource("11_2insp")]
+transform = Transform3D(-1.5, 0, 2.26494e-07, 0, 1.5, 0, -2.26494e-07, 0, -1.5, 0, -0.6, 0)
+
+[node name="CritterRandomizor" type="Node" parent="." node_paths=PackedStringArray("editor_critter_model")]
+script = ExtResource("12_2hwt5")
+editor_critter_model = NodePath("../BatCritter")
+critter_anim_scenes = Array[PackedScene]([ExtResource("11_2insp"), ExtResource("13_2hwt5")])
+
+[node name="FlareDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+script = ExtResource("21_sqh5a")
+usable_once = false
+flare_time = 1.0
+metadata/_custom_type_script = "uid://cg00b07a2atra"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FlareDetector"]
+shape = SubResource("SphereShape3D_q8q6k")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="PlayerDetection" to="." method="_on_player_detection_body_entered"]
+[connection signal="flare_entered" from="FlareDetector" to="." method="_on_flare_detector_flare_entered"]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cvvoilg0bvp2e"]
+
+[ext_resource type="Script" uid="uid://bcd2007fjcmis" path="res://Objects/Gameplay/Gas/Scripts/gas_zone.gd" id="1_p6dwl"]
+[ext_resource type="Shader" uid="uid://cq81ef12653vy" path="res://Objects/VFX/Gas/gas_screen_effect.gdshader" id="2_nolx5"]
+[ext_resource type="AudioStream" uid="uid://dr71wifwo00cr" path="res://Objects/Gameplay/Gas/Audio/SW_HallucinationLayer_Footsteps_LOOP.wav" id="3_34fbv"]
+[ext_resource type="AudioStream" uid="uid://c4t1knl727uwy" path="res://Objects/Gameplay/Gas/Audio/SW_HallucinationLayer_Heartbeat_Normal_LOOP.wav" id="4_nepua"]
+[ext_resource type="AudioStream" uid="uid://csony0sxkrbur" path="res://Objects/Gameplay/Gas/Audio/SW_HallucinationLayer_Soundscape_LOOP.wav" id="5_ieohk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_04nxi"]
+resource_local_to_scene = true
+shader = ExtResource("2_nolx5")
+shader_parameter/frequency = 0.0
+shader_parameter/amplitude = 0.0
+shader_parameter/radial_frequency = 0.0
+shader_parameter/radial_amount = 0.0
+shader_parameter/rotation_frequency = 0.0
+shader_parameter/rotation_amount = 0.0
+shader_parameter/color_distortion_amount = 0.0
+shader_parameter/chromatic_aberration_amount = 0.0
+
+[node name="GasZone" type="Area3D"]
+script = ExtResource("1_p6dwl")
+metadata/_custom_type_script = "uid://bcd2007fjcmis"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_04nxi")
+offset_right = 1924.0
+offset_bottom = 1067.0
+mouse_filter = 2
+color = Color(0, 0, 0, 0.960784)
+
+[node name="Layer1" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("3_34fbv")
+volume_db = 6.0
+
+[node name="Layer2" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("4_nepua")
+volume_db = 10.0
+
+[node name="Layer3" type="AudioStreamPlayer" parent="CanvasLayer"]
+stream = ExtResource("5_ieohk")

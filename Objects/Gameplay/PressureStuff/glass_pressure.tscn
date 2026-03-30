@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://d2dul4nrbuuab"]
+
+[ext_resource type="Script" uid="uid://c5xv7cb5w2bsn" path="res://Objects/Gameplay/PressureStuff/Scripts/glass_pressure.gd" id="1_drsgp"]
+[ext_resource type="Texture2D" uid="uid://ccs626yivtjof" path="res://Objects/Gameplay/PressureStuff/Textures/glassbroken.png" id="1_ln4xx"]
+[ext_resource type="PackedScene" uid="uid://c7p2ak4uo1f6j" path="res://Objects/Gameplay/PressureStuff/PressureMachanic.tscn" id="2_drsgp"]
+[ext_resource type="Material" uid="uid://drvb0op3p52l8" path="res://Objects/Gameplay/PressureStuff/Textures/Glass1.tres" id="2_pxv2a"]
+[ext_resource type="AudioStream" uid="uid://5timm5j50mfd" path="res://Objects/Gameplay/PressureStuff/SFX/SFX glass smashable large break 02.mp3" id="4_drsgp"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v3y0w"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("1_ln4xx")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_64xm1"]
+material = SubResource("StandardMaterial3D_v3y0w")
+size = Vector2(0.7, 0.7)
+
+[node name="GlassPressure" type="Node3D" unique_id=693214987]
+script = ExtResource("1_drsgp")
+
+[node name="Glass" type="CSGBox3D" parent="." unique_id=664404381]
+use_collision = true
+size = Vector3(0.024291992, 2.1000001, 3.3)
+material = ExtResource("2_pxv2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Glass" unique_id=1373189919]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.022294998, -0.4963715, -0.15913773)
+mesh = SubResource("PlaneMesh_64xm1")
+
+[node name="PressureMachanic" parent="Glass" unique_id=1906056036 instance=ExtResource("2_drsgp")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26399612, -0.4774859, -0.15716171)
+visible = false
+
+[node name="GlassBreakSound" type="AudioStreamPlayer" parent="." unique_id=989906308]
+stream = ExtResource("4_drsgp")
+
+[connection signal="power_100" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_100"]
+[connection signal="power_75" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_75"]

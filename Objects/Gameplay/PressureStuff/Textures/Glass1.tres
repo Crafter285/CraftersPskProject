@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://drvb0op3p52l8"]
+
+[ext_resource type="Texture2D" uid="uid://db8wm53wggasc" path="res://Objects/Gameplay/PressureStuff/Textures/SpecularMap (7).png" id="1_lmgkx"]
+[ext_resource type="Texture2D" uid="uid://bd2evco02cgbw" path="res://Objects/Gameplay/PressureStuff/Textures/Pt_Normal.png" id="2_j53sm"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.8901961, 1, 1, 0.09019608)
+albedo_texture = ExtResource("1_lmgkx")
+normal_enabled = true
+normal_texture = ExtResource("2_j53sm")

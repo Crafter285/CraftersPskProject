@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv7pkdrph4h88"]
+
+[ext_resource type="Script" uid="uid://cviiqoaanj3b0" path="res://Objects/Gameplay/Puzzles/Turret(BROKEN)/wire_segment_turret.gd" id="1_arvy5"]
+[ext_resource type="Material" uid="uid://k64313mf7hr5" path="res://Player/Grabpack/Wire/WireMaterialRight.tres" id="2_wkjod"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ac2ak"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(4, 9)
+material = ExtResource("2_wkjod")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 1.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ac2ak"]
+height = 1.0
+radius = 0.0664063
+
+[node name="WireSegmentOnly" type="Area3D" groups=["WireSegment"]]
+process_priority = 100
+script = ExtResource("1_arvy5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_ac2ak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
+shape = SubResource("CylinderShape3D_ac2ak")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

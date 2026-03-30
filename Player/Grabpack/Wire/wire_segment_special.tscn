@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://dng2mp1bv2vdm"]
+
+[ext_resource type="Script" uid="uid://bt32ep4by6cla" path="res://Player/Grabpack/Wire/wire_segment_special.gd" id="1_y78x8"]
+[ext_resource type="Material" uid="uid://k64313mf7hr5" path="res://Player/Grabpack/Wire/WireMaterialRight.tres" id="2_y78x8"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_8ot4x"]
+resource_local_to_scene = true
+lightmap_size_hint = Vector2i(4, 9)
+material = ExtResource("2_y78x8")
+top_radius = 0.03
+bottom_radius = 0.03
+height = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g6y7j"]
+size = Vector3(0.2, 1.2, 0.2)
+
+[node name="WireSegmentOnly" type="Area3D" groups=["WireSegment"]]
+process_priority = 100
+script = ExtResource("1_y78x8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("CylinderMesh_8ot4x")
+surface_material_override/0 = ExtResource("2_y78x8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, -0.5)
+shape = SubResource("BoxShape3D_g6y7j")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+target_position = Vector3(0, 0, -1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+autostart = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

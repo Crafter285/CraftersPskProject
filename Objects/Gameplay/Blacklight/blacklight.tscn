@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://b3vc5ia7g7spl"]
+
+[ext_resource type="Shader" uid="uid://21wr641jt0bd" path="res://Objects/Gameplay/Blacklight/Textures/blacklight.gdshader" id="1_vb2e5"]
+[ext_resource type="Script" uid="uid://dcwpxt0g0xyis" path="res://Objects/Gameplay/Blacklight/Scripts/blacklight.gd" id="1_vjge2"]
+[ext_resource type="Script" uid="uid://dhjsvwgpbf3bx" path="res://Objects/Gameplay/event_trigger.gd" id="4_x3882"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x3882"]
+render_priority = 0
+shader = ExtResource("1_vb2e5")
+shader_parameter/color = Color(0.894, 0, 0.914, 1)
+shader_parameter/energy = 4.50000021375
+shader_parameter/threshold = 0.1
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kqir7"]
+material = SubResource("ShaderMaterial_x3882")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjge2"]
+render_priority = 0
+shader = ExtResource("1_vb2e5")
+shader_parameter/color = Color(0.894, 0, 0.914, 1)
+shader_parameter/energy = 4.50000021375
+shader_parameter/threshold = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vb2e5"]
+transparency = 1
+cull_mode = 2
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_vjge2"]
+material = SubResource("StandardMaterial3D_vb2e5")
+size = Vector2(0.3, 0.3)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3882"]
+transparency = 1
+cull_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vjge2"]
+size = Vector3(2.4, 1.5, 2.7)
+
+[node name="Blacklight" type="Node3D" unique_id=435319943]
+script = ExtResource("1_vjge2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=53965110]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.007701382, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_kqir7")
+surface_material_override/0 = SubResource("ShaderMaterial_vjge2")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=927648875]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.007701382, 0)
+layers = 2
+mesh = SubResource("PlaneMesh_vjge2")
+surface_material_override/0 = SubResource("StandardMaterial3D_x3882")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=723316431]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+script = ExtResource("4_x3882")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1770211880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10000005, 0.5054688, -0.14999998)
+shape = SubResource("BoxShape3D_vjge2")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

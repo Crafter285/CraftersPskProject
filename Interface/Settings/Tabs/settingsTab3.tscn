@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctgp52pfpah65"]
+
+[ext_resource type="PackedScene" uid="uid://b1gvmkr1ehdnk" path="res://Interface/Settings/ButtonTypes/ButtonMultiOption.tscn" id="1_vct5h"]
+[ext_resource type="Script" uid="uid://cfy8p6bec5h6o" path="res://Interface/Settings/settingsButtonSFX.gd" id="2_h8d71"]
+[ext_resource type="AudioStream" uid="uid://cr1h44t3w130f" path="res://Interface/MainMenu/Sound/hover.wav" id="3_10elw"]
+[ext_resource type="AudioStream" uid="uid://c7wgcc6jimvtc" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Forward.wav" id="4_xrp86"]
+[ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="5_jyp8o"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="6_2yrw5"]
+
+[node name="Tab3" type="Node2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 144.8
+offset_top = 168.8
+offset_right = 144.8
+offset_bottom = 168.8
+theme_override_constants/separation = 3
+
+[node name="SettingsBox" parent="VBoxContainer" instance=ExtResource("1_vct5h")]
+layout_mode = 2
+text = "GRAPHICS QUALITY"
+setting_name = "GRAPHICS QUALITY"
+setting_description = "Adjust the overral graphics quality"
+settings_root = NodePath("../../../../..")
+setting_code_name = "graphics_quality"
+setting_default_value = 2.0
+options = Array[String](["LOW", "MEDIUM", "HIGH", "EPIC"])
+
+[node name="SettingsBox2" parent="VBoxContainer" instance=ExtResource("1_vct5h")]
+layout_mode = 2
+text = "ANTI ALIASING SCALE"
+setting_name = "ANTI ALIASING SCALE"
+setting_description = "Adjust the scale/quality of the anti aliasing."
+settings_root = NodePath("../../../../..")
+setting_code_name = "anti_aliasing"
+setting_default_value = 0.0
+options = Array[String](["OFF", "2x", "4x", "8x"])
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("2_h8d71")
+root_path = NodePath("..")
+
+[node name="Hover" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("3_10elw")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("4_xrp86")
+
+[node name="Backward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("5_jyp8o")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("6_2yrw5")

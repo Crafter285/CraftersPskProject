@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://cfuxpdukbbcay"]
+
+[ext_resource type="Texture2D" uid="uid://bli0vrieqt0kv" path="res://Objects/Characters/Critters/Wuggy/Green/T_Huggy_Green_BC.png" id="1_nqdml"]
+[ext_resource type="Texture2D" uid="uid://rch1kvhsw471" path="res://Objects/Characters/Critters/Wuggy/T_Huggy_N.png" id="2_m8kpu"]
+[ext_resource type="Texture2D" uid="uid://c0854kvfjfdi7" path="res://Objects/Characters/Critters/Wuggy/T_Huggy_ORM.png" id="3_uu1qb"]
+
+[resource]
+albedo_texture = ExtResource("1_nqdml")
+orm_texture = ExtResource("3_uu1qb")
+normal_enabled = true
+normal_texture = ExtResource("2_m8kpu")

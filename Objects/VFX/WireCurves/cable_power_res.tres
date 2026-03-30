@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cupo3sw6ticjb"]
+
+[ext_resource type="Shader" uid="uid://v4nhtgm0q8aw" path="res://Objects/VFX/WireCurves/cable_power_shader.gdshader" id="1_hklfi"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_hklfi")
+shader_parameter/speed = 1.0
+shader_parameter/thickness = 2.005
+shader_parameter/glow_intensity = 4.0
+shader_parameter/glow_color = Vector3(0, 0.7, 1.5)
+shader_parameter/flow_direction = -1.0
+shader_parameter/spiral_density = 10.0
+shader_parameter/power_on = 1.0

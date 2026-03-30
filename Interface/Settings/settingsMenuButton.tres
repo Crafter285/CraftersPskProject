@@ -1,0 +1,40 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://ct16po6jdi8g1"]
+
+[ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="1_23tqq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_23tqq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inw8u"]
+content_margin_left = 18.0
+bg_color = Color(1, 1, 1, 0.1254902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_23tqq"]
+content_margin_left = 18.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(1, 1, 1, 1)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv1ys"]
+content_margin_left = 18.0
+bg_color = Color(1, 1, 1, 0.1254902)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+default_font = ExtResource("1_23tqq")
+Button/colors/font_color = Color(0.7154558, 0.73474777, 0.766892, 1)
+Button/colors/font_focus_color = Color(0.7137255, 0.73333335, 0.76862746, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_23tqq")
+Button/styles/hover = SubResource("StyleBoxFlat_inw8u")
+Button/styles/normal = SubResource("StyleBoxFlat_23tqq")
+Button/styles/pressed = SubResource("StyleBoxFlat_dv1ys")

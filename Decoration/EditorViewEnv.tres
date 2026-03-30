@@ -1,0 +1,14 @@
+[gd_resource type="Environment" load_steps=3 format=3 uid="uid://vndsw215vgbr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_41tnb"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_horizon_color = Color(1, 1, 1, 1)
+ground_bottom_color = Color(1, 1, 1, 1)
+ground_horizon_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_odw2l"]
+sky_material = SubResource("ProceduralSkyMaterial_41tnb")
+
+[resource]
+sky = SubResource("Sky_odw2l")
+ambient_light_source = 3

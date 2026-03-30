@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://bx41iidt30ku"]
+
+[ext_resource type="Script" uid="uid://b1ur13bemaxrp" path="res://Objects/Characters/MonsterAI/monsterAI.gd" id="1_n6u6u"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hueih"]
+radius = 0.6
+height = 2.6
+
+[node name="MonsterAI" type="CharacterBody3D"]
+script = ExtResource("1_n6u6u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_hueih")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="IdleTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RayCast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.800001)
+target_position = Vector3(0, 0, -30)
+
+[node name="PrevLookReset" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+
+[node name="Taunt" type="AudioStreamPlayer3D" parent="."]
+
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="nav_finished"]
+[connection signal="timeout" from="IdleTimer" to="." method="idle_finished"]

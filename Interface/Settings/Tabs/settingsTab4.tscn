@@ -1,0 +1,78 @@
+[gd_scene load_steps=7 format=3 uid="uid://r62g5atp45ih"]
+
+[ext_resource type="PackedScene" uid="uid://bwefrsfxu7lxd" path="res://Interface/Settings/ButtonTypes/ButtonSlider.tscn" id="1_brp3b"]
+[ext_resource type="Script" uid="uid://cfy8p6bec5h6o" path="res://Interface/Settings/settingsButtonSFX.gd" id="2_fk2g5"]
+[ext_resource type="AudioStream" uid="uid://cr1h44t3w130f" path="res://Interface/MainMenu/Sound/hover.wav" id="3_yuro7"]
+[ext_resource type="AudioStream" uid="uid://c7wgcc6jimvtc" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Forward.wav" id="4_jdc5v"]
+[ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="5_w7vj0"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="6_kenag"]
+
+[node name="Tab4" type="Node2D"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 144.8
+offset_top = 168.8
+offset_right = 144.8
+offset_bottom = 168.8
+theme_override_constants/separation = 3
+
+[node name="SettingsBox" parent="VBoxContainer" instance=ExtResource("1_brp3b")]
+layout_mode = 2
+text = "OVERALL VOLUME"
+setting_name = "OVERALL VOLUME"
+setting_description = "Adjust the overral game volume."
+settings_root = NodePath("../../../../..")
+setting_code_name = "master_volume"
+setting_default_value = 100.0
+slider_step = 1.0
+slider_symbol = "%"
+
+[node name="SettingsBox2" parent="VBoxContainer" instance=ExtResource("1_brp3b")]
+layout_mode = 2
+text = "MUSIC VOLUME"
+setting_name = "MUSIC VOLUME"
+setting_description = "Adjust the music volume."
+settings_root = NodePath("../../../../..")
+setting_code_name = "music_volume"
+setting_default_value = 100.0
+slider_step = 1.0
+slider_symbol = "%"
+
+[node name="SettingsBox3" parent="VBoxContainer" instance=ExtResource("1_brp3b")]
+layout_mode = 2
+text = "SOUND EFFECT VOLUME"
+setting_name = "SOUND EFFECT VOLUME"
+setting_description = "Adjust the sound effect volume."
+settings_root = NodePath("../../../../..")
+setting_code_name = "sfx_volume"
+setting_default_value = 100.0
+slider_step = 1.0
+slider_symbol = "%"
+
+[node name="SettingsBox4" parent="VBoxContainer" instance=ExtResource("1_brp3b")]
+layout_mode = 2
+text = "AMBIENCE VOLUME"
+setting_name = "AMBIENCE VOLUME"
+setting_description = "Adjust the ambience volume."
+settings_root = NodePath("../../../../..")
+setting_code_name = "ambience_volume"
+setting_default_value = 100.0
+slider_step = 1.0
+slider_symbol = "%"
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("2_fk2g5")
+root_path = NodePath("..")
+
+[node name="Hover" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("3_yuro7")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("4_jdc5v")
+
+[node name="Backward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("5_w7vj0")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("6_kenag")

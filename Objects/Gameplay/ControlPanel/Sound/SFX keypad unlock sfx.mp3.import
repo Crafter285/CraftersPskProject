@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5d1fc13lh1sk"
+path="res://.godot/imported/SFX keypad unlock sfx.mp3-cf3cb6822bbb2f00d29a17a0801c7e79.mp3str"
+
+[deps]
+
+source_file="res://Objects/Gameplay/ControlPanel/Sound/SFX keypad unlock sfx.mp3"
+dest_files=["res://.godot/imported/SFX keypad unlock sfx.mp3-cf3cb6822bbb2f00d29a17a0801c7e79.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

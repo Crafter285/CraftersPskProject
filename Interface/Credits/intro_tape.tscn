@@ -1,0 +1,146 @@
+[gd_scene load_steps=10 format=3 uid="uid://dpni33yuolbmp"]
+
+[ext_resource type="Script" uid="uid://btyae222nsyci" path="res://Interface/Credits/intro_tape.gd" id="1_kglno"]
+[ext_resource type="VideoStream" uid="uid://dtl0wkh0at5ua" path="res://Interface/Video/FlareHand_VHS.ogv" id="2_k44bv"]
+[ext_resource type="Texture2D" uid="uid://c45vqs7d4hyaf" path="res://Interface/Icons/Keyboard/T_SpaceIcon.png" id="4_f03uf"]
+[ext_resource type="FontFile" uid="uid://d02qiqkper325" path="res://Interface/Font/OverusedGrotesk-Medium.otf" id="5_ufcwh"]
+
+[sub_resource type="Shader" id="Shader_kglno"]
+code = "shader_type canvas_item;
+
+// RADIAL PROGRESSBAR BY PENGGRIN (<https://github.com/penggrin12>)
+// (INTENDED FOR A HEALTH BAR)
+
+// ORIGINAL SHADER: https://www.shadertoy.com/view/WdcGRM
+// BY <https://www.shadertoy.com/user/calx>
+
+#define TWO_PI 6.28318530718
+
+uniform vec4 primary_color: source_color = vec4(1.0, 1.0, 1.0, 1.0); // Includes alpha
+uniform vec4 outline_color: source_color = vec4(0.0, 0.0, 0.0, 1.0); // Includes alpha
+uniform vec4 unfilled_color: source_color = vec4(0.443, 0.443, 0.443, 1.0); // Includes alpha
+uniform float value: hint_range(0.0, 1.0, 0.01) = 1.0;
+
+uniform float smooth_ = 0.005;
+uniform float width_in = 0.85;
+uniform float width_out = 0.95;
+uniform float border_width = 0.03;
+
+vec4 radial_progress(vec2 UV_, float VAL, float SMOOTH, float IR, float OR)
+{
+	vec2 uv = (UV_ * 2.0) - 1.0;
+	vec2 origin = vec2(0.0, 0.0);
+
+	float ir = IR;
+	float or = OR;
+	float d = length(uv);
+	float ring = smoothstep(or + SMOOTH, or - SMOOTH, d) - smoothstep(ir + SMOOTH, ir - SMOOTH, d);
+	float a = atan(uv.y - origin.y, uv.x - origin.x);
+	float theta = (a < 0.0) ? (a + TWO_PI) / TWO_PI : a / TWO_PI;
+	float bar = step(theta, VAL);
+	float ui = ring * bar;
+
+	vec4 colour = vec4(ui);
+
+	return colour;
+}
+
+void fragment()
+{
+	vec4 primary = primary_color * radial_progress(UV, value, smooth_, width_in, width_out);
+	vec4 outline = outline_color * radial_progress(UV, 100, smooth_, width_in - border_width, width_out + border_width);
+
+	vec4 unfilled = unfilled_color * radial_progress(UV, 100, smooth_, width_in, width_out);
+
+	if (primary != vec4(0.0, 0.0, 0.0, 0.0))
+		unfilled = vec4(0.0, 0.0, 0.0, 0.0);
+
+	COLOR = primary + (unfilled + outline);
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k44bv"]
+shader = SubResource("Shader_kglno")
+shader_parameter/primary_color = Color(1, 1, 1, 1)
+shader_parameter/outline_color = Color(0, 0, 0, 0)
+shader_parameter/unfilled_color = Color(0, 0, 0, 0)
+shader_parameter/value = 0.0
+shader_parameter/smooth_ = 0.005
+shader_parameter/width_in = 0.575
+shader_parameter/width_out = 0.685
+shader_parameter/border_width = 0.03
+
+[sub_resource type="Animation" id="Animation_a7c33"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_n2mqq"]
+resource_name = "hold"
+length = 1.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f03uf"]
+_data = {
+&"RESET": SubResource("Animation_a7c33"),
+&"hold": SubResource("Animation_n2mqq")
+}
+
+[node name="IntroTape" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kglno")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_k44bv")
+expand = true
+
+[node name="ring" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k44bv")
+layout_mode = 0
+offset_left = 1751.0
+offset_top = 1055.0
+offset_right = 1791.0
+offset_bottom = 1095.0
+rotation = -1.5707964
+scale = Vector2(1.5, 1.5)
+
+[node name="Label" type="TextureRect" parent="ring"]
+layout_mode = 0
+offset_left = 31.0979
+offset_top = 8.666504
+offset_right = 95.0979
+offset_bottom = 73.78528
+rotation = 1.5707964
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("4_f03uf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_f03uf")
+}
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1814.0
+offset_top = 1002.0
+offset_right = 1857.0
+offset_bottom = 1046.0
+theme_override_fonts/font = ExtResource("5_ufcwh")
+theme_override_font_sizes/font_size = 22
+text = "SKIP"
+horizontal_alignment = 1
+vertical_alignment = 1

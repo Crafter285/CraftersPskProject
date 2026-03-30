@@ -1,0 +1,14 @@
+[gd_resource type="ORMMaterial3D" format=3 uid="uid://kwc6uxhbuij6"]
+
+[ext_resource type="Texture2D" uid="uid://cfqu3y6hlpxkq" path="res://Player/Grabpack/Models/Hands/T_PressureHand_BC.png" id="1_bvgey"]
+[ext_resource type="Texture2D" uid="uid://cdmx8g7fpgffw" path="res://Player/Grabpack/Models/Hands/T_PressureHand_BNT.png" id="2_mj25y"]
+[ext_resource type="Texture2D" uid="uid://btt2ua1rds1hb" path="res://Player/Grabpack/Models/Hands/T_PressureHand_N.png" id="3_jqmbf"]
+[ext_resource type="Texture2D" uid="uid://bi2x5gi3map37" path="res://Player/Grabpack/Models/Hands/T_PressureHand_ORM.png" id="4_e0haq"]
+
+[resource]
+albedo_texture = ExtResource("1_bvgey")
+orm_texture = ExtResource("4_e0haq")
+normal_enabled = true
+normal_texture = ExtResource("3_jqmbf")
+bent_normal_enabled = true
+bent_normal_texture = ExtResource("2_mj25y")

@@ -1,0 +1,14 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://c8r8y33u8klij"]
+
+[ext_resource type="Texture2D" uid="uid://hmyalh2q8j1p" path="res://NewButNewer/Materials/Textures/Wood/T_WoodBoards_BC.png" id="1_0ekmh"]
+[ext_resource type="Texture2D" uid="uid://syv12dia8cyt" path="res://NewButNewer/Materials/Textures/Wood/T_WoodBoards_N.png" id="2_wnmu3"]
+[ext_resource type="Texture2D" uid="uid://t6ta6i7t62ud" path="res://NewButNewer/Materials/Textures/Wood/T_WoodBoards_ORMH.png" id="3_jq4sy"]
+
+[resource]
+albedo_texture = ExtResource("1_0ekmh")
+orm_texture = ExtResource("3_jq4sy")
+normal_enabled = true
+normal_texture = ExtResource("2_wnmu3")
+uv1_scale = Vector3(0.25, 0.25, 0.25)
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,0 +1,11 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://cp5pfr4ymq2xr"]
+
+[ext_resource type="Texture2D" uid="uid://co3c6amgyi0rr" path="res://Decoration/Materials/Textures/Wood/T_Wood_A_BC.png" id="1_xqe3b"]
+[ext_resource type="Texture2D" uid="uid://ba586haubhbkc" path="res://Decoration/Materials/Textures/Wood/T_Wood_A_N.png" id="2_v0n7i"]
+[ext_resource type="Texture2D" uid="uid://yx0au8o7k6hn" path="res://Decoration/Materials/Textures/Wood/T_Wood_A_ORMH.png" id="3_xsrgx"]
+
+[resource]
+albedo_texture = ExtResource("1_xqe3b")
+orm_texture = ExtResource("3_xsrgx")
+normal_enabled = true
+normal_texture = ExtResource("2_v0n7i")

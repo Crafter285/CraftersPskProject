@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://cci31kuqdnklx"]
+
+[ext_resource type="Script" uid="uid://bbaiwquodrueq" path="res://Objects/Gameplay/Gates/Scripts/gate.gd" id="1_nv6ju"]
+[ext_resource type="AudioStream" uid="uid://cga27u4jm1me8" path="res://Objects/Gameplay/Gates/Audio/SW_Metal_Sliding_Gate_Open_01.wav" id="16_t168y"]
+[ext_resource type="AudioStream" uid="uid://bitvjq844qfa0" path="res://Objects/Gameplay/Gates/Audio/SW_Metal_Sliding_Gate_Close_01.wav" id="17_sysju"]
+
+[sub_resource type="Animation" id="Animation_vt5f1"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o176l"]
+resource_name = "close"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.4, 1.45, 1.5),
+"transitions": PackedFloat32Array(2, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 2.6122, 0), Vector3(0, 0, 0), Vector3(0, 0.0328057, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tqbxk"]
+resource_name = "fast_close"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(3.03143, 1),
+"update": 0,
+"values": [Vector3(0, 2.6122, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fmiw3"]
+resource_name = "open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("gate:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.9, 1.95, 2),
+"transitions": PackedFloat32Array(0.840897, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 2.6122, 0), Vector3(0, 2.5686, 0), Vector3(0, 2.6122, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ej4q"]
+_data = {
+&"RESET": SubResource("Animation_vt5f1"),
+&"close": SubResource("Animation_o176l"),
+&"fast_close": SubResource("Animation_tqbxk"),
+&"open": SubResource("Animation_fmiw3")
+}
+
+[node name="Gate" type="Node3D"]
+script = ExtResource("1_nv6ju")
+
+[node name="gate" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0ej4q")
+}
+playback_default_blend_time = 0.2
+
+[node name="opening" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("16_t168y")
+
+[node name="close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_sysju")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

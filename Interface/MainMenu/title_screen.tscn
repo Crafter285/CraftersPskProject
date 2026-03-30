@@ -1,0 +1,875 @@
+[gd_scene format=3 uid="uid://dtp3lixj6uyxo"]
+
+[ext_resource type="Script" uid="uid://id7iagt8fncx" path="res://Interface/MainMenu/Scripts/title_screen.gd" id="1_dj2vu"]
+[ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="2_dj2vu"]
+[ext_resource type="Script" uid="uid://dxaer0i0hovev" path="res://Interface/MainMenu/Scripts/before_intro_screens.gd" id="2_s6w10"]
+[ext_resource type="Script" uid="uid://qe5ttrlwg8gk" path="res://Interface/MainMenu/Scripts/title_intro.gd" id="4_psfkv"]
+[ext_resource type="Texture2D" uid="uid://d0emq4bgu0a6h" path="res://logo_image.png" id="5_2834n"]
+[ext_resource type="Texture2D" uid="uid://b1i72po4gekti" path="res://Godot_logo.svg" id="6_qj1tc"]
+[ext_resource type="AudioStream" uid="uid://c33jjw1eus4pc" path="res://Interface/MainMenu/Sound/SW_SFX_TitleScreen_PressAnyButton.wav" id="7_fg6rl"]
+[ext_resource type="FontFile" uid="uid://cfvfiw1qtrep1" path="res://Interface/Font/OverusedGrotesk-Bold.otf" id="7_sn61t"]
+[ext_resource type="FontFile" uid="uid://d02qiqkper325" path="res://Interface/Font/OverusedGrotesk-Medium.otf" id="8_s7yi2"]
+[ext_resource type="Texture2D" uid="uid://cg8fpx4l4o3mk" path="res://Interface/Loading/T_SavingIcon.png" id="8_uoyxv"]
+[ext_resource type="Theme" uid="uid://c3y4p2f8djdyb" path="res://Interface/MainMenu/Themes/title_button.tres" id="9_2653s"]
+[ext_resource type="Script" uid="uid://syb4cas6oqdo" path="res://Interface/MainMenu/button_sfx_player.gd" id="12_cxxfl"]
+[ext_resource type="AudioStream" uid="uid://cr1h44t3w130f" path="res://Interface/MainMenu/Sound/hover.wav" id="13_2lx6b"]
+[ext_resource type="VideoStream" uid="uid://b44atf63p6dkf" path="res://Interface/MainMenu/Texture/PPC4_Main_Menu_Backgroundv2.ogv" id="14_2lx6b"]
+[ext_resource type="PackedScene" uid="uid://wted730xx6x5" path="res://Interface/Settings/settings_menu.tscn" id="14_2834n"]
+[ext_resource type="AudioStream" uid="uid://c7wgcc6jimvtc" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Forward.wav" id="15_6ttfi"]
+[ext_resource type="PackedScene" uid="uid://c0igyvhisp714" path="res://Interface/Loading/LoadGameMenu/load_game.tscn" id="15_o37xk"]
+[ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="16_8kiwb"]
+[ext_resource type="AudioStream" uid="uid://ilcdsxfj7o2g" path="res://Interface/MainMenu/Music/ch4TitleMusic.mp3" id="16_xtj4b"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="17_8kiwb"]
+[ext_resource type="PackedScene" uid="uid://dtpairjbrlucx" path="res://Interface/menu_popup.tscn" id="23_qj1tc"]
+
+[sub_resource type="FontVariation" id="FontVariation_cxxfl"]
+base_font = ExtResource("7_sn61t")
+spacing_glyph = 2
+
+[sub_resource type="Animation" id="Animation_asi6u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o37xk"]
+resource_name = "saving"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.79, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.2901961), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uoyxv"]
+_data = {
+&"RESET": SubResource("Animation_asi6u"),
+&"saving": SubResource("Animation_o37xk")
+}
+
+[sub_resource type="Animation" id="Animation_ety4h"]
+resource_name = "Delay"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"load_next"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sn61t"]
+_data = {
+&"Delay": SubResource("Animation_ety4h")
+}
+
+[sub_resource type="Animation" id="Animation_psfkv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_s6w10"]
+resource_name = "loop"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressLabel:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_sn61t"]
+resource_name = "pressed"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PressLabel:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"finished"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ety4h"]
+_data = {
+&"RESET": SubResource("Animation_psfkv"),
+&"loop": SubResource("Animation_s6w10"),
+&"pressed": SubResource("Animation_sn61t")
+}
+
+[sub_resource type="Shader" id="Shader_2lx6b"]
+code = "shader_type canvas_item;
+
+
+uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
+
+
+uniform bool overlay = false;
+
+uniform float scanlines_opacity : hint_range(0.0, 1.0) = 0.4;
+uniform float scanlines_width : hint_range(0.0, 0.5) = 0.25;
+uniform float grille_opacity : hint_range(0.0, 1.0) = 0.3;
+uniform vec2 resolution = vec2(640.0, 480.0);
+
+uniform bool pixelate = true;
+
+uniform bool roll = true;
+uniform float roll_speed = 8.0;
+uniform float roll_size : hint_range(0.0, 100.0) = 15.0;
+uniform float roll_variation : hint_range(0.1, 5.0) = 1.8;
+uniform float distort_intensity : hint_range(0.0, 0.2) = 0.05;
+
+uniform float noise_opacity : hint_range(0.0, 1.0) = 0.4;
+uniform float noise_speed = 5.0;
+
+uniform float static_noise_intensity : hint_range(0.0, 1.0) = 0.06;
+
+uniform float aberration : hint_range(-1.0, 1.0) = 0.03;
+uniform float brightness = 1.4;
+uniform bool discolor = true;
+
+uniform float warp_amount : hint_range(0.0, 5.0) = 1.0;
+uniform bool clip_warp = false;
+
+uniform float vignette_intensity = 0.4;
+uniform float vignette_opacity : hint_range(0.0, 1.0) = 0.5;
+
+
+
+vec2 random(vec2 uv){
+    uv = vec2(dot(uv, vec2(127.1,311.7)), dot(uv, vec2(269.5,183.3)));
+    return -1.0 + 2.0 * fract(sin(uv) * 43758.5453123);
+}
+
+float noise(vec2 uv) {
+    vec2 uv_index = floor(uv);
+    vec2 uv_fract = fract(uv);
+    vec2 blur = smoothstep(0.0, 1.0, uv_fract);
+
+    return mix(
+        mix(dot(random(uv_index + vec2(0.0,0.0)), uv_fract - vec2(0.0,0.0)),
+            dot(random(uv_index + vec2(1.0,0.0)), uv_fract - vec2(1.0,0.0)), blur.x),
+        mix(dot(random(uv_index + vec2(0.0,1.0)), uv_fract - vec2(0.0,1.0)),
+            dot(random(uv_index + vec2(1.0,1.0)), uv_fract - vec2(1.0,1.0)), blur.x),
+        blur.y
+    ) * 0.5 + 0.5;
+}
+
+vec2 warp(vec2 uv){
+    vec2 delta = uv - 0.5;
+    float delta2 = dot(delta.xy, delta.xy);
+    float delta4 = delta2 * delta2;
+    float delta_offset = delta4 * warp_amount;
+    return uv + delta * delta_offset;
+}
+
+float border (vec2 uv){
+    float radius = min(warp_amount, 0.08);
+    radius = max(min(min(abs(radius * 2.0), abs(1.0)), abs(1.0)), 1e-5);
+    vec2 abs_uv = abs(uv * 2.0 - 1.0) - vec2(1.0, 1.0) + radius;
+    float dist = length(max(vec2(0.0), abs_uv)) / radius;
+    float square = smoothstep(0.96, 1.0, dist);
+    return clamp(1.0 - square, 0.0, 1.0);
+}
+
+float vignette(vec2 uv){
+    uv *= 1.0 - uv.xy;
+    float vignette = uv.x * uv.y * 15.0;
+    return pow(vignette, vignette_intensity * vignette_opacity);
+}
+
+
+void fragment()
+{
+    vec2 uv = overlay ? warp(SCREEN_UV) : warp(UV);
+    vec2 text_uv = uv;
+    vec2 roll_uv = vec2(0.0);
+    float time = roll ? TIME : 0.0;
+
+    if (pixelate){
+        text_uv = ceil(uv * resolution) / resolution;
+    }
+
+    float roll_line = 0.0;
+    if (roll || noise_opacity > 0.0){
+        roll_line = smoothstep(0.3, 0.9, sin(uv.y * roll_size - (time * roll_speed)));
+        roll_line *= roll_line * smoothstep(0.3, 0.9, sin(uv.y * roll_size * roll_variation - (time * roll_speed * roll_variation)));
+        roll_uv = vec2((roll_line * distort_intensity * (1.-UV.x)), 0.0);
+    }
+
+    vec4 text;
+    if (roll){
+        text.r = texture(SCREEN_TEXTURE, text_uv + roll_uv * 0.8 + vec2(aberration, 0.0) * .1).r;
+        text.g = texture(SCREEN_TEXTURE, text_uv + roll_uv * 1.2 - vec2(aberration, 0.0) * .1).g;
+        text.b = texture(SCREEN_TEXTURE, text_uv + roll_uv).b;
+        text.a = 1.0;
+    } else {
+        text.r = texture(SCREEN_TEXTURE, text_uv + vec2(aberration, 0.0) * .1).r;
+        text.g = texture(SCREEN_TEXTURE, text_uv - vec2(aberration, 0.0) * .1).g;
+        text.b = texture(SCREEN_TEXTURE, text_uv).b;
+        text.a = 1.0;
+    }
+
+    float r = text.r;
+    float g = text.g;
+    float b = text.b;
+
+    uv = warp(UV);
+
+    if (grille_opacity > 0.0){
+        float g_r = smoothstep(0.85, 0.95, abs(sin(uv.x * (resolution.x * 3.14159265))));
+        r = mix(r, r * g_r, grille_opacity);
+
+        float g_g = smoothstep(0.85, 0.95, abs(sin(1.05 + uv.x * (resolution.x * 3.14159265))));
+        g = mix(g, g * g_g, grille_opacity);
+
+        float b_b = smoothstep(0.85, 0.95, abs(sin(2.1 + uv.x * (resolution.x * 3.14159265))));
+        b = mix(b, b * b_b, grille_opacity);
+    }
+
+    text.r = clamp(r * brightness, 0.0, 1.0);
+    text.g = clamp(g * brightness, 0.0, 1.0);
+    text.b = clamp(b * brightness, 0.0, 1.0);
+
+    float scanlines = 0.5;
+    if (scanlines_opacity > 0.0){
+        scanlines = smoothstep(scanlines_width, scanlines_width + 0.5, abs(sin(uv.y * (resolution.y * 3.14159265))));
+        text.rgb = mix(text.rgb, text.rgb * vec3(scanlines), scanlines_opacity);
+    }
+
+    if (noise_opacity > 0.0){
+        float n = smoothstep(0.4, 0.5, noise(uv * vec2(2.0, 200.0) + vec2(10.0, (TIME * (noise_speed)))));
+        roll_line *= n * scanlines * clamp(random((ceil(uv * resolution) / resolution) + vec2(TIME * 0.8, 0.0)).x + 0.8, 0.0, 1.0);
+        text.rgb = clamp(mix(text.rgb, text.rgb + roll_line, noise_opacity), vec3(0.0), vec3(1.0));
+    }
+
+    if (static_noise_intensity > 0.0){
+        text.rgb += clamp(random((ceil(uv * resolution) / resolution) + fract(TIME)).x, 0.0, 1.0) * static_noise_intensity;
+    }
+
+    text.rgb *= border(uv);
+    text.rgb *= vignette(uv);
+
+    if (clip_warp){
+        text.a = border(uv);
+    }
+
+    if (discolor){
+        float saturation = 0.5;
+        float contrast = 1.2;
+        vec3 greyscale = vec3(text.r + text.g + text.b) / 3.;
+        text.rgb = mix(text.rgb, greyscale, saturation);
+
+        float midpoint = pow(0.5, 2.2);
+        text.rgb = (text.rgb - vec3(midpoint)) * contrast + midpoint;
+    }
+
+    COLOR = text;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qj1tc"]
+shader = SubResource("Shader_2lx6b")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.0
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.0
+shader_parameter/noise_speed = 1.970000000001164
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.00100004754750004
+shader_parameter/brightness = 1.3000000000029104
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.10000000000582077
+shader_parameter/vignette_opacity = 0.400000019
+
+[sub_resource type="FontVariation" id="FontVariation_uoyxv"]
+base_font = ExtResource("7_sn61t")
+spacing_glyph = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s7yi2"]
+color = Color(1.92523e-07, 0.6528865, 0.8335215, 1)
+thickness = 5
+
+[sub_resource type="FontVariation" id="FontVariation_2lx6b"]
+base_font = ExtResource("8_s7yi2")
+
+[sub_resource type="FontVariation" id="FontVariation_mh3bh"]
+base_font = ExtResource("8_s7yi2")
+spacing_bottom = -5
+
+[sub_resource type="Animation" id="Animation_dj2vu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bulru"]
+resource_name = "transition"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s6w10"]
+_data = {
+&"RESET": SubResource("Animation_dj2vu"),
+&"transition": SubResource("Animation_bulru")
+}
+
+[node name="title_screen" type="Control" unique_id=1285093143]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dj2vu")
+
+[node name="BG" type="ColorRect" parent="." unique_id=1620447874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BeforeIntroScreens" type="Control" parent="." unique_id=1707800472]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s6w10")
+screens = Array[NodePath]([NodePath("PlaytimeStarter"), NodePath("Warning"), NodePath("GameSave")])
+
+[node name="PlaytimeStarter" type="Node2D" parent="BeforeIntroScreens" unique_id=440894367]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=1762812555]
+offset_left = 3.0
+offset_top = -6.0
+offset_right = 1920.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0.411765, 0.858824, 1, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 72
+text = "THIS IS A FANGAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=27231966]
+offset_top = 183.0
+offset_right = 1917.0
+offset_bottom = 1114.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Created using the following:"
+horizontal_alignment = 1
+
+[node name="WarningText2" type="Label" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=1909307869]
+offset_top = 907.0
+offset_right = 1182.0
+offset_bottom = 1284.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Playtime Starter Kit by Derective"
+horizontal_alignment = 1
+
+[node name="WarningText3" type="Label" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=1383080719]
+offset_left = 857.0
+offset_top = 914.0
+offset_right = 1984.0
+offset_bottom = 1291.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Godot Game Engine"
+horizontal_alignment = 1
+
+[node name="LogoImage" type="Sprite2D" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=51449816]
+position = Vector2(558.00006, 591.00006)
+scale = Vector2(0.9320331, 0.92083496)
+texture = ExtResource("5_2834n")
+
+[node name="LogoImage2" type="Sprite2D" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=868341327]
+position = Vector2(1385, 637)
+scale = Vector2(0.6914062, 0.71014476)
+texture = ExtResource("6_qj1tc")
+
+[node name="Warning" type="Node2D" parent="BeforeIntroScreens" unique_id=1430302159]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="BeforeIntroScreens/Warning" unique_id=1030037651]
+offset_top = 202.0
+offset_right = 1920.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.411765, 0.858824, 1, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 76
+text = "WARNING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="BeforeIntroScreens/Warning" unique_id=1976526342]
+offset_left = 3.0
+offset_top = 307.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 32
+text = "Write your whole goofy ah warning thingy here."
+horizontal_alignment = 1
+
+[node name="CompanyLogo" type="Node2D" parent="BeforeIntroScreens" unique_id=917877330]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="BeforeIntroScreens/CompanyLogo" unique_id=1560371814]
+offset_top = 202.0
+offset_right = 1920.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.411765, 0.858824, 1, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 76
+text = "YOUR LOGO HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSave" type="Node2D" parent="BeforeIntroScreens" unique_id=949520095]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="BeforeIntroScreens/GameSave" unique_id=1564438948]
+offset_top = 323.0
+offset_right = 1906.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.29411766, 0.8117647, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_cxxfl")
+theme_override_font_sizes/font_size = 77
+text = "GAME SAVING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="BeforeIntroScreens/GameSave" unique_id=895416386]
+offset_left = 160.0
+offset_top = 473.0
+offset_right = 2077.0
+offset_bottom = 1027.4819
+scale = Vector2(0.83, 0.83)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 26
+text = "This title uses an Autosave feature for saving progress.
+Do not close the application or turn off the system's power while the save icon is displayed."
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BeforeIntroScreens/GameSave" unique_id=1639523802]
+position = Vector2(955, 635)
+scale = Vector2(0.384, 0.384)
+texture = ExtResource("8_uoyxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BeforeIntroScreens/GameSave" unique_id=964700647]
+libraries/ = SubResource("AnimationLibrary_uoyxv")
+autoplay = &"saving"
+
+[node name="Timer" type="Timer" parent="BeforeIntroScreens" unique_id=1967271229]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BeforeIntroScreens" unique_id=279461790]
+libraries/ = SubResource("AnimationLibrary_sn61t")
+
+[node name="title_intro" type="Control" parent="." unique_id=1709429587]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_psfkv")
+
+[node name="NameAnimation" type="AnimationPlayer" parent="title_intro" unique_id=1275917681]
+libraries/ = SubResource("AnimationLibrary_ety4h")
+playback_default_blend_time = 0.5
+
+[node name="PressLabel" type="Label" parent="title_intro" unique_id=1579128090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = 473.0
+offset_right = -456.0
+offset_bottom = -213.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dj2vu")
+theme_override_font_sizes/font_size = 35
+text = "Press Any Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="StudioName" type="Label" parent="title_intro" unique_id=1117580566]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 456.0
+offset_top = 799.0
+offset_right = -456.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Created by [Your Name / Username]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GameLogo" type="Node2D" parent="title_intro" unique_id=1798988209]
+position = Vector2(960, 342.12)
+
+[node name="LOGOTEMP" type="Label" parent="title_intro/GameLogo" unique_id=1949809978]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -425.0
+offset_top = -180.0
+offset_right = 425.0
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dj2vu")
+theme_override_font_sizes/font_size = 100
+text = "YOUR
+LOGO"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="menu" type="Control" parent="." unique_id=1115498028]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pressed" type="AudioStreamPlayer" parent="menu" unique_id=554484183]
+stream = ExtResource("7_fg6rl")
+
+[node name="ButtonSFXPlayer" type="Node" parent="menu" unique_id=50364839]
+script = ExtResource("12_cxxfl")
+root_path = NodePath("../Buttons")
+
+[node name="Hover" type="AudioStreamPlayer" parent="menu/ButtonSFXPlayer" unique_id=223469094]
+stream = ExtResource("13_2lx6b")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="menu/ButtonSFXPlayer" unique_id=2110006361]
+stream = ExtResource("15_6ttfi")
+
+[node name="Backward" type="AudioStreamPlayer" parent="menu/ButtonSFXPlayer" unique_id=1187764247]
+stream = ExtResource("16_8kiwb")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="menu/ButtonSFXPlayer" unique_id=924302551]
+stream = ExtResource("17_8kiwb")
+
+[node name="RenderBG" type="VideoStreamPlayer" parent="menu" unique_id=1227299859]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_right = -336.0
+offset_bottom = -278.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.355, 1.355)
+stream = ExtResource("14_2lx6b")
+expand = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="menu" unique_id=980795514]
+material = SubResource("ShaderMaterial_qj1tc")
+layout_mode = 0
+offset_right = 1924.0
+offset_bottom = 1083.0
+
+[node name="Chapter" type="Label" parent="menu" unique_id=935850443]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 42.000004
+offset_right = 514.0
+offset_bottom = 238.0
+scale = Vector2(0.745, 0.745)
+theme_override_colors/font_color = Color(0.9779369, 0.97793704, 0.9779369, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 50
+text = "Above Title"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Title" type="Label" parent="menu" unique_id=1078026637]
+layout_mode = 0
+offset_left = -1.0000002
+offset_top = 115.0
+offset_right = 934.7516
+offset_bottom = 276.0
+scale = Vector2(0.785, 0.785)
+theme_override_colors/font_color = Color(0.29411766, 0.8117647, 1, 1)
+theme_override_fonts/font = SubResource("FontVariation_uoyxv")
+theme_override_font_sizes/font_size = 120
+text = "YOUR TITLE  "
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Seperator" type="HSeparator" parent="menu" unique_id=1438807705]
+layout_mode = 0
+offset_top = 237.0
+offset_right = 733.0
+offset_bottom = 242.0
+theme_override_styles/separator = SubResource("StyleBoxLine_s7yi2")
+
+[node name="Description" type="Label" parent="menu" unique_id=1177027271]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 271.0
+offset_right = 1439.7701
+offset_bottom = 554.0
+scale = Vector2(0.435, 0.435)
+theme_override_fonts/font = SubResource("FontVariation_2lx6b")
+theme_override_font_sizes/font_size = 50
+text = "Your synopsis here."
+
+[node name="version" type="Label" parent="menu" unique_id=1984284550]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 1043.0
+offset_right = 528.0
+offset_bottom = 1083.0
+theme_override_colors/font_color = Color(0.27387264, 0.27387276, 0.27387285, 1)
+theme_override_fonts/font = SubResource("FontVariation_mh3bh")
+theme_override_font_sizes/font_size = 20
+text = "v2025.10.31"
+
+[node name="Buttons" type="Node2D" parent="menu" unique_id=41634373]
+position = Vector2(81, 4)
+
+[node name="Continue" type="Button" parent="menu/Buttons" unique_id=1668507400]
+offset_left = 129.0
+offset_top = 578.0
+offset_right = 554.0
+offset_bottom = 634.0
+theme = ExtResource("9_2653s")
+text = "CONTINUE"
+alignment = 0
+
+[node name="New" type="Button" parent="menu/Buttons" unique_id=545402096]
+offset_left = 129.0
+offset_top = 635.0
+offset_right = 554.0
+offset_bottom = 691.0
+theme = ExtResource("9_2653s")
+text = "NEW GAME"
+alignment = 0
+
+[node name="Load" type="Button" parent="menu/Buttons" unique_id=1092303403]
+offset_left = 129.0
+offset_top = 695.0
+offset_right = 554.0
+offset_bottom = 751.0
+theme = ExtResource("9_2653s")
+text = "LOAD GAME"
+alignment = 0
+
+[node name="SettingsSF2" type="Button" parent="menu/Buttons" unique_id=1148406681]
+offset_left = 129.0
+offset_top = 755.0
+offset_right = 554.0
+offset_bottom = 811.0
+theme = ExtResource("9_2653s")
+text = "SETTINGS"
+alignment = 0
+
+[node name="Credits" type="Button" parent="menu/Buttons" unique_id=1154099311]
+offset_left = 129.0
+offset_top = 815.0
+offset_right = 554.0
+offset_bottom = 871.0
+theme = ExtResource("9_2653s")
+text = "CREDITS"
+alignment = 0
+
+[node name="QuitNSF" type="Button" parent="menu/Buttons" unique_id=1351610053]
+offset_left = 129.0
+offset_top = 875.0
+offset_right = 554.0
+offset_bottom = 931.0
+theme = ExtResource("9_2653s")
+text = "QUIT"
+alignment = 0
+
+[node name="Current" type="Node2D" parent="menu/Buttons" unique_id=474690739]
+visible = false
+position = Vector2(79, 578)
+
+[node name="ColorRect" type="ColorRect" parent="menu/Buttons/Current" unique_id=1183996069]
+offset_right = 13.0
+offset_bottom = 55.0
+color = Color(0.19215687, 0.79607844, 1, 1)
+
+[node name="LoadGame" parent="menu" unique_id=1817588140 instance=ExtResource("15_o37xk")]
+visible = false
+layout_mode = 1
+menu_popup_path = NodePath("../../menu_popup")
+
+[node name="SettingsMenu" parent="menu" unique_id=1658501335 instance=ExtResource("14_2834n")]
+visible = false
+layout_mode = 1
+menu_popup = NodePath("../../menu_popup")
+
+[node name="menu_popup" parent="." unique_id=872925558 instance=ExtResource("23_qj1tc")]
+layout_mode = 1
+
+[node name="MenuMusic" type="Node" parent="." unique_id=996005977]
+
+[node name="Music" type="AudioStreamPlayer" parent="MenuMusic" unique_id=1799982765]
+stream = ExtResource("16_xtj4b")
+
+[node name="MenuTransition" type="Node2D" parent="." unique_id=906910333]
+visible = false
+
+[node name="Transition" type="ColorRect" parent="MenuTransition" unique_id=942517233]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MenuTransition" unique_id=1664510987]
+libraries/ = SubResource("AnimationLibrary_s6w10")
+
+[connection signal="finshed" from="BeforeIntroScreens" to="." method="screens_finished"]
+[connection signal="timeout" from="BeforeIntroScreens/Timer" to="BeforeIntroScreens" method="screen_timeout"]
+[connection signal="pressed" from="title_intro" to="." method="logo_finished"]
+[connection signal="pressed" from="menu/Buttons/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="menu/Buttons/New" to="." method="new_game"]
+[connection signal="pressed" from="menu/Buttons/Load" to="." method="_on_load_pressed"]
+[connection signal="pressed" from="menu/Buttons/SettingsSF2" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="menu/Buttons/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="menu/Buttons/QuitNSF" to="." method="quit"]

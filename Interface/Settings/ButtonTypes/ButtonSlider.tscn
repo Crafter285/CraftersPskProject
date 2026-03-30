@@ -1,0 +1,215 @@
+[gd_scene load_steps=22 format=3 uid="uid://bwefrsfxu7lxd"]
+
+[ext_resource type="Theme" uid="uid://ct16po6jdi8g1" path="res://Interface/Settings/settingsMenuButton.tres" id="1_rj2sk"]
+[ext_resource type="Script" uid="uid://dww2iuhrehksk" path="res://Interface/Settings/settings_button.gd" id="2_7ucsf"]
+[ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="3_wp0ri"]
+[ext_resource type="Texture2D" uid="uid://deg4gcb0cpqi2" path="res://Interface/Settings/Textures/Chevron-Left.png" id="4_wp0ri"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="5_fvgea"]
+
+[sub_resource type="DPITexture" id="DPITexture_wp0ri"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".75\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_fvgea"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\"/></svg>
+"
+
+[sub_resource type="DPITexture" id="DPITexture_n21l4"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><circle cx=\"8\" cy=\"8\" r=\"7\" fill=\"#fefefe\" fill-opacity=\".37\"/></svg>
+"
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_e305e"]
+color = Color(0.28851813, 0.28851795, 0.28851798, 1)
+thickness = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lycpx"]
+bg_color = Color(0.86622655, 0.89749616, 0.90719146, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtdyh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.7490196)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wp0ri"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fvgea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n21l4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e8jb4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ct88w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c85l5"]
+
+[sub_resource type="Animation" id="Animation_iwa01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShiftL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(362.2, 12.800003)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShiftR:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(614.2, 12.800003)]
+}
+
+[sub_resource type="Animation" id="Animation_kgpdl"]
+resource_name = "pressL"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShiftL:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(362.2, 12.800003), Vector2(358, 12.8), Vector2(362.2, 12.800003)]
+}
+
+[sub_resource type="Animation" id="Animation_d17gp"]
+resource_name = "pressR"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ShiftR:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(614.2, 12.800003), Vector2(618.2, 12.8), Vector2(614.2, 12.800003)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d17gp"]
+_data = {
+&"RESET": SubResource("Animation_iwa01"),
+&"pressL": SubResource("Animation_kgpdl"),
+&"pressR": SubResource("Animation_d17gp")
+}
+
+[node name="SettingsBox" type="Button"]
+custom_minimum_size = Vector2(627.2, 44)
+offset_left = 144.8
+offset_top = 99.200035
+offset_right = 771.99994
+offset_bottom = 143.20007
+theme = ExtResource("1_rj2sk")
+text = "CAMERA SENSITIVITY"
+alignment = 0
+script = ExtResource("2_7ucsf")
+setting_name = "Camera Sensitivity"
+setting_description = "The sensitivity of your camera."
+is_slider = true
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 392.8
+offset_top = 6.399987
+offset_right = 541.6
+offset_bottom = 39.199974
+mouse_filter = 1
+theme_override_icons/grabber = SubResource("DPITexture_wp0ri")
+theme_override_icons/grabber_highlight = SubResource("DPITexture_fvgea")
+theme_override_icons/grabber_disabled = SubResource("DPITexture_n21l4")
+theme_override_styles/slider = SubResource("StyleBoxLine_e305e")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_lycpx")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_mtdyh")
+max_value = 200.0
+step = 5.0
+value = 105.0
+scrollable = false
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 544.0
+offset_top = 11.999975
+offset_right = 584.0
+offset_bottom = 29.999975
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_wp0ri")
+theme_override_font_sizes/font_size = 15
+text = "105%"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Changed" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fvgea")
+
+[node name="ShiftL" type="Button" parent="."]
+layout_mode = 0
+offset_left = 362.2
+offset_top = 12.800003
+offset_right = 444.2
+offset_bottom = 76.8
+scale = Vector2(0.305, 0.305)
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wp0ri")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fvgea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n21l4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e8jb4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ct88w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c85l5")
+icon = ExtResource("4_wp0ri")
+
+[node name="ShiftR" type="Button" parent="."]
+layout_mode = 0
+offset_left = 614.2
+offset_top = 12.800003
+offset_right = 696.2
+offset_bottom = 76.8
+scale = Vector2(-0.305, 0.305)
+mouse_filter = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wp0ri")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_fvgea")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_n21l4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_e8jb4")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ct88w")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c85l5")
+icon = ExtResource("4_wp0ri")
+
+[node name="Anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_d17gp")
+}
+
+[connection signal="pressed" from="ShiftL" to="." method="shiftL"]
+[connection signal="pressed" from="ShiftR" to="." method="shiftR"]

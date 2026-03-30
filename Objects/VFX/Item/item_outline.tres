@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://boniyrbf4188m"]
+
+[ext_resource type="Shader" uid="uid://btdui2hejuww4" path="res://Objects/VFX/Item/item_outline.gdshader" id="1_1si4i"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1si4i")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 3.0
+shader_parameter/fade_start = 0.0
+shader_parameter/fade_end = 30.0

@@ -1,0 +1,14 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://dhhv7b7ph2ddy"]
+
+[ext_resource type="Texture2D" uid="uid://b1j3xjqyhnhps" path="res://Decoration/Materials/Textures/Concrete/T_IndustrialConcreteSmooth_BC.png" id="1_emkcm"]
+[ext_resource type="Texture2D" uid="uid://br4lsipwoljc2" path="res://Decoration/Materials/Textures/Concrete/T_IndustrialConcreteSmooth_N.png" id="2_covhh"]
+[ext_resource type="Texture2D" uid="uid://2cg3dca78s3r" path="res://Decoration/Materials/Textures/Concrete/T_IndustrialConcreteSmooth_ORMH.png" id="3_m07de"]
+
+[resource]
+albedo_texture = ExtResource("1_emkcm")
+orm_texture = ExtResource("3_m07de")
+normal_enabled = true
+normal_scale = 0.4
+normal_texture = ExtResource("2_covhh")
+uv1_scale = Vector3(0.4, 0.4, 0.4)
+uv1_triplanar = true

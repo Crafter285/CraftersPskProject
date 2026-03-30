@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c7p2ak4uo1f6j"]
+
+[ext_resource type="Script" uid="uid://dj2u8eprmy1qf" path="res://Objects/Gameplay/PressureStuff/Scripts/PressureMachanic.gd" id="1_3y56u"]
+[ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="2_xyjju"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5uhc7"]
+size = Vector3(0.6, 0.6, 0.6)
+
+[node name="PressureMachanic" type="Node3D" unique_id=1906056036]
+script = ExtResource("1_3y56u")
+
+[node name="HandGrab" type="Area3D" parent="." unique_id=544431042 node_paths=PackedStringArray("grab_marker") groups=["pressure_target"]]
+script = ExtResource("2_xyjju")
+grab_animation = "straight"
+grab_marker = NodePath("HandPositionMarker")
+only_usable_by = 3
+display_editor_preview = true
+metadata/_custom_type_script = "uid://d4joakp74nxnn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=295761941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.3)
+shape = SubResource("BoxShape3D_5uhc7")
+
+[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=1407298239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0665892, 0.272283)
+
+[node name="Label3D" type="Label3D" parent="." unique_id=768746445]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+visible = false
+text = "0"
+
+[connection signal="let_go" from="HandGrab" to="." method="_on_hand_grab_let_go"]
+[connection signal="pulled" from="HandGrab" to="." method="_on_hand_grab_pulled"]

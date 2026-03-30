@@ -1,0 +1,121 @@
+[gd_scene load_steps=10 format=3 uid="uid://bbyctaxc7r8yo"]
+
+[ext_resource type="PackedScene" uid="uid://bwefrsfxu7lxd" path="res://Interface/Settings/ButtonTypes/ButtonSlider.tscn" id="1_56w8p"]
+[ext_resource type="PackedScene" uid="uid://b1gvmkr1ehdnk" path="res://Interface/Settings/ButtonTypes/ButtonMultiOption.tscn" id="2_rc6p3"]
+[ext_resource type="PackedScene" uid="uid://bu0lsau6txfnr" path="res://Interface/Settings/ButtonTypes/button_basic.tscn" id="3_rqjq1"]
+[ext_resource type="FontFile" uid="uid://cfvfiw1qtrep1" path="res://Interface/Font/OverusedGrotesk-Bold.otf" id="4_q0r0f"]
+[ext_resource type="Script" uid="uid://cfy8p6bec5h6o" path="res://Interface/Settings/settingsButtonSFX.gd" id="5_bky3g"]
+[ext_resource type="AudioStream" uid="uid://cr1h44t3w130f" path="res://Interface/MainMenu/Sound/hover.wav" id="6_5llu2"]
+[ext_resource type="AudioStream" uid="uid://c7wgcc6jimvtc" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Forward.wav" id="7_x2nd6"]
+[ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="8_1douy"]
+[ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="9_d5uvf"]
+
+[node name="Tab1" type="Node2D"]
+position = Vector2(0, 73.6)
+
+[node name="SettingsBox" parent="." instance=ExtResource("1_56w8p")]
+settings_root = NodePath("../../../..")
+setting_code_name = "cam_sens"
+setting_default_value = 100.0
+slider_max = 200.0
+slider_symbol = "%"
+
+[node name="SettingsBox2" parent="." instance=ExtResource("2_rc6p3")]
+setting_description = "Invert the horizontal axis controls."
+setting_code_name = "inv_look_x"
+setting_default_value = 0.0
+
+[node name="SettingsBox3" parent="." instance=ExtResource("2_rc6p3")]
+offset_top = 195.2
+offset_bottom = 239.20004
+text = "INVERT LOOK Y"
+setting_name = "Invert Look Y"
+setting_description = "Invert the vertical axis controls."
+setting_code_name = "inv_look_y"
+setting_default_value = 0.0
+
+[node name="SettingsBox7" parent="." instance=ExtResource("2_rc6p3")]
+offset_top = 244.0
+offset_bottom = 288.00006
+text = "TOGGLE CROUCH"
+setting_name = "TOGGLE CROUCH"
+setting_description = "Adjust the crouch control settings."
+setting_code_name = "toggle_crouch"
+setting_default_value = 0.0
+
+[node name="SettingsBox4" parent="." instance=ExtResource("2_rc6p3")]
+offset_top = 292.0
+offset_bottom = 336.00006
+text = "TOGGLE SPRINT"
+setting_name = "TOGGLE SPRINT"
+setting_description = "Adjust the sprint control settings."
+setting_code_name = "toggle_sprint"
+setting_default_value = 0.0
+
+[node name="ButtonBasic" parent="." instance=ExtResource("3_rqjq1")]
+offset_top = 378.3999
+offset_bottom = 422.39993
+text = "KEYBINDS"
+setting_name = "KEYBINDS"
+setting_description = "Banana"
+
+[node name="ButtonBasic2" parent="." instance=ExtResource("3_rqjq1")]
+offset_top = 471.19998
+offset_bottom = 515.2001
+text = "CONTROLLER MAPPING"
+setting_name = "CONTROLLER MAPPING"
+setting_description = "Optimized control type."
+
+[node name="SettingsBox6" parent="." instance=ExtResource("2_rc6p3")]
+offset_top = 519.19995
+offset_bottom = 563.2
+text = "MOBILE CONTROLS"
+setting_name = "Mobile Controls"
+setting_description = "Adjust the mobile controls settings."
+setting_code_name = "mobile_control"
+setting_default_value = 0.0
+
+[node name="Section1" type="Label" parent="."]
+offset_left = 144.79999
+offset_top = 341.59995
+offset_right = 529.6
+offset_bottom = 381.6
+scale = Vector2(0.86, 0.86)
+theme_override_colors/font_color = Color(0.29411766, 0.8117647, 1, 1)
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("4_q0r0f")
+theme_override_font_sizes/font_size = 25
+text = "Mouse And Keyboard"
+autowrap_mode = 2
+
+[node name="Section2" type="Label" parent="."]
+offset_left = 144.8
+offset_top = 432.0
+offset_right = 529.6
+offset_bottom = 472.00006
+scale = Vector2(0.86, 0.86)
+theme_override_colors/font_color = Color(0.29411766, 0.8117647, 1, 1)
+theme_override_constants/paragraph_spacing = 0
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("4_q0r0f")
+theme_override_font_sizes/font_size = 25
+text = "Controller And Mobile"
+autowrap_mode = 2
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("5_bky3g")
+root_path = NodePath("..")
+
+[node name="Hover" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("6_5llu2")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("7_x2nd6")
+
+[node name="Backward" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("8_1douy")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="ButtonSFXPlayer"]
+stream = ExtResource("9_d5uvf")

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6d8fh6o30302"]
+
+[ext_resource type="Script" uid="uid://bhunsqjesn8kw" path="res://Objects/Gameplay/interaction_indicator.gd" id="1_b7psr"]
+[ext_resource type="Texture2D" uid="uid://bmh4rmptpek24" path="res://Objects/Gameplay/Extra/Texture/E.png" id="2_xrws7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xrws7"]
+resource_local_to_scene = true
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkafu"]
+no_depth_test = true
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_xrws7"]
+material = SubResource("StandardMaterial3D_gkafu")
+radius = 0.02
+height = 0.04
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7psr"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("2_xrws7")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_xrws7"]
+material = SubResource("StandardMaterial3D_b7psr")
+size = Vector2(0.15, 0.15)
+
+[node name="InteractionIndicator" type="Node3D"]
+script = ExtResource("1_b7psr")
+
+[node name="Area" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+shape = SubResource("SphereShape3D_xrws7")
+
+[node name="Circle" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0068787, 0)
+mesh = SubResource("SphereMesh_xrws7")
+
+[node name="ReadyMesh" type="Node3D" parent="."]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ReadyMesh"]
+mesh = SubResource("QuadMesh_xrws7")
+skeleton = NodePath("../..")
+
+[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]

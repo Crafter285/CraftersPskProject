@@ -1,0 +1,28 @@
+[gd_resource type="Environment" load_steps=4 format=3 uid="uid://cjft62i2pltt0"]
+
+[ext_resource type="CompressedTexture3D" uid="uid://c7ubfwosd4phw" path="res://Decoration/Correction/LUT_Level14_A00086400.png" id="1_62k5w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j01gq"]
+sky_top_color = Color(0.176852, 0.252081, 0.358447, 1)
+sky_horizon_color = Color(0.517647, 0.533333, 0.627451, 1)
+ground_bottom_color = Color(0.236715, 0.150265, 0.0948469, 1)
+ground_horizon_color = Color(0.517915, 0.534138, 0.625935, 1)
+
+[sub_resource type="Sky" id="Sky_l7ue6"]
+sky_material = SubResource("ProceduralSkyMaterial_j01gq")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_l7ue6")
+tonemap_mode = 1
+ssr_enabled = true
+ssao_enabled = true
+ssao_power = 4.70752
+glow_enabled = true
+glow_bloom = 0.1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.002
+adjustment_enabled = true
+adjustment_contrast = 1.15
+adjustment_saturation = 1.1
+adjustment_color_correction = ExtResource("1_62k5w")

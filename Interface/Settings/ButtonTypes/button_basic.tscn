@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu0lsau6txfnr"]
+
+[ext_resource type="Theme" uid="uid://ct16po6jdi8g1" path="res://Interface/Settings/settingsMenuButton.tres" id="1_8lw8x"]
+[ext_resource type="Script" uid="uid://dww2iuhrehksk" path="res://Interface/Settings/settings_button.gd" id="2_1pkcr"]
+
+[node name="ButtonBasic" type="Button"]
+custom_minimum_size = Vector2(627.2, 44)
+offset_left = 144.8
+offset_top = 99.200035
+offset_right = 771.99994
+offset_bottom = 143.20007
+theme = ExtResource("1_8lw8x")
+text = "CAMERA SENSITIVITY"
+alignment = 0
+script = ExtResource("2_1pkcr")
+setting_name = "Camera Sensitivity"
+setting_description = "The sensitivity of your camera."
+settings_root = NodePath("../../../..")
+no_setting_data = true

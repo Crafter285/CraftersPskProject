@@ -1,0 +1,327 @@
+[gd_scene load_steps=29 format=3 uid="uid://clrrbigb5t1x7"]
+
+[ext_resource type="CompressedTexture3D" uid="uid://yw7ywog8r1h0" path="res://Decoration/Correction/LUT_01_LiftControlRoom_Basic_v02.png" id="1_wvi40"]
+[ext_resource type="Material" uid="uid://byr5nc3u3o4af" path="res://Decoration/Materials/ConcreteTiles.tres" id="1_wyjf7"]
+[ext_resource type="Material" uid="uid://lj4hokjat77v" path="res://Decoration/Materials/ConcreteBlocksDirty.tres" id="2_miaeh"]
+[ext_resource type="PackedScene" uid="uid://dkty77argxwyc" path="res://Player/player.tscn" id="3_ndk55"]
+[ext_resource type="PackedScene" uid="uid://dd7igduoonl0g" path="res://Player/Grabpack/Hands/omni.tscn" id="4_miaeh"]
+[ext_resource type="PackedScene" uid="uid://nkvm74l6uu31" path="res://Player/Grabpack/Hands/purple.tscn" id="5_aevut"]
+[ext_resource type="PackedScene" uid="uid://dbkase7jfw72h" path="res://Objects/Gameplay/Gas/Mask/gas_mask_broken.tscn" id="5_wvtns"]
+[ext_resource type="PackedScene" uid="uid://5xwl88xktvuo" path="res://Player/Grabpack/Hands/flare.tscn" id="6_wvtns"]
+[ext_resource type="Script" uid="uid://ckdvdouxaw4it" path="res://Objects/Gameplay/Puzzles/ConnectionComponents/puzzle_gate_linker.gd" id="7_rtm0x"]
+[ext_resource type="Script" uid="uid://bndrfsg1m3qn6" path="res://Objects/Gameplay/Puzzles/Gears/Scripts/gear_puzzle.gd" id="10_rtm0x"]
+[ext_resource type="PackedScene" uid="uid://bslk5mfr2rxpg" path="res://Objects/Gameplay/Puzzles/Gears/gear_axle.tscn" id="11_p6wws"]
+[ext_resource type="PackedScene" uid="uid://c78cn1684wwgi" path="res://Objects/Gameplay/Puzzles/Gears/medium_gear.tscn" id="12_wt4fq"]
+[ext_resource type="PackedScene" uid="uid://tgj85w0xfm5k" path="res://Objects/Gameplay/Gas/Pipes/pipe_valve.tscn" id="13_wt4fq"]
+[ext_resource type="PackedScene" uid="uid://e2hero4ao2k" path="res://Objects/Gameplay/Gas/valve_item.tscn" id="14_g40l1"]
+[ext_resource type="PackedScene" uid="uid://uyhpn6mijk8p" path="res://Objects/Characters/Critters/Nightmare/CritterModels/rat_critter.tscn" id="15_g40l1"]
+[ext_resource type="PackedScene" uid="uid://cvvoilg0bvp2e" path="res://Objects/Gameplay/Gas/gas_zone.tscn" id="16_cgq7e"]
+[ext_resource type="Script" uid="uid://cdcs5ou48ando" path="res://Objects/Gameplay/advanced_sidle.gd" id="18_i3d51"]
+[ext_resource type="PackedScene" uid="uid://daks84cgjfb1v" path="res://birth.tscn" id="23_4lw1k"]
+[ext_resource type="PackedScene" uid="uid://d72ccg8igawe" path="res://Player/Grabpack/Hands/dash.tscn" id="23_sv8cf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mqk5"]
+sky_top_color = Color(4.955963e-06, 0.008058461, 0.082810864, 1)
+sky_horizon_color = Color(0.55046314, 0.9112453, 0.99999994, 1)
+ground_bottom_color = Color(0, 0.007843138, 0.08235294, 1)
+ground_horizon_color = Color(0, 0.3213636, 0.6893783, 1)
+
+[sub_resource type="Sky" id="Sky_sgpca"]
+sky_material = SubResource("ProceduralSkyMaterial_3mqk5")
+
+[sub_resource type="Environment" id="Environment_i3d51"]
+background_mode = 2
+sky = SubResource("Sky_sgpca")
+tonemap_mode = 2
+ssr_enabled = true
+ssil_enabled = true
+sdfgi_read_sky_light = false
+glow_enabled = true
+glow_bloom = 0.6
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.016
+adjustment_enabled = true
+adjustment_contrast = 1.2
+adjustment_color_correction = ExtResource("1_wvi40")
+
+[sub_resource type="Gradient" id="Gradient_cgq7e"]
+offsets = PackedFloat32Array(0.00516796, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.494855, 0.494854, 0.494854, 0)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wvi40"]
+noise_type = 3
+frequency = 0.0064
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_stmen"]
+noise = SubResource("FastNoiseLite_wvi40")
+color_ramp = SubResource("Gradient_cgq7e")
+seamless = true
+
+[sub_resource type="FogMaterial" id="FogMaterial_i3d51"]
+density = 0.0
+albedo = Color(1, 0, 0, 1)
+density_texture = SubResource("NoiseTexture3D_stmen")
+
+[sub_resource type="Curve3D" id="Curve3D_sv8cf"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -0.22050858, 0, 0, 0, 0, 0, 0, 0.0011915863, 0, 1.8173866),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i3d51"]
+size = Vector3(0.7, 1, 0.90000004)
+
+[node name="DELETABLE_showcase2" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i3d51")
+
+[node name="Csg" type="Node" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -0.55)
+use_collision = true
+size = Vector3(4.2, 0.1, 8.9)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -7.5)
+use_collision = true
+size = Vector3(4.2, 0.1, 5)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -11.9)
+use_collision = true
+size = Vector3(17.1, 0.1, 3.8)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, -21.4)
+use_collision = true
+size = Vector3(17.1, 0.1, 3.6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D23" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5500002, -16.4)
+use_collision = true
+size = Vector3(17.1, 0.1, 13.6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5500002, -2.8999996)
+use_collision = true
+size = Vector3(4.3, 0.1, 13.6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.6, -0.05, -16.7)
+use_collision = true
+size = Vector3(3.9, 0.1, 6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.6, -0.05, -16.7)
+use_collision = true
+size = Vector3(3.9, 0.1, 6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.0499997, -0.05, -16.65)
+use_collision = true
+size = Vector3(3, 0.1, 5.7)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0499999, -0.05, -18.9)
+use_collision = true
+size = Vector3(0.3, 0.1, 1.6)
+material = ExtResource("1_wyjf7")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -4.91648)
+use_collision = true
+size = Vector3(4.2, 3.8, 0.173242)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Csg/CSGBox3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.35, 0)
+operation = 2
+size = Vector3(1.5, 3.1, 1)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -2.1, 1.8, -3.06648)
+use_collision = true
+size = Vector3(13.9, 3.8, 0.173242)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 2.1, 1.8, -3.06648)
+use_collision = true
+size = Vector3(13.9, 3.8, 0.173242)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 5.31338, 1.8, -9.91648)
+use_collision = true
+size = Vector3(0.2, 3.8, 6.6)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -5.38662, 1.8, -9.91648)
+use_collision = true
+size = Vector3(0.2, 3.8, 6.6)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.01338017, 1.8, -14.416481)
+use_collision = true
+size = Vector3(1.4, 3.8, 9.400001)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 3.749379, 1.8, -16.666481)
+use_collision = true
+size = Vector3(5.8710938, 3.8, 1.8719971)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, -0.03662014, 1.8, -18.866482)
+use_collision = true
+size = Vector3(1.5, 3.8, 9.5)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Csg/CSGBox3D16"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.45000017, 0)
+operation = 2
+size = Vector3(1.7, 3.3, 0.4)
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, -3.8320794, 1.8, -16.666481)
+use_collision = true
+size = Vector3(5.885742, 3.8, 1.890918)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, -8.48662, 1.8, -16.566483)
+use_collision = true
+size = Vector3(13.3, 3.8, 0.2)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D19" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, 8.41338, 1.8, -16.566483)
+use_collision = true
+size = Vector3(13.3, 3.8, 0.2)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, 0.0133805275, 1.8, -23.116482)
+use_collision = true
+size = Vector3(0.2, 3.8, 17)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, -6.586619, 1.8, -16.816483)
+use_collision = true
+size = Vector3(0.2, 3.8, 3.8)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Csg/CSGBox3D21"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3343506, 0)
+operation = 2
+size = Vector3(1, 2.9743652, 1.376709)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="Csg"]
+transform = Transform3D(-4.371139e-08, 0, 0.99999994, 0, 1, 0, -1, 0, -4.3711385e-08, 6.5133815, 1.8, -16.816483)
+use_collision = true
+size = Vector3(0.2, 3.8, 3.8)
+material = ExtResource("2_miaeh")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Csg/CSGBox3D22"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3343506, 0)
+operation = 2
+size = Vector3(1, 2.9743652, 1.376709)
+
+[node name="Puzzle" type="Node" parent="."]
+
+[node name="GasMaskBroken" parent="Puzzle" instance=ExtResource("5_wvtns")]
+transform = Transform3D(1, 0, 0, 0, 0.338574, -0.94094, 0, 0.94094, 0.338574, -1.2, 2.2, -4.7)
+
+[node name="GearPuzzle" type="Node3D" parent="Puzzle"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -2.1, 2.5000002, 1)
+script = ExtResource("10_rtm0x")
+metadata/_custom_type_script = "uid://bndrfsg1m3qn6"
+
+[node name="GearAxle" parent="Puzzle/GearPuzzle" instance=ExtResource("11_p6wws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4000001, 0, -1)
+target_gear = 1
+
+[node name="GearAxle2" parent="Puzzle/GearPuzzle" instance=ExtResource("11_p6wws")]
+target_gear = 1
+
+[node name="MediumGear" parent="Puzzle/GearPuzzle" instance=ExtResource("12_wt4fq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60000014, 1.3, -0.7)
+
+[node name="MediumGear2" parent="Puzzle/GearPuzzle" instance=ExtResource("12_wt4fq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3000002, 1.3, -2.5)
+
+[node name="PipeValve" parent="Puzzle" node_paths=PackedStringArray("fog_node", "gas_zone") instance=ExtResource("13_wt4fq")]
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, 7.2000003, 1.8000001, -11)
+fog_node = NodePath("../GasZone/FogVolume")
+gas_zone = NodePath("../GasZone")
+
+[node name="ValveItem" parent="Puzzle/PipeValve" instance=ExtResource("14_g40l1")]
+transform = Transform3D(0.9659258, 0, 0.25881907, 0, 1, 0, -0.25881907, 0, 0.9659258, 2.2497444, 0, 7.3033323)
+
+[node name="RatCritter" parent="Puzzle" instance=ExtResource("15_g40l1")]
+transform = Transform3D(-1.335, 0, -2.01579e-07, 0, 1.335, 0, 2.01579e-07, 0, -1.335, 0, -0.100000024, -7)
+
+[node name="GasZone" parent="Puzzle" instance=ExtResource("16_cgq7e")]
+
+[node name="FogVolume" type="FogVolume" parent="Puzzle/GasZone"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.649999, 3.85, 5.1)
+size = Vector3(13.7, 7.3, 14.8)
+material = SubResource("FogMaterial_i3d51")
+
+[node name="Path3D" type="Path3D" parent="Puzzle" node_paths=PackedStringArray("entrance1", "entrance2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -19.705246)
+curve = SubResource("Curve3D_sv8cf")
+script = ExtResource("18_i3d51")
+entrance1 = NodePath("Area3D")
+entrance2 = NodePath("Area3D2")
+
+[node name="Area3D" type="Area3D" parent="Puzzle/Path3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/Path3D/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("BoxShape3D_i3d51")
+
+[node name="Area3D2" type="Area3D" parent="Puzzle/Path3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.6000004)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Puzzle/Path3D/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, 0)
+shape = SubResource("BoxShape3D_i3d51")
+
+[node name="Puzzle_SliderGate#PuzzleGateLinker" type="Node" parent="." node_paths=PackedStringArray("connected_gate")]
+script = ExtResource("7_rtm0x")
+connected_gate = NodePath("..")
+puzzle = NodePath("../ConsoleDoubleBase/ConsoleScannerLeft")
+enable_signal = "scan_success"
+use_disable_signal = false
+metadata/_custom_type_script = "uid://ckdvdouxaw4it"
+
+[node name="Player" parent="." instance=ExtResource("3_ndk55")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+flashlight = true
+flashlight_togglable = true
+starting_grabpack = 2
+enabled_hands = Array[PackedScene]([ExtResource("4_miaeh"), ExtResource("5_aevut"), ExtResource("6_wvtns"), ExtResource("23_sv8cf")])
+
+[node name="StaticBody3D" parent="." instance=ExtResource("23_4lw1k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, -2.6000001)

@@ -1,0 +1,205 @@
+[gd_scene load_steps=16 format=3 uid="uid://dtpairjbrlucx"]
+
+[ext_resource type="Script" uid="uid://cram086kryr7c" path="res://Interface/MainMenu/Scripts/menu_popup.gd" id="1_t057m"]
+[ext_resource type="Texture2D" uid="uid://ba641twe6vsbv" path="res://Interface/MainMenu/Texture/T_PauseBG.png" id="2_72ean"]
+[ext_resource type="FontFile" uid="uid://cfvfiw1qtrep1" path="res://Interface/Font/OverusedGrotesk-Bold.otf" id="4_86r1w"]
+[ext_resource type="FontFile" uid="uid://d02qiqkper325" path="res://Interface/Font/OverusedGrotesk-Medium.otf" id="5_n6pkl"]
+[ext_resource type="Theme" uid="uid://bsmuhrjx0b4k2" path="res://Interface/MainMenu/Themes/prompt_button.tres" id="6_jacqb"]
+[ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="7_3up8h"]
+[ext_resource type="Script" uid="uid://cbvj3eu82rfm1" path="res://Interface/MainMenu/button_current.gd" id="8_qw6r2"]
+[ext_resource type="Script" uid="uid://d02ndr1cfnfix" path="res://Interface/MainMenu/Sound/buttonSFX.gd" id="9_sfs4p"]
+[ext_resource type="AudioStream" uid="uid://dfsqafxvufphl" path="res://Interface/Pause/Sound/SW_SFX_Modal_PopUp.wav" id="10_o4rbj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fi64f"]
+bg_color = Color(0, 0, 0, 1)
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color(0.2627451, 0.27058825, 0.29411766, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_mh3bh"]
+base_font = ExtResource("5_n6pkl")
+spacing_bottom = -5
+
+[sub_resource type="Animation" id="Animation_txout"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_fi64f"]
+resource_name = "fadein"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_xtj4b"]
+resource_name = "fadeout"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.03333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_61gjo"]
+_data = {
+&"RESET": SubResource("Animation_txout"),
+&"fadein": SubResource("Animation_fi64f"),
+&"fadeout": SubResource("Animation_xtj4b")
+}
+
+[node name="menu_popup" type="Control"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_t057m")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_72ean")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_top = 365.0
+offset_right = 1920.0
+offset_bottom = 718.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fi64f")
+
+[node name="Prompt" type="Label" parent="."]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 370.0
+offset_right = 1919.0
+offset_bottom = 501.0
+theme_override_colors/font_color = Color(0.411765, 0.858824, 1, 1)
+theme_override_fonts/font = ExtResource("4_86r1w")
+theme_override_font_sizes/font_size = 37
+text = "EXIT GAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="SubPrompt" type="Label" parent="."]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 493.0
+offset_right = 1913.0
+offset_bottom = 725.0
+scale = Vector2(1.005, 1.005)
+theme_override_colors/font_color = Color(0.721859, 0.721859, 0.721859, 1)
+theme_override_fonts/font = SubResource("FontVariation_mh3bh")
+theme_override_font_sizes/font_size = 21
+text = "Are you sure you want to exit the game?"
+horizontal_alignment = 1
+
+[node name="YesNSF" type="Button" parent="."]
+layout_mode = 0
+offset_left = 798.0
+offset_top = 614.0
+offset_right = 969.0
+offset_bottom = 670.0
+theme = ExtResource("6_jacqb")
+theme_override_fonts/font = ExtResource("7_3up8h")
+theme_override_font_sizes/font_size = 30
+text = "YES"
+
+[node name="NoNSF" type="Button" parent="."]
+layout_mode = 0
+offset_left = 996.0
+offset_top = 614.0
+offset_right = 1129.0
+offset_bottom = 670.0
+theme = ExtResource("6_jacqb")
+theme_override_fonts/font = ExtResource("7_3up8h")
+theme_override_font_sizes/font_size = 30
+text = "NO"
+
+[node name="Current" type="Node2D" parent="."]
+position = Vector2(977, 615)
+script = ExtResource("8_qw6r2")
+root_path = NodePath("..")
+
+[node name="ColorRect" type="ColorRect" parent="Current"]
+offset_right = 13.0
+offset_bottom = 55.0
+color = Color(0.19215687, 0.79607844, 1, 1)
+
+[node name="ButtonSFXPlayer" type="Node" parent="."]
+script = ExtResource("9_sfs4p")
+root_path = NodePath("..")
+metadata/_custom_type_script = "uid://d02ndr1cfnfix"
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_61gjo")
+}
+
+[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_o4rbj")

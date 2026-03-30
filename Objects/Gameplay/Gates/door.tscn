@@ -1,0 +1,237 @@
+[gd_scene load_steps=26 format=3 uid="uid://cgfr84c3rrtym"]
+
+[ext_resource type="Script" uid="uid://h1t0akov2hvu" path="res://Objects/Gameplay/Gates/Scripts/door.gd" id="1_x1vwx"]
+[ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="4_m42fl"]
+[ext_resource type="Script" uid="uid://cp2nj828ny1um" path="res://Objects/Gameplay/HandFunctions/interaction.gd" id="5_knum6"]
+[ext_resource type="Script" uid="uid://bya15x2tmxijx" path="res://Objects/Gameplay/Gates/Scripts/door_indicator.tres.gd" id="6_augoi"]
+[ext_resource type="Texture2D" uid="uid://bmh4rmptpek24" path="res://Objects/Gameplay/Extra/Texture/E.png" id="7_26fm8"]
+[ext_resource type="AudioStream" uid="uid://dyesudcqvqyat" path="res://Objects/Gameplay/Gates/Audio/SW_Door_Locked_01.wav" id="7_b4vsw"]
+[ext_resource type="Texture2D" uid="uid://k3jrwtbfru4s" path="res://Objects/Gameplay/Gates/Model/T_LockedDoor256.png" id="8_i4dfu"]
+[ext_resource type="Texture2D" uid="uid://d8xud4ur1kg4" path="res://Objects/Gameplay/Gates/Model/T_UnlockDoor256.png" id="9_bdxw2"]
+[ext_resource type="AudioStream" uid="uid://b632jh6vhpk1o" path="res://Objects/Gameplay/Gates/Audio/SW_Door_Unlock.wav" id="11_o666m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_knum6"]
+size = Vector3(0.3, 0.35, 0.15)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_26fm8"]
+size = Vector3(0.9, 1.55, 0.2)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ph6k"]
+resource_local_to_scene = true
+radius = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gkafu"]
+no_depth_test = true
+shading_mode = 0
+
+[sub_resource type="SphereMesh" id="SphereMesh_4y78o"]
+material = SubResource("StandardMaterial3D_gkafu")
+radius = 0.02
+height = 0.04
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b7psr"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("7_26fm8")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_dgcmh"]
+material = SubResource("StandardMaterial3D_b7psr")
+size = Vector2(0.15, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_16ew1"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("8_i4dfu")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_htk7f"]
+material = SubResource("StandardMaterial3D_16ew1")
+size = Vector2(0.08, 0.08)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6aufk"]
+transparency = 1
+no_depth_test = true
+shading_mode = 0
+albedo_texture = ExtResource("9_bdxw2")
+billboard_mode = 1
+
+[sub_resource type="QuadMesh" id="QuadMesh_vu0k6"]
+material = SubResource("StandardMaterial3D_6aufk")
+size = Vector2(0.08, 0.08)
+
+[sub_resource type="Animation" id="Animation_jes1b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_sle3k"]
+resource_name = "close"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.70868, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6rskr"]
+resource_name = "locked"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -0.0270701, 0), Vector3(0, 0.0698481, 0), Vector3(0, 0.0118421, 0), Vector3(0, -0.0122173, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e0kx2"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 1.70868, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y0li5"]
+_data = {
+&"RESET": SubResource("Animation_jes1b"),
+&"close": SubResource("Animation_sle3k"),
+&"locked": SubResource("Animation_6rskr"),
+&"open": SubResource("Animation_e0kx2")
+}
+
+[node name="Door" type="Node3D"]
+script = ExtResource("1_x1vwx")
+
+[node name="door" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00802922, 0, 0)
+
+[node name="HandGrab" type="Area3D" parent="door" node_paths=PackedStringArray("grab_marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.923077, 1.19231, 0.15)
+script = ExtResource("4_m42fl")
+update_every_frame = true
+stop_hand = false
+grab_marker = NodePath("HandPositionMarker")
+metadata/_custom_type_script = "uid://d4joakp74nxnn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/HandGrab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0, -0.025)
+shape = SubResource("BoxShape3D_knum6")
+
+[node name="HandPositionMarker" type="Marker3D" parent="door/HandGrab"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.0774248)
+
+[node name="HandGrab2" type="Area3D" parent="door" node_paths=PackedStringArray("grab_marker")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.923, 1.192, -0.15)
+script = ExtResource("4_m42fl")
+update_every_frame = true
+stop_hand = false
+grab_marker = NodePath("HandPositionMarker")
+metadata/_custom_type_script = "uid://d4joakp74nxnn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/HandGrab2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.025, 0, -0.025)
+shape = SubResource("BoxShape3D_knum6")
+
+[node name="HandPositionMarker" type="Marker3D" parent="door/HandGrab2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -0.0774248)
+
+[node name="BasicInteraction" type="Area3D" parent="door"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.15, 0)
+script = ExtResource("5_knum6")
+metadata/_custom_type_script = "uid://cp2nj828ny1um"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/BasicInteraction"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.297534, 0, 0)
+shape = SubResource("BoxShape3D_26fm8")
+
+[node name="InteractionIndicator" type="Node3D" parent="door/BasicInteraction" node_paths=PackedStringArray("door")]
+script = ExtResource("6_augoi")
+door = NodePath("../../..")
+
+[node name="Area" type="Area3D" parent="door/BasicInteraction/InteractionIndicator"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="door/BasicInteraction/InteractionIndicator/Area"]
+shape = SubResource("SphereShape3D_0ph6k")
+
+[node name="Circle" type="MeshInstance3D" parent="door/BasicInteraction/InteractionIndicator"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0068787, 0)
+mesh = SubResource("SphereMesh_4y78o")
+
+[node name="ReadyMesh" type="Node3D" parent="door/BasicInteraction/InteractionIndicator"]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="Ready" type="MeshInstance3D" parent="door/BasicInteraction/InteractionIndicator/ReadyMesh"]
+mesh = SubResource("QuadMesh_dgcmh")
+skeleton = NodePath("../..")
+
+[node name="Locked" type="MeshInstance3D" parent="door/BasicInteraction/InteractionIndicator/ReadyMesh"]
+visible = false
+mesh = SubResource("QuadMesh_htk7f")
+skeleton = NodePath("../..")
+
+[node name="Unlockable" type="MeshInstance3D" parent="door/BasicInteraction/InteractionIndicator/ReadyMesh"]
+visible = false
+mesh = SubResource("QuadMesh_vu0k6")
+skeleton = NodePath("../..")
+
+[node name="frame" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_y0li5")
+}
+playback_default_blend_time = 0.1
+
+[node name="locked_01" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_b4vsw")
+
+[node name="open" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_o666m")
+
+[node name="close" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_o666m")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="grabbed" from="door/HandGrab" to="." method="_on_hand_grab_grabbed"]
+[connection signal="grabbed" from="door/HandGrab2" to="." method="_on_hand_grab_grabbed"]
+[connection signal="player_interacted" from="door/BasicInteraction" to="." method="toggle"]
+[connection signal="body_entered" from="door/BasicInteraction/InteractionIndicator/Area" to="door/BasicInteraction/InteractionIndicator" method="_on_area_body_entered"]
+[connection signal="body_exited" from="door/BasicInteraction/InteractionIndicator/Area" to="door/BasicInteraction/InteractionIndicator" method="_on_area_body_exited"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

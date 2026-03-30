@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cr338v71agvln"]
+
+[sub_resource type="Gradient" id="Gradient_bs44q"]
+colors = PackedColorArray(0, 0, 0, 1, 0.352716, 1, 0.323885, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_62btf"]
+gradient = SubResource("Gradient_bs44q")
+fill_from = Vector2(1, 0.527066)
+fill_to = Vector2(0.997151, 0.00854701)
+
+[resource]
+albedo_color = Color(0, 0, 0, 1)
+emission_energy_multiplier = 12.0
+emission_texture = SubResource("GradientTexture2D_62btf")
