@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://qgpv2taxn2cs"]
+[gd_scene format=3 uid="uid://qgpv2taxn2cs"]
 
 [ext_resource type="Script" uid="uid://4hsq8yi6fdck" path="res://Interface/Mobile/mobile_controls.gd" id="1_7me2c"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_7sl6m"]
@@ -12,10 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://ck80jcsnwiid2" path="res://Interface/Mobile/Textures/blankbutton.png" id="9_27njx"]
 [ext_resource type="Texture2D" uid="uid://dnq4b4hfb66bl" path="res://Objects/Gameplay/Mobibles/Textibles/9.png" id="10_8h4h3"]
 [ext_resource type="FontFile" uid="uid://dp3oq0ou16joq" path="res://Interface/Font/VCR_OSD_MONO_1.001.ttf" id="10_c4dn4"]
+[ext_resource type="Texture2D" uid="uid://bdekmebawdjyh" path="res://Interface/Mobile/Textures/Flashlightbutton.png" id="11_i4omr"]
 [ext_resource type="Texture2D" uid="uid://cw0cx3cm2w4h7" path="res://Objects/Gameplay/Mobibles/Textibles/8.png" id="11_lvf0c"]
+[ext_resource type="Texture2D" uid="uid://d6yws1amr0wt" path="res://Interface/Mobile/Textures/blacklightbutton.png" id="12_3jh00"]
 [ext_resource type="Texture2D" uid="uid://e4ecbfk4lrsl" path="res://Objects/Gameplay/Mobibles/Textibles/watch_icon.png" id="12_lvf0c"]
 
-[node name="MobileControls" type="Control"]
+[node name="MobileControls" type="Control" unique_id=698222888]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7me2c")
 
-[node name="Virtual Joystick" parent="." instance=ExtResource("1_7sl6m")]
+[node name="Virtual Joystick" parent="." unique_id=1800380021 instance=ExtResource("1_7sl6m")]
 layout_mode = 1
 offset_left = 82.0
 offset_top = -391.0
@@ -35,39 +37,39 @@ action_right = "right"
 action_up = "forward"
 action_down = "back"
 
-[node name="Crouch" type="TouchScreenButton" parent="."]
+[node name="Crouch" type="TouchScreenButton" parent="." unique_id=1768715283]
 position = Vector2(1474, 903)
 texture_normal = ExtResource("2_026ag")
 texture_pressed = ExtResource("3_r6nra")
 action = "crouch"
 
-[node name="Jump" type="TouchScreenButton" parent="."]
+[node name="Jump" type="TouchScreenButton" parent="." unique_id=1600047209]
 position = Vector2(1716, 547)
 scale = Vector2(1.14173, 1.1037)
 texture_normal = ExtResource("4_r6nra")
 action = "jump"
 
-[node name="Exit" type="TouchScreenButton" parent="."]
+[node name="Exit" type="TouchScreenButton" parent="." unique_id=191999540]
 position = Vector2(76, 65)
 texture_normal = ExtResource("6_7me2c")
 action = "exit"
 
-[node name="LeftHand" type="TouchScreenButton" parent="."]
+[node name="LeftHand" type="TouchScreenButton" parent="." unique_id=1036836011]
 position = Vector2(1333, 697)
 texture_normal = ExtResource("5_1kqgm")
 action = "handleft"
 
-[node name="RightHand" type="TouchScreenButton" parent="."]
+[node name="RightHand" type="TouchScreenButton" parent="." unique_id=1958687741]
 position = Vector2(1569, 697)
 texture_normal = ExtResource("6_pkqkk")
 action = "handright"
 
-[node name="E" type="TouchScreenButton" parent="."]
+[node name="E" type="TouchScreenButton" parent="." unique_id=149547857]
 position = Vector2(1698, 220)
 texture_normal = ExtResource("9_27njx")
 action = "interact"
 
-[node name="Label" type="Label" parent="E"]
+[node name="Label" type="Label" parent="E" unique_id=1782135936]
 offset_left = 47.0
 offset_top = 33.0
 offset_right = 106.0
@@ -79,13 +81,13 @@ text = "E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="F" type="TouchScreenButton" parent="."]
+[node name="F" type="TouchScreenButton" parent="." unique_id=316786028]
 visible = false
 position = Vector2(1529, 220)
 texture_normal = ExtResource("9_27njx")
 action = "flashlight"
 
-[node name="Label" type="Label" parent="F"]
+[node name="Label" type="Label" parent="F" unique_id=1614320874]
 offset_left = 47.0
 offset_top = 33.0
 offset_right = 106.0
@@ -97,28 +99,40 @@ text = "F"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Drag" type="Control" parent="."]
+[node name="GF" type="TouchScreenButton" parent="." unique_id=1882016141]
+visible = false
+position = Vector2(1355, 220)
+texture_normal = ExtResource("11_i4omr")
+action = "glowby_flashlight"
+
+[node name="GB" type="TouchScreenButton" parent="." unique_id=1382027415]
+visible = false
+position = Vector2(1355, 51)
+texture_normal = ExtResource("12_3jh00")
+action = "glowby_blacklight"
+
+[node name="Drag" type="Control" parent="." unique_id=427885457]
 anchors_preset = 0
 offset_left = 305.0
 offset_right = 1911.0
 offset_bottom = 637.0
 script = ExtResource("9_2earh")
 
-[node name="GP_Extra" type="Node2D" parent="."]
+[node name="GP_Extra" type="Node2D" parent="." unique_id=930290157]
 
-[node name="Switch" type="TouchScreenButton" parent="GP_Extra"]
+[node name="Switch" type="TouchScreenButton" parent="GP_Extra" unique_id=976749692]
 position = Vector2(1698, 65)
 scale = Vector2(0.637168, 0.619469)
 texture_normal = ExtResource("10_8h4h3")
 action = "hand_up"
 
-[node name="Switch2" type="TouchScreenButton" parent="GP_Extra"]
+[node name="Switch2" type="TouchScreenButton" parent="GP_Extra" unique_id=804041922]
 position = Vector2(1529, 65)
 scale = Vector2(0.637168, 0.619469)
 texture_normal = ExtResource("11_lvf0c")
 action = "hand_down"
 
-[node name="Watch" type="TouchScreenButton" parent="GP_Extra"]
+[node name="Watch" type="TouchScreenButton" parent="GP_Extra" unique_id=457597581]
 visible = false
 position = Vector2(1357, 65)
 scale = Vector2(0.565891, 0.54902)

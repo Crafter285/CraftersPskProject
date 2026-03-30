@@ -206,3 +206,10 @@ func _return_to_idle() -> void:
 func _apply_uv(face: Dictionary) -> void:
 	_mat.uv1_offset = face["offset"]
 	_mat.uv1_scale  = face["scale"]
+
+func _input(_event):
+	if Input.is_action_just_pressed("glowby_flashlight"):
+		_on_f_pressed()
+
+	if Input.is_action_just_pressed("glowby_blacklight"):
+		_on_v_pressed()

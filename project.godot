@@ -283,6 +283,14 @@ look_down={
 "events": [Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":3,"axis_value":1.0,"script":null)
 ]
 }
+glowby_flashlight={
+"deadzone": 0.2,
+"events": []
+}
+glowby_blacklight={
+"deadzone": 0.2,
+"events": []
+}
 
 [input_devices]
 
