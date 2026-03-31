@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dvn3th2j486vt"]
+
+[ext_resource type="Texture2D" uid="uid://h8boy863hhoa" path="res://Objects/Gameplay/ConductiveStuff/Textures/clear-gel-swatch-background-free-photo.jpg" id="1_hedqy"]
+[ext_resource type="Texture2D" uid="uid://fuuxwblox383" path="res://Objects/Gameplay/ConductiveStuff/Textures/pinkgel.png" id="2_nafel"]
+[ext_resource type="Texture2D" uid="uid://oiit45vrnyev" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Patches_ID.png" id="3_g7btb"]
+[ext_resource type="Texture2D" uid="uid://cxdyntwqjoajp" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Patches_N.png" id="4_hqwb3"]
+
+[resource]
+resource_name = "MI_PoppyGel_Patches"
+albedo_color = Color(0.84705883, 1, 1, 1)
+albedo_texture = ExtResource("1_hedqy")
+emission_enabled = true
+normal_enabled = true
+normal_texture = ExtResource("4_hqwb3")
+detail_enabled = true
+detail_mask = ExtResource("3_g7btb")
+detail_blend_mode = 1
+detail_albedo = ExtResource("2_nafel")

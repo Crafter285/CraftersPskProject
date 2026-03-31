@@ -1,0 +1,27 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c1a8l84j8j8mw"]
+
+[ext_resource type="Texture2D" uid="uid://b60plmlnfwte2" path="res://Objects/Gameplay/ConductiveStuff/Textures/orangegel.png" id="1_opvoy"]
+[ext_resource type="Texture2D" uid="uid://fuuxwblox383" path="res://Objects/Gameplay/ConductiveStuff/Textures/pinkgel.png" id="2_1oa4v"]
+[ext_resource type="Texture2D" uid="uid://oiit45vrnyev" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Patches_ID.png" id="3_taoa3"]
+[ext_resource type="Shader" uid="uid://xv5oh00vyxi0" path="res://Objects/Gameplay/ConductiveStuff/Shaders/GelBlend.gdshader" id="4_obu3t"]
+[ext_resource type="Texture2D" uid="uid://h8boy863hhoa" path="res://Objects/Gameplay/ConductiveStuff/Textures/clear-gel-swatch-background-free-photo.jpg" id="5_7dsxf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7dsxf"]
+render_priority = 0
+shader = ExtResource("4_obu3t")
+shader_parameter/texture_albedo = ExtResource("5_7dsxf")
+shader_parameter/glow_color = Color(0.5, 0, 1, 1)
+shader_parameter/black_threshold = 0.1
+shader_parameter/fade_speed = 3.0
+shader_parameter/current_alpha = 0.0
+
+[resource]
+resource_name = "MI_PoppyGel_Patches"
+next_pass = SubResource("ShaderMaterial_7dsxf")
+albedo_color = Color(0.96267277, 0.30554897, 5.7756904e-07, 1)
+albedo_texture = ExtResource("1_opvoy")
+emission_enabled = true
+detail_enabled = true
+detail_mask = ExtResource("3_taoa3")
+detail_blend_mode = 1
+detail_albedo = ExtResource("2_1oa4v")

@@ -96,6 +96,8 @@ var glowby_blacklight_check: bool = false
 var glowby_flashlight_check2: bool = false
 var glowby_blacklight_check2: bool = false
 
+
+
 #Wire Constraints
 @onready var length_calculator: Node = $Grabpack/Pack/LengthCalculator
 @onready var left_hand: Node3D = $Grabpack/Pack/LeftHandContainer

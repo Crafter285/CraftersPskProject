@@ -35,6 +35,12 @@
 [ext_resource type="PackedScene" uid="uid://c6m7soa8trbay" path="res://Objects/Gameplay/PullOff/pullable_bar.tscn" id="28_6vkx8"]
 [ext_resource type="Script" uid="uid://dhjsvwgpbf3bx" path="res://Objects/Gameplay/event_trigger.gd" id="30_tfe2q"]
 [ext_resource type="Script" uid="uid://boad7pm33g3dk" path="res://Objects/Gameplay/tutorial_trigger.gd" id="31_177fr"]
+[ext_resource type="PackedScene" uid="uid://dim0fed1pmpqt" path="res://Player/Grabpack/Hands/Conductive.tscn" id="34_uq1o5"]
+[ext_resource type="PackedScene" uid="uid://c7tu7cv5ogi8l" path="res://Player/Grabpack/Hands/Pressure.tscn" id="37_3aug4"]
+[ext_resource type="PackedScene" uid="uid://ce5j550226o5p" path="res://Objects/Gameplay/ConductiveStuff/burnable_rope.tscn" id="38_h4716"]
+[ext_resource type="PackedScene" uid="uid://bbcl7f5bdyr64" path="res://Objects/Gameplay/ConductiveStuff/conductive_panel.tscn" id="39_0sybq"]
+[ext_resource type="PackedScene" uid="uid://b6vmjyws6e2d2" path="res://Objects/Gameplay/ConductiveStuff/conductive_panel_receiver.tscn" id="40_ndj7s"]
+[ext_resource type="PackedScene" uid="uid://byfvbtydmb1qc" path="res://Objects/Gameplay/ConductiveStuff/poppy_gel.tscn" id="41_54s7k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3mqk5"]
 sky_horizon_color = Color(1, 0.841716, 0.366897, 1)
@@ -947,21 +953,21 @@ omni_range = 6.5
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Light" unique_id=1495583759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3.7, 14.4)
-light_energy = 6.5561533
+light_energy = 5.571208
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 7.68
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Light" unique_id=1298490036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6, 3.7, 19.9)
-light_energy = 9.893149
+light_energy = 9.320161
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 12.0
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Light" unique_id=672330413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.9, 36.6)
-light_energy = 8.079833
+light_energy = 8.679604
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 12.0
@@ -969,7 +975,7 @@ max_energy = 12.0
 [node name="OmniLight3D7" type="OmniLight3D" parent="Light" unique_id=518469223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 3.3, 14.4)
 light_color = Color(1, 0.313726, 0, 1)
-light_energy = 2.0331953
+light_energy = 2.2082067
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 3.0
@@ -1044,8 +1050,33 @@ metadata/_custom_type_script = "uid://boad7pm33g3dk"
 
 [node name="Player" parent="." unique_id=2544618 instance=ExtResource("2_2v2lr")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.176733, 0.0999999, -8.1703)
+can_use_blacklight = true
+can_use_flashlight = true
 flashlight_togglable = true
 starting_grabpack = 2
-enabled_hands = Array[PackedScene]([ExtResource("20_86uxy"), ExtResource("21_nwyu4")])
+enabled_hands = Array[PackedScene]([ExtResource("34_uq1o5"), ExtResource("20_86uxy"), ExtResource("21_nwyu4"), ExtResource("37_3aug4")])
+
+[node name="BurnableRope" parent="." unique_id=819097466 node_paths=PackedStringArray("conductive_panel") instance=ExtResource("38_h4716")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.1, 0.5, 0.3)
+conductive_panel = NodePath("../ConductivePanel2")
+
+[node name="ConductivePanel" parent="." unique_id=1231403567 instance=ExtResource("39_0sybq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.8288778, 0.85428596, 0.876102)
+
+[node name="ConductivePanel2" parent="." unique_id=603592795 instance=ExtResource("39_0sybq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.8288779, 0.85428596, 0.876102)
+ConductiveType = 1
+
+[node name="ConductivePanel3" parent="." unique_id=2071492851 instance=ExtResource("39_0sybq")]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -2.828878, 0.85428596, 0.876102)
+ConductiveType = 2
+
+[node name="ConductivePanelReceiver" parent="." unique_id=595334248 node_paths=PackedStringArray("conductive_panel") instance=ExtResource("40_ndj7s")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.3, 0.6, -1.2)
+conductive_panel = NodePath("../ConductivePanel")
+
+[node name="PoppyGel" parent="." unique_id=1833923153 node_paths=PackedStringArray("conductive_panel") instance=ExtResource("41_54s7k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.3, 0.1)
+conductive_panel = NodePath("../ConductivePanel3")
 
 [connection signal="inserted" from="Puzzle/ConsoleBase/KeycardReader" to="Puzzle/ConsoleDoubleBase2/ConsoleButtonBase/!HandScannerRight" method="power_scanner"]
