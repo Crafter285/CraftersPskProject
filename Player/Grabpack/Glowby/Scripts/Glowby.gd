@@ -38,7 +38,6 @@ var _blink_timer: float = 0.0
 var _blink_interval: float = 0.0
 var _is_blinking: bool = false
 
-# ✅ FIX
 var _notif_playing: bool = false
 
 func _ready() -> void:
@@ -48,7 +47,6 @@ func _ready() -> void:
 	_reset_blink_timer()
 
 func _process(delta: float) -> void:
-	# --- Animation ---
 	if _is_animating:
 		_anim_timer += delta
 		if _anim_timer >= _anim_speed:
@@ -60,7 +58,6 @@ func _process(delta: float) -> void:
 			_apply_uv(FACES[_current_anim[_anim_frame]])
 		return
 
-	# --- Blink ---
 	if _is_blinking:
 		_anim_timer += delta
 		if _anim_timer >= BLINK_FRAME_SPEED:
@@ -78,7 +75,6 @@ func _process(delta: float) -> void:
 	if _blink_timer >= _blink_interval:
 		_start_blink()
 
-	# ✅ FIXED notification trigger
 	var player = get_tree().get_first_node_in_group("Player")
 	if player and player.glowby_notifaction and not _notif_playing:
 		_play_blacklight_notification(player)
@@ -89,7 +85,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			KEY_F: _on_f_pressed()
 			KEY_V: _on_v_pressed()
 
-# --- Mode control ---
 func _set_mode(flash: bool, bl: bool) -> void:
 	_flash_active = flash
 	_bl_active = bl
@@ -146,7 +141,6 @@ func _on_v_pressed() -> void:
 			if player.glowby_blacklight_check == true:
 				$BlackLight.play()
 
-# --- FIXED Notification ---
 func _play_blacklight_notification(player: Node3D) -> void:
 	if not player or _notif_playing:
 		return
@@ -175,7 +169,6 @@ func _finish_notification(prev_flash: bool, prev_bl: bool) -> void:
 
 	_notif_playing = false
 
-# --- Helpers ---
 func _start_blink() -> void:
 	_is_blinking = true
 	_anim_frame = 0

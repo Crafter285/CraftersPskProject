@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://baiftjqeipxda"]
+[gd_scene format=4 uid="uid://baiftjqeipxda"]
 
 [ext_resource type="Script" uid="uid://8fmobl1bnf52" path="res://Objects/Gameplay/Pressable/Scripts/lever.gd" id="1_yx35o"]
 [ext_resource type="Texture2D" uid="uid://bivkbskdeggp2" path="res://Objects/Gameplay/Pressable/Model/T_LockerAndLever_BC.png" id="4_m3cij"]
@@ -288,21 +288,21 @@ billboard_mode = 1
 material = SubResource("StandardMaterial3D_b7psr")
 size = Vector2(0.15, 0.15)
 
-[node name="Lever" type="StaticBody3D"]
+[node name="Lever" type="StaticBody3D" unique_id=349183187]
 script = ExtResource("1_yx35o")
 
-[node name="Hinge" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.838671, -0.54464, 0, 0.54464, 0.838671, 0, 0, 0)
+[node name="Hinge" type="StaticBody3D" parent="." unique_id=776645902]
+transform = Transform3D(1, 0, 0, 0, 0.8386711, -0.5446398, 0, 0.5446398, 0.8386711, 0, 0, 0)
 
-[node name="SM_LeverHand_A" type="MeshInstance3D" parent="Hinge"]
+[node name="SM_LeverHand_A" type="MeshInstance3D" parent="Hinge" unique_id=842951304]
 mesh = SubResource("ArrayMesh_u5pcd")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge" unique_id=1516490933]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.495117, 0)
 shape = SubResource("CylinderShape3D_yx35o")
 
-[node name="HandGrab" type="Area3D" parent="Hinge" node_paths=PackedStringArray("grab_marker")]
+[node name="HandGrab" type="Area3D" parent="Hinge" unique_id=1373697860 node_paths=PackedStringArray("grab_marker")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721058, 0.00868478)
 script = ExtResource("4_uv5ur")
 update_every_frame = true
@@ -311,55 +311,53 @@ grab_marker = NodePath("HandPositionMarker")
 only_usable_by = 1
 metadata/_custom_type_script = "uid://d4joakp74nxnn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/HandGrab"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hinge/HandGrab" unique_id=80241507]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.98023e-08)
 shape = SubResource("BoxShape3D_yx35o")
 
-[node name="HandPositionMarker" type="Marker3D" parent="Hinge/HandGrab"]
+[node name="HandPositionMarker" type="Marker3D" parent="Hinge/HandGrab" unique_id=942856408]
 transform = Transform3D(0.00872656, 0.999962, 0, -0.999962, 0.00872656, 0, 0, 0, 1, -0.085, 0, 0)
 
-[node name="SM_LeverBox_A" type="MeshInstance3D" parent="."]
+[node name="SM_LeverBox_A" type="MeshInstance3D" parent="." unique_id=1269715807]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375574, -0.3)
 mesh = SubResource("ArrayMesh_uv5ur")
 skeleton = NodePath("")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uv5ur")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1729986620]
+libraries/ = SubResource("AnimationLibrary_uv5ur")
 
-[node name="PullSound" type="AudioStreamPlayer3D" parent="."]
+[node name="PullSound" type="AudioStreamPlayer3D" parent="." unique_id=1057071960]
 stream = ExtResource("6_erynx")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1978799614]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15)
 shape = SubResource("BoxShape3D_erynx")
 
-[node name="BasicInteraction" type="Area3D" parent="."]
+[node name="BasicInteraction" type="Area3D" parent="." unique_id=261109533]
 script = ExtResource("7_ndhkg")
 metadata/_custom_type_script = "uid://cp2nj828ny1um"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction" unique_id=53792701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.49012e-08)
 shape = SubResource("BoxShape3D_luvuq")
 
-[node name="InteractionIndicator" type="Node3D" parent="BasicInteraction"]
+[node name="InteractionIndicator" type="Node3D" parent="BasicInteraction" unique_id=638768947]
 script = SubResource("GDScript_m3cij")
 enabled = false
 
-[node name="Area" type="Area3D" parent="BasicInteraction/InteractionIndicator"]
+[node name="Area" type="Area3D" parent="BasicInteraction/InteractionIndicator" unique_id=896761134]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction/InteractionIndicator/Area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction/InteractionIndicator/Area" unique_id=242244469]
 shape = SubResource("SphereShape3D_f0pm0")
 
-[node name="Circle" type="MeshInstance3D" parent="BasicInteraction/InteractionIndicator"]
+[node name="Circle" type="MeshInstance3D" parent="BasicInteraction/InteractionIndicator" unique_id=1911275578]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.0068787, 0)
 mesh = SubResource("SphereMesh_xrws7")
 
-[node name="ReadyMesh" type="Node3D" parent="BasicInteraction/InteractionIndicator"]
+[node name="ReadyMesh" type="Node3D" parent="BasicInteraction/InteractionIndicator" unique_id=414968788]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="BasicInteraction/InteractionIndicator/ReadyMesh"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BasicInteraction/InteractionIndicator/ReadyMesh" unique_id=780639801]
 mesh = SubResource("QuadMesh_xrws7")
 skeleton = NodePath("../..")
 

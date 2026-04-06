@@ -48,6 +48,19 @@ func _on_area_area_entered(area):
 	if area.is_in_group("Battery") and not contains_battery:
 		attached_battery = area.get_parent()
 		attached_battery.disable_battery()
+
+		power_up.play()
+		idle.play()
+		contains_battery = true
+		attached_battery.in_holder = true
+		attached_battery.battery_holder = self
+		attached_battery.global_transform = battery.global_transform
+		emit_signal("powered_on")
+
+		attached_battery.hand_grab.enabled = false
+		await get_tree().create_timer(0.5).timeout
+		attached_battery.hand_grab.enabled = true
+
 		if not allow_battery_removal:
 			attached_battery.hand_grab.enabled = false
 			lock.play()
@@ -57,11 +70,3 @@ func _on_area_area_entered(area):
 		else:
 			Grabpack.right_position(battery.global_position)
 			Grabpack.right_rotation(battery.global_rotation)
-		
-		power_up.play()
-		idle.play()
-		contains_battery = true
-		attached_battery.in_holder = true
-		attached_battery.battery_holder = self
-		attached_battery.global_transform = battery.global_transform
-		emit_signal("powered_on")

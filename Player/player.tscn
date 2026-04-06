@@ -7263,7 +7263,7 @@ fadeout_time = 0.3
 animation = &"QuickSwitch"
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_286oo"]
-graph_offset = Vector2(-847.541, 385.29395)
+graph_offset = Vector2(227.12727, 185.56363)
 nodes/output/position = Vector2(2860, 140)
 nodes/Idle/node = SubResource("AnimationNodeAnimation_286oo")
 nodes/Idle/position = Vector2(-1020, 280)
@@ -7273,8 +7273,8 @@ nodes/Walk/node = SubResource("AnimationNodeAnimation_k84o0")
 nodes/Walk/position = Vector2(-960, 660)
 "nodes/ShakyIdle 2/node" = SubResource("AnimationNodeBlend2_286oo")
 "nodes/ShakyIdle 2/position" = Vector2(-820, 280)
-nodes/ShakyIdle/node = SubResource("AnimationNodeAnimation_vx8o5")
-nodes/ShakyIdle/position = Vector2(-1020, 460)
+nodes/WalkSidle/node = SubResource("AnimationNodeAnimation_t7sh4")
+nodes/WalkSidle/position = Vector2(-780, 720)
 nodes/Forward/node = SubResource("AnimationNodeAnimation_w5pua")
 nodes/Forward/position = Vector2(2220, 400)
 nodes/quick/node = SubResource("AnimationNodeAnimation_ca054")
@@ -7363,8 +7363,8 @@ nodes/LoweredPose/node = SubResource("AnimationNodeBlend2_k84o0")
 nodes/LoweredPose/position = Vector2(1980, 140)
 nodes/WalkType/node = SubResource("AnimationNodeBlend2_fhogf")
 nodes/WalkType/position = Vector2(-640, 500)
-nodes/WalkSidle/node = SubResource("AnimationNodeAnimation_t7sh4")
-nodes/WalkSidle/position = Vector2(-780, 720)
+nodes/ShakyIdle/node = SubResource("AnimationNodeAnimation_vx8o5")
+nodes/ShakyIdle/position = Vector2(-1020, 460)
 node_connections = [&"output", 0, &"LR_Tilt", &"TimeScale 2", 0, &"Stop", &"ShakyIdle 2", 0, &"Idle", &"ShakyIdle 2", 1, &"ShakyIdle", &"WalkSpeed", 0, &"Walk", &"FB_Tilt", 0, &"Backward", &"FB_Tilt", 1, &"ToggleAnimation", &"FB_Tilt", 2, &"Forward", &"LR_Tilt", 0, &"Left", &"LR_Tilt", 1, &"FB_Tilt", &"LR_Tilt", 2, &"Right", &"FireAnimationL", 0, &"UnCrouch", &"FireAnimationL", 1, &"HandLeftSpeed", &"HandLeftSpeed", 0, &"HandLeftInOut", &"HandLeftInOut", 0, &"ShootOut", &"HandLeftInOut", 1, &"ShootIn", &"WalkBlend", 0, &"ShakyIdle 2", &"WalkBlend", 1, &"WalkType", &"WalkStop", 0, &"WalkBlend", &"WalkStop", 1, &"TimeScale 2", &"Jump", 0, &"InAir", &"Jump", 1, &"TimeScale 3", &"Land", 0, &"Jump", &"Land", 1, &"TimeScale 4", &"TimeScale 3", 0, &"JumpAnim", &"TimeScale 4", 0, &"LandAnim", &"Crouch", 0, &"Land", &"Crouch", 1, &"TimeScale 5", &"TimeScale 5", 0, &"CrouchAnim", &"UnCrouch", 0, &"Crouch", &"UnCrouch", 1, &"TimeScale 6", &"TimeScale 6", 0, &"UnCrouchAnim", &"FireAnimationR", 0, &"FireAnimationL", &"FireAnimationR", 1, &"HandRightSpeed", &"HandRightSpeed", 0, &"HandRightInOut", &"HandRightInOut", 0, &"ShootOut2", &"HandRightInOut", 1, &"ShootIn 2", &"InAir", 0, &"WalkStop", &"InAir", 1, &"Air", &"SwitchSpeed", 0, &"quick", &"QuickSwitchAnim", 0, &"FireAnimationR", &"QuickSwitchAnim", 1, &"SwitchSpeed", &"ToggleAnimation", 0, &"LoweredPose", &"ToggleAnimation", 1, &"RaiseLower", &"RaiseLower", 0, &"Lower", &"RaiseLower", 1, &"Raise", &"LoweredPose", 0, &"QuickSwitchAnim", &"LoweredPose", 1, &"LowerAnim", &"WalkType", 0, &"WalkSpeed", &"WalkType", 1, &"WalkSidle"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fhogf"]
@@ -8550,9 +8550,9 @@ bones/6/name = "JNT_R_Grabpack_Gun_05"
 bones/6/parent = 5
 bones/6/rest = Transform3D(1, 0, 0, 0, 1, -7.45058e-07, 0, 7.45058e-07, 1, -0.13434, -0.080193, 0.132049)
 bones/6/enabled = true
-bones/6/position = Vector3(-0.13197938, -0.45572072, 0.21374005)
-bones/6/rotation = Quaternion(0.5582793, -0.19940844, -0.22927836, 0.77200514)
-bones/6/scale = Vector3(0.99999875, 1.0000002, 1.0000017)
+bones/6/position = Vector3(-0.13197936, -0.08266294, 0.131881)
+bones/6/rotation = Quaternion(0.0046803206, -1.1590378e-06, -1.410326e-07, 0.99998903)
+bones/6/scale = Vector3(0.9999988, 1.0000005, 1.0000018)
 bones/7/name = "JNT_R_Grabpack_Trigger_06"
 bones/7/parent = 6
 bones/7/rest = Transform3D(1, 0, 0, 0, 1, 3.72529e-07, 0, -3.72529e-07, 1, 0, -0.0217514, 0.0155989)
@@ -8655,9 +8655,9 @@ bones/21/name = "JNT_L_Grabpack_Gun_016"
 bones/21/parent = 5
 bones/21/rest = Transform3D(1, -7.64274e-15, -8.74228e-08, 0, -1, 8.74228e-08, -8.74228e-08, -8.74228e-08, -1, 0.13434, -0.080193, 0.132049)
 bones/21/enabled = true
-bones/21/position = Vector3(0.13401352, -0.4557215, 0.21374036)
-bones/21/rotation = Quaternion(-0.77199394, -0.22927776, 0.19940871, 0.558295)
-bones/21/scale = Vector3(0.9999977, 0.99999714, 0.99999905)
+bones/21/position = Vector3(0.12261864, -0.0682683, 0.13315493)
+bones/21/rotation = Quaternion(1, -1.3642182e-07, 1.4913141e-08, 4.480043e-08)
+bones/21/scale = Vector3(0.99999774, 0.99999714, 0.9999989)
 bones/22/name = "JNT_L_Grabpack_Trigger_017"
 bones/22/parent = 21
 bones/22/rest = Transform3D(1, 2.77556e-14, 8.74228e-08, 4.81195e-15, 1, -3.72529e-07, -8.74228e-08, 3.72529e-07, 1, -5.12261e-09, 0.0217512, -0.0155988)
@@ -9234,7 +9234,7 @@ debug_shape_custom_color = Color(0, 0, 1, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -179.25)
 
 [node name="Camera3D" type="Camera3D" parent="Neck" unique_id=1489837246]
-transform = Transform3D(0.9999022, 0.013973248, 5.837287e-07, -0.013973247, 0.99990225, -3.2780392e-07, -5.8825214e-07, 3.1961525e-07, 0.99999994, 0.002, -0.020999908, 0.16)
+transform = Transform3D(0.9999022, 0.013973247, 5.837287e-07, -0.013973247, 0.9999022, -3.278039e-07, -5.8825214e-07, 3.1961522e-07, 0.9999999, 0.044513777, 0.035105705, 0.16000003)
 keep_aspect = 0
 current = true
 fov = 90.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=4 uid="uid://baopxxyawgnob"]
+[gd_scene format=4 uid="uid://baopxxyawgnob"]
 
 [ext_resource type="Script" uid="uid://bg36bqyld6qeg" path="res://Player/Grabpack/Grabpacks/Scripts/grabpack_three.gd" id="1_86lif"]
 [ext_resource type="Texture2D" uid="uid://bsknrdtpaemc" path="res://Player/Grabpack/Models/T_Grabpack_02_BC.png" id="1_ge2oi"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d02ndr1cfnfix" path="res://Interface/MainMenu/Sound/buttonSFX.gd" id="9_a838d"]
 [ext_resource type="AudioStream" uid="uid://6ku06pnm8wc4" path="res://Player/Sound/Grabpack/watch_equip.mp3" id="10_3635y"]
 [ext_resource type="AudioStream" uid="uid://bhyrhulqor16i" path="res://Player/Sound/Grabpack/watch_unequip.mp3" id="11_a4m83"]
+[ext_resource type="PackedScene" uid="uid://7kywpcfjttjo" path="res://Player/Grabpack/Glowby/glowby_grabpack.tscn" id="12_a4m83"]
 
 [sub_resource type="Animation" id="Animation_5jh2t"]
 length = 0.001
@@ -770,17 +771,15 @@ Button/styles/hover = SubResource("StyleBoxFlat_ssprt")
 Button/styles/normal = SubResource("StyleBoxFlat_wy2c7")
 Button/styles/pressed = SubResource("StyleBoxFlat_8ybym")
 
-[node name="GrabpackThree" type="Node3D"]
+[node name="GrabpackThree" type="Node3D" unique_id=352898924]
 process_priority = 100
 script = ExtResource("1_86lif")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_5jh2t")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1399385312]
+libraries/ = SubResource("AnimationLibrary_5jh2t")
 speed_scale = 2.75
 
-[node name="Skeleton3D2" type="Skeleton3D" parent="."]
+[node name="Skeleton3D2" type="Skeleton3D" parent="." unique_id=34289671]
 transform = Transform3D(-0.849, 0, 1.28195e-07, 0, 0.849, 0, -1.28195e-07, 0, -0.849, 0, 0.142781, 0.479145)
 bones/0/name = "Root"
 bones/0/parent = -1
@@ -1035,25 +1034,25 @@ bones/35/position = Vector3(-1.48151e-08, 0.0699999, 1.32816e-08)
 bones/35/rotation = Quaternion(-6.95902e-16, 3.86794e-08, 2.58936e-15, 1)
 bones/35/scale = Vector3(1, 1, 1)
 
-[node name="SK_FirstPersonPlayer_Grabpack_02_mo" type="MeshInstance3D" parent="Skeleton3D2"]
+[node name="SK_FirstPersonPlayer_Grabpack_02_mo" type="MeshInstance3D" parent="Skeleton3D2" unique_id=92183125]
 mesh = SubResource("ArrayMesh_lbmkk")
 skin = SubResource("Skin_ughjy")
 
-[node name="TubeIKLeft" type="SkeletonIK3D" parent="Skeleton3D2"]
+[node name="TubeIKLeft" type="SkeletonIK3D" parent="Skeleton3D2" unique_id=931754951]
 transform = Transform3D(0.0395999, -1.19588e-08, -5.22737e-16, 0, -1.73097e-09, 0.0395999, -1.19588e-08, -0.0395999, -1.73097e-09, 0.457522, -0.0845484, -0.173735)
 root_bone = &"JNT_L_Grabpack_Tube_01"
 tip_bone = &"JNT_L_Grabpack_Tube_06"
 target_node = NodePath(".")
 
-[node name="TubeIKRight" type="SkeletonIK3D" parent="Skeleton3D2"]
+[node name="TubeIKRight" type="SkeletonIK3D" parent="Skeleton3D2" unique_id=8531576]
 transform = Transform3D(0.0395999, -1.19588e-08, -5.22737e-16, 0, -1.73097e-09, 0.0395999, -1.19588e-08, -0.0395999, -1.73097e-09, -0.446824, -0.115842, -0.374801)
 root_bone = &"JNT_R_Grabpack_Tube_01"
 tip_bone = &"JNT_R_Grabpack_Tube_06"
 target_node = NodePath(".")
 
-[node name="GrabpackLaunchable" type="Node" parent="."]
+[node name="GrabpackLaunchable" type="Node" parent="." unique_id=1724010439]
 
-[node name="GrabpackHandAttachmentData" type="Node" parent="." node_paths=PackedStringArray("skeleton")]
+[node name="GrabpackHandAttachmentData" type="Node" parent="." unique_id=1324585021 node_paths=PackedStringArray("skeleton")]
 script = ExtResource("4_o3rqd")
 skeleton = NodePath("../Skeleton3D2")
 left_gun_bone_index = 22
@@ -1061,73 +1060,73 @@ right_gun_bone_index = 5
 attachment_size = Vector3(2.5, 2.5, 2.5)
 use_flashlight_animation = true
 
-[node name="GrabpackSwitchHands" type="Node" parent="."]
+[node name="GrabpackSwitchHands" type="Node" parent="." unique_id=2011911379]
 
-[node name="GrabpackUseIKTube" type="Node" parent="."]
+[node name="GrabpackUseIKTube" type="Node" parent="." unique_id=1831848509]
 
-[node name="Watch" type="Node3D" parent="."]
+[node name="Watch" type="Node3D" parent="." unique_id=351952734]
 process_priority = 150
 transform = Transform3D(-0.008, -6.73532e-10, 1.90718e-09, 6.99318e-10, -0.00799927, 0.000108422, 1.89787e-09, 0.000108422, 0.00799927, -0.447654, -0.125755, 0.0273098)
 
-[node name="security_device" type="Node3D" parent="Watch"]
+[node name="security_device" type="Node3D" parent="Watch" unique_id=158295882]
 transform = Transform3D(1.64105e-06, 0.0542112, 3.99963, 0.0542103, -3.99926, 0.0542062, 3.99963, 0.0542053, -0.000736343, 7.62939e-06, 0.849316, -24.2853)
 
-[node name="Cylinder_003" type="MeshInstance3D" parent="Watch/security_device"]
+[node name="Cylinder_003" type="MeshInstance3D" parent="Watch/security_device" unique_id=853566646]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0.0901197)
 mesh = SubResource("ArrayMesh_a4m83")
 skeleton = NodePath("")
 
-[node name="Cylinder_004" type="MeshInstance3D" parent="Watch/security_device"]
+[node name="Cylinder_004" type="MeshInstance3D" parent="Watch/security_device" unique_id=332160462]
 transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, 0, 0.270318, 0)
 mesh = SubResource("ArrayMesh_7ydnc")
 skeleton = NodePath("")
 
-[node name="Face" type="Node3D" parent="Watch/security_device"]
+[node name="Face" type="Node3D" parent="Watch/security_device" unique_id=2086423902]
 transform = Transform3D(1, 1.42109e-14, -2.84217e-14, -1.42109e-14, 1, -2.03171e-14, 2.84217e-14, 2.03171e-14, 1, -4.76837e-07, 2.1074, -0.0285654)
 
-[node name="Plane" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Plane" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=2128150158]
 transform = Transform3D(2.38419e-07, 1, 1.19209e-07, -1.21072e-07, 1.19209e-07, -1, -1, 2.38419e-07, 1.19209e-07, 0.21439, 1.8926, 0.0285654)
 mesh = SubResource("PlaneMesh_o3rqd")
 skeleton = NodePath("")
 
-[node name="Plane2" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Plane2" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=787765429]
 transform = Transform3D(2.38419e-07, 1, 1.19209e-07, -1.22003e-07, 1.19209e-07, -1, -1, 2.38419e-07, 1.19209e-07, 0.202136, 1.89259, 0.0285654)
 mesh = SubResource("PlaneMesh_o4cvd")
 skeleton = NodePath("")
 
-[node name="Cylinder" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Cylinder" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=1294935414]
 transform = Transform3D(3.57628e-07, -1, -1.42109e-14, 1, 3.57628e-07, -9.31302e-10, -4.0538e-14, 1.42109e-14, 1, -0.0233068, 4.13877, 0.635083)
 mesh = SubResource("ArrayMesh_o4cvd")
 skeleton = NodePath("")
 
-[node name="Cylinder_001" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Cylinder_001" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=1537838101]
 transform = Transform3D(3.57628e-07, -1, -1.42109e-14, 1, 3.57628e-07, -9.31302e-10, -4.0538e-14, 1.42109e-14, 1, 0.0634775, 4.13877, 0.635083)
 mesh = SubResource("ArrayMesh_mwpxj")
 skeleton = NodePath("")
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Cylinder_002" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=43897699]
 transform = Transform3D(3.57628e-07, -1, -1.42109e-14, 1, 3.57628e-07, -9.31302e-10, -4.0538e-14, 1.42109e-14, 1, 0.0634775, 4.13877, 0.635083)
 mesh = SubResource("ArrayMesh_a838d")
 skeleton = NodePath("")
 
-[node name="Plane_002" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Plane_002" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=867472742]
 transform = Transform3D(1, 0, -1.42109e-14, 1.42109e-14, 1, -9.31302e-10, -2.84217e-14, 2.03334e-14, 1, 0.341897, 2.8926, 0.0285654)
 mesh = SubResource("ArrayMesh_l486v")
 skeleton = NodePath("")
 
-[node name="Cylinder_005" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Cylinder_005" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=386021805]
 transform = Transform3D(3.57628e-07, -1, -1.42109e-14, 1, 3.57628e-07, -9.31302e-10, -4.0538e-14, 1.42109e-14, 1, 0.063477, 4.12279, -0.780239)
 mesh = SubResource("ArrayMesh_ntivc")
 skeleton = NodePath("")
 
-[node name="Cube" type="MeshInstance3D" parent="Watch/security_device/Face"]
+[node name="Cube" type="MeshInstance3D" parent="Watch/security_device/Face" unique_id=725769519]
 transform = Transform3D(1, 0, 0, 1.42109e-14, 1, 2.07315e-14, -1.42109e-14, 2.03334e-14, 1, 9.53674e-07, 1.8926, 0.0285654)
 mesh = SubResource("ArrayMesh_o3rqd")
 skeleton = NodePath("")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=18161654]
 
-[node name="ui" type="Control" parent="CanvasLayer"]
+[node name="ui" type="Control" parent="CanvasLayer" unique_id=1670939142]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -1136,7 +1135,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/ui"]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CanvasLayer/ui" unique_id=1085239318]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -1145,15 +1144,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SubViewport" type="SubViewport" parent="CanvasLayer/ui/SubViewportContainer"]
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/ui/SubViewportContainer" unique_id=158809569]
 handle_input_locally = false
 size = Vector2i(1920, 1080)
 render_target_update_mode = 0
 
-[node name="Camera3D" type="Camera3D" parent="CanvasLayer/ui/SubViewportContainer/SubViewport"]
+[node name="Camera3D" type="Camera3D" parent="CanvasLayer/ui/SubViewportContainer/SubViewport" unique_id=928543137]
 top_level = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ui"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/ui" unique_id=2009380681]
 visible = false
 material = SubResource("ShaderMaterial_o4cvd")
 layout_mode = 1
@@ -1163,7 +1162,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="switching" type="ColorRect" parent="CanvasLayer/ui"]
+[node name="switching" type="ColorRect" parent="CanvasLayer/ui" unique_id=2074211358]
 visible = false
 material = SubResource("ShaderMaterial_3635y")
 layout_mode = 1
@@ -1173,7 +1172,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="switching2" type="ColorRect" parent="CanvasLayer/ui/switching"]
+[node name="switching2" type="ColorRect" parent="CanvasLayer/ui/switching" unique_id=850622491]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -1182,15 +1181,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.792157, 0.792157, 0.792157, 0.686275)
 
-[node name="ButtonSFXPlayer" type="Node" parent="CanvasLayer/ui"]
+[node name="ButtonSFXPlayer" type="Node" parent="CanvasLayer/ui" unique_id=669795237]
 script = ExtResource("9_a838d")
 root_path = NodePath("..")
 metadata/_custom_type_script = "uid://d02ndr1cfnfix"
 
-[node name="Buttons" type="Node2D" parent="CanvasLayer/ui"]
+[node name="Buttons" type="Node2D" parent="CanvasLayer/ui" unique_id=1658199006]
 visible = false
 
-[node name="Button" type="Button" parent="CanvasLayer/ui/Buttons"]
+[node name="Button" type="Button" parent="CanvasLayer/ui/Buttons" unique_id=1844625465]
 offset_left = 54.0
 offset_top = 967.0
 offset_right = 387.0
@@ -1199,7 +1198,7 @@ theme = SubResource("Theme_3635y")
 theme_override_font_sizes/font_size = 30
 text = "Open Obstacle"
 
-[node name="Button3" type="Button" parent="CanvasLayer/ui/Buttons"]
+[node name="Button3" type="Button" parent="CanvasLayer/ui/Buttons" unique_id=2028596111]
 offset_left = 54.0
 offset_top = 44.0
 offset_right = 259.0
@@ -1208,7 +1207,7 @@ theme = SubResource("Theme_3635y")
 theme_override_font_sizes/font_size = 30
 text = "Back"
 
-[node name="Button2" type="Button" parent="CanvasLayer/ui/Buttons"]
+[node name="Button2" type="Button" parent="CanvasLayer/ui/Buttons" unique_id=240563269]
 offset_left = 1521.0
 offset_top = 967.0
 offset_right = 1856.0
@@ -1217,11 +1216,15 @@ theme = SubResource("Theme_3635y")
 theme_override_font_sizes/font_size = 30
 text = "Switch Camera"
 
-[node name="Enter" type="AudioStreamPlayer" parent="."]
+[node name="Enter" type="AudioStreamPlayer" parent="." unique_id=363419368]
 stream = ExtResource("10_3635y")
 
-[node name="Exit" type="AudioStreamPlayer" parent="."]
+[node name="Exit" type="AudioStreamPlayer" parent="." unique_id=145948983]
 stream = ExtResource("11_a4m83")
+
+[node name="GlowbyGrabpack" parent="." unique_id=1224390617 instance=ExtResource("12_a4m83")]
+transform = Transform3D(-1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 
 [connection signal="pressed" from="CanvasLayer/ui/Buttons/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/ui/Buttons/Button3" to="." method="_on_button_3_pressed"]

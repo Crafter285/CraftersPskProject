@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b38oqy8rp6qdn"]
+[gd_scene format=4 uid="uid://b38oqy8rp6qdn"]
 
 [ext_resource type="Script" uid="uid://fu17ske4f7t0" path="res://Objects/Gameplay/Gates/GateTypes/gate_type.gd" id="1_hlb8x"]
 [ext_resource type="Texture2D" uid="uid://q3qhl147nnso" path="res://Objects/Gameplay/Gates/Model/gates_colour_Image_3.png" id="2_dayl1"]
@@ -95,38 +95,40 @@ shadow_mesh = SubResource("ArrayMesh_h7p0e")
 [sub_resource type="BoxShape3D" id="BoxShape3D_o8fnl"]
 size = Vector3(2.94043, 2.76709, 0.0859375)
 
-[node name="GateType" type="Node3D"]
+[node name="GateType" type="Node3D" unique_id=312339957 node_paths=PackedStringArray("frame", "gate")]
 script = ExtResource("1_hlb8x")
+frame = NodePath("SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0")
+gate = NodePath("SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0")
 metadata/_custom_type_script = "uid://fu17ske4f7t0"
 
-[node name="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0" type="MeshInstance3D" parent="."]
+[node name="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0" type="MeshInstance3D" parent="." unique_id=2087052410]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_4uw5q")
 skeleton = NodePath("")
 
-[node name="Collision" type="StaticBody3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0"]
+[node name="Collision" type="StaticBody3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0" unique_id=221660781]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision" unique_id=1486684390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.59994, 1.438, 0)
 shape = SubResource("BoxShape3D_hlb8x")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision" unique_id=1378642737]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.56788, 1.41837, 0)
 shape = SubResource("BoxShape3D_hlb8x")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="SM_RollUpDoor_C_Frame_Blue_mo_MI_RollUpDoor_C_Red_001_0/Collision" unique_id=979862928]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00641751, 2.87293, 0)
 shape = SubResource("BoxShape3D_dayl1")
 
-[node name="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0" type="MeshInstance3D" parent="."]
+[node name="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0" type="MeshInstance3D" parent="." unique_id=1689604296]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
 mesh = SubResource("ArrayMesh_jhedh")
 skeleton = NodePath("")
 
-[node name="Collision" type="StaticBody3D" parent="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0"]
+[node name="Collision" type="StaticBody3D" parent="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0" unique_id=363747461]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0/Collision"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SM_RollUpDoor_E_mo_MI_RollUpDoor_C_Yellow_001_0/Collision" unique_id=1141219021]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36548, 0)
 shape = SubResource("BoxShape3D_o8fnl")

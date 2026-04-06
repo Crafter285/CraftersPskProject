@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dha6g24hsx438"]
+
+[ext_resource type="Texture2D" uid="uid://bqojan03cotf" path="res://Objects/Gameplay/PressureStuff/Textures/T_Floaters_A_BC.png" id="1_kbwdr"]
+[ext_resource type="Texture2D" uid="uid://dtofqb1egoj1q" path="res://Objects/Gameplay/PressureStuff/Textures/T_Floaters_A_ORMK.png" id="2_o1wj5"]
+[ext_resource type="Texture2D" uid="uid://c435pfgjhj72f" path="res://Objects/Gameplay/PressureStuff/Textures/T_Floaters_A_N.png" id="3_c8b35"]
+
+[resource]
+transparency = 1
+albedo_texture = ExtResource("1_kbwdr")
+metallic_texture = ExtResource("2_o1wj5")
+roughness_texture = ExtResource("2_o1wj5")
+normal_enabled = true
+normal_texture = ExtResource("3_c8b35")
+ao_enabled = true
+ao_texture = ExtResource("2_o1wj5")

@@ -2,6 +2,7 @@ extends Node3D
 
 @onready var item_animation: AnimationPlayer = $"../ItemAnimation"
 @onready var watch = $Watch
+@onready var glowby = $GlowbyGrabpack
 @onready var arm_attach: BoneAttachment3D = $"../LayerWalk/CanonAttachLeft/ArmAttach"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var camera_3d: Camera3D = $CanvasLayer/ui/SubViewportContainer/SubViewport/Camera3D
@@ -21,6 +22,16 @@ var current_cam: int = 0
 func _process(_delta: float) -> void:
 	watch.global_transform = arm_attach.global_transform
 	watch.scale = Vector3(0.008, 0.008, 0.008)
+
+	glowby.global_transform = arm_attach.global_transform
+	glowby.scale = Vector3(1, 1, 1)
+
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		if player.start_with_glowby == true:
+			$GlowbyGrabpack.show()
+		elif player.start_with_glowby == false:
+			$GlowbyGrabpack.hide()
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("togglewatch"):

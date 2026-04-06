@@ -1,3 +1,10 @@
 [gd_scene format=3 uid="uid://8neuejj4sug2"]
 
-[node name="GrabpackNone" type="Node3D"]
+[ext_resource type="Script" uid="uid://chw8og50t7j3v" path="res://Player/Grabpack/Grabpacks/Scripts/GlowbyHand.gd" id="1_lt1ss"]
+[ext_resource type="PackedScene" uid="uid://d1gidhe6smhde" path="res://Player/Grabpack/Glowby/glowby_hand.tscn" id="2_lt1ss"]
+
+[node name="GrabpackNone" type="Node3D" unique_id=1540763038]
+script = ExtResource("1_lt1ss")
+
+[node name="GlowbyHand" parent="." unique_id=1224390617 instance=ExtResource("2_lt1ss")]
+visible = false

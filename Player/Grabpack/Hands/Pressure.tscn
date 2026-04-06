@@ -4,11 +4,11 @@
 [ext_resource type="Texture2D" uid="uid://cdmx8g7fpgffw" path="res://Player/Grabpack/Models/Hands/T_PressureHand_BNT.png" id="2_bumtj"]
 [ext_resource type="Script" uid="uid://gs4nfpgi5328" path="res://Player/Grabpack/Hands/SettingsComponents/fire_mode_launch.gd" id="2_pa7ol"]
 [ext_resource type="Texture2D" uid="uid://btt2ua1rds1hb" path="res://Player/Grabpack/Models/Hands/T_PressureHand_N.png" id="3_8e2bm"]
-[ext_resource type="Texture2D" uid="uid://bafjk4sqp4pvo" path="res://Interface/Inventory/ItemIcons/PressureHand.png" id="3_lu0o4"]
 [ext_resource type="Script" uid="uid://e26flvrrg06t" path="res://Player/Grabpack/Hands/SettingsComponents/hand_inventory_icon.gd" id="4_s456b"]
 [ext_resource type="Texture2D" uid="uid://bi2x5gi3map37" path="res://Player/Grabpack/Models/Hands/T_PressureHand_ORM.png" id="4_xfdbo"]
 [ext_resource type="Texture2D" uid="uid://difi76573jdkf" path="res://Objects/VFX/Texture/smoke_effect.png" id="5_auyw2"]
 [ext_resource type="Script" uid="uid://byjxb5lhdyqeo" path="res://Player/Grabpack/Hands/SettingsComponents/hand_use_animations.gd" id="6_nifxo"]
+[ext_resource type="Texture2D" uid="uid://bjkk0u2p5wdnc" path="res://Interface/Inventory/ItemIcons/T_Pressure_Hand.png" id="7_74m6a"]
 
 [sub_resource type="Animation" id="Animation_426y7"]
 resource_name = "bend"
@@ -3647,7 +3647,7 @@ metadata/_custom_type_script = "uid://gs4nfpgi5328"
 
 [node name="HandInventoryIcon" type="Node" parent="." unique_id=1918940202]
 script = ExtResource("4_s456b")
-icon = ExtResource("3_lu0o4")
+icon = ExtResource("7_74m6a")
 has_description = true
 description = "Found in Boilers beneath the Lab, the Pressure Hand allows for charged force bursts to push heavy objects and break brittle surfaces."
 

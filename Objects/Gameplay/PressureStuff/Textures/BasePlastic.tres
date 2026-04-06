@@ -1,0 +1,15 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ucvpuwpbi7cd"]
+
+[ext_resource type="Texture2D" uid="uid://c0mkyiaabnlu1" path="res://Objects/Gameplay/PressureStuff/Textures/T_BasePlasticTrim_A_BC.png" id="1_ut5l7"]
+[ext_resource type="Texture2D" uid="uid://bj2w1j1wukl3s" path="res://Objects/Gameplay/PressureStuff/Textures/T_BasePlasticTrim_A_ORMK.png" id="2_is4ov"]
+[ext_resource type="Texture2D" uid="uid://cdac5ebyqmgs6" path="res://Objects/Gameplay/PressureStuff/Textures/T_BasePlasticTrim_A_N.png" id="3_j774l"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_ut5l7")
+metallic = 1.0
+metallic_texture = ExtResource("2_is4ov")
+metallic_texture_channel = 1
+roughness_texture = ExtResource("2_is4ov")
+normal_enabled = true
+normal_texture = ExtResource("3_j774l")

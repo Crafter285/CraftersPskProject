@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bvmx208w0gqda"]
+
+[ext_resource type="Script" uid="uid://cbnb7xy32lus0" path="res://CraftersPskExtension/Gameplay/MagneticStuff/Scripts/magnetic_panel.gd" id="1_qqlwc"]
+[ext_resource type="Texture2D" uid="uid://cdagpr8skk43i" path="res://CraftersPskExtension/Gameplay/MagneticStuff/Textures/magneticPanelAO.png" id="2_r38u7"]
+[ext_resource type="Texture2D" uid="uid://b715cctjr6ish" path="res://CraftersPskExtension/Gameplay/MagneticStuff/Textures/magneticPanelEmmision.png" id="3_n3dto"]
+[ext_resource type="Material" uid="uid://cr338v71agvln" path="res://Player/Grabpack/Wire/WireMaterialLeft.tres" id="4_akgg4"]
+[ext_resource type="Material" uid="uid://k64313mf7hr5" path="res://Player/Grabpack/Wire/WireMaterialRight.tres" id="5_li1ly"]
+[ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="6_8p62e"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xscg"]
+albedo_texture = ExtResource("2_r38u7")
+metallic = 1.0
+metallic_texture = ExtResource("3_n3dto")
+emission_enabled = true
+emission_energy_multiplier = 0.47
+emission_texture = ExtResource("3_n3dto")
+ao_enabled = true
+uv1_scale = Vector3(0.532, 0.806, 0.532)
+uv1_offset = Vector3(0.465, -0.995, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xyqbj"]
+albedo_texture = ExtResource("2_r38u7")
+metallic = 1.0
+metallic_texture = ExtResource("3_n3dto")
+emission_enabled = true
+emission_energy_multiplier = 0.22
+emission_texture = ExtResource("3_n3dto")
+uv1_scale = Vector3(0.532, 0.806, 0.532)
+uv1_offset = Vector3(0.465, -1.815, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xyqbj"]
+size = Vector3(1.3770905, 1.2206542, 0.2)
+
+[node name="MagneticPanel" type="Node3D" unique_id=1515634783]
+script = ExtResource("1_qqlwc")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1680949305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064843774, 0)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = SubResource("StandardMaterial3D_4xscg")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=710621543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064843774, -0.003998041)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = ExtResource("4_akgg4")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=317136443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4568919, 0.064843774, 0)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = SubResource("StandardMaterial3D_xyqbj")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="." unique_id=1858296597]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4568919, 0.064843774, -0.0036132336)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = ExtResource("5_li1ly")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1044627911]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463333, 0.064843774, 0)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = SubResource("StandardMaterial3D_xyqbj")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=120766530]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.463333, 0.064843774, -0.004597187)
+use_collision = true
+size = Vector3(0.43701172, 1.2, 0.0073242188)
+material = ExtResource("5_li1ly")
+
+[node name="HandGrab" type="Area3D" parent="." unique_id=689786357 node_paths=PackedStringArray("grab_marker")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.024209708, -0.06383443, -0.017757893)
+script = ExtResource("6_8p62e")
+grab_marker = NodePath("HandPositionMarker")
+metadata/_custom_type_script = "uid://d4joakp74nxnn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=1433260771]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.017662048, 0.13299054, 0.027848154)
+shape = SubResource("BoxShape3D_xyqbj")
+
+[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=329111931]
+
+[node name="PullMark" type="Marker3D" parent="." unique_id=962708729]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.6, 1)
+
+[connection signal="grabbed" from="HandGrab" to="." method="_on_hand_grab_grabbed"]
+[connection signal="let_go" from="HandGrab" to="." method="_on_hand_grab_let_go"]
+[connection signal="pulled" from="HandGrab" to="." method="_on_hand_grab_pulled"]

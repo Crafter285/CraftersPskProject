@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://b5hqdrggpb7dw"]
+[gd_scene format=4 uid="uid://b5hqdrggpb7dw"]
 
+[ext_resource type="Script" uid="uid://ldxqc1kraopp" path="res://Player/Grabpack/Grabpacks/Scripts/GlowbyGrabpack.gd" id="1_c8313"]
 [ext_resource type="Texture2D" uid="uid://blve0bao3jqbk" path="res://Player/Grabpack/Models/T_ClassicGrabpackBase_BC.png" id="1_w8835"]
 [ext_resource type="Texture2D" uid="uid://bdm7lk4thpacx" path="res://Player/Grabpack/Models/T_ClassicGrabpackBase_Nt.png" id="2_68t5p"]
 [ext_resource type="Texture2D" uid="uid://bf1lcr33fnvp7" path="res://Player/Grabpack/Models/T_ClassicGrabpackBase_ORM.png" id="3_c8313"]
 [ext_resource type="Script" uid="uid://cbtbtgp4x73b6" path="res://Player/Grabpack/Grabpacks/Scripts/grabpack_hand_attachment_data.gd" id="4_w8835"]
+[ext_resource type="PackedScene" uid="uid://7kywpcfjttjo" path="res://Player/Grabpack/Glowby/glowby_grabpack.tscn" id="6_5n6eu"]
 
 [sub_resource type="ORMMaterial3D" id="ORMMaterial3D_5n6eu"]
 albedo_texture = ExtResource("1_w8835")
@@ -134,9 +136,10 @@ bind/32/name = &"JNT_L_HandAttachment_Pivot_end_077"
 bind/32/bone = -1
 bind/32/pose = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
 
-[node name="GrabpackOne" type="Node3D"]
+[node name="GrabpackOne" type="Node3D" unique_id=138552695]
+script = ExtResource("1_c8313")
 
-[node name="Skeleton3D" type="Skeleton3D" parent="."]
+[node name="Skeleton3D" type="Skeleton3D" parent="." unique_id=879245315]
 transform = Transform3D(-3.33333, -2.91409e-07, -4.74766e-14, 1.06967e-29, -5.43069e-07, 3.33333, -2.91409e-07, 3.33333, 5.43069e-07, 0, 0.055, 0.237)
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
@@ -370,27 +373,31 @@ bones/32/position = Vector3(0, 0.02, -1.38778e-17)
 bones/32/rotation = Quaternion(-2.64698e-23, 0, 1.92922e-30, 1)
 bones/32/scale = Vector3(1, 1, 1)
 
-[node name="Object_39" type="MeshInstance3D" parent="Skeleton3D"]
+[node name="Object_39" type="MeshInstance3D" parent="Skeleton3D" unique_id=197312933]
 mesh = SubResource("ArrayMesh_c8313")
 skin = SubResource("Skin_5n6eu")
 
-[node name="TubeIKRight" type="SkeletonIK3D" parent="Skeleton3D"]
+[node name="TubeIKRight" type="SkeletonIK3D" parent="Skeleton3D" unique_id=716143860]
 root_bone = &"JNT_R_Grabpack_Tube_01_09"
 tip_bone = &"JNT_R_Grabpack_Tube_06_014"
 target_node = NodePath("../../../LayerWalk/TubeLeft")
 
-[node name="TubeIKLeft" type="SkeletonIK3D" parent="Skeleton3D"]
+[node name="TubeIKLeft" type="SkeletonIK3D" parent="Skeleton3D" unique_id=669446160]
 root_bone = &"JNT_L_Grabpack_Tube_01_018"
 tip_bone = &"JNT_L_Grabpack_Tube_06_023"
 target_node = NodePath("../../../LayerWalk/RightTube")
 
-[node name="GrabpackLaunchable" type="Node" parent="."]
+[node name="GrabpackLaunchable" type="Node" parent="." unique_id=300632025]
 
-[node name="GrabpackHandAttachmentData" type="Node" parent="." node_paths=PackedStringArray("skeleton")]
+[node name="GrabpackHandAttachmentData" type="Node" parent="." unique_id=1779049895 node_paths=PackedStringArray("skeleton")]
 script = ExtResource("4_w8835")
 skeleton = NodePath("../Skeleton3D")
 left_gun_bone_index = 21
 right_gun_bone_index = 6
 attachment_size = Vector3(10, 10, 10)
 
-[node name="GrabpackUseIKTube" type="Node" parent="."]
+[node name="GrabpackUseIKTube" type="Node" parent="." unique_id=950308611]
+
+[node name="GlowbyGrabpack" parent="." unique_id=1224390617 instance=ExtResource("6_5n6eu")]
+transform = Transform3D(-1, 1.5099582e-07, 0, -1.509958e-07, -1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0)
+visible = false

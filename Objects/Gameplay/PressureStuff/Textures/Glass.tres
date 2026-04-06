@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://duv888n3swrva"]
+
+[ext_resource type="Texture2D" uid="uid://dfjo1irttx2b1" path="res://Objects/Gameplay/PressureStuff/Textures/T_Glass_A_MSK.png" id="1_5xntt"]
+[ext_resource type="Texture2D" uid="uid://v3xcelly3ycj" path="res://Objects/Gameplay/PressureStuff/Textures/T_Glass_B_N.png" id="2_q3saq"]
+
+[resource]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.078431375)
+metallic = 1.0
+metallic_texture = ExtResource("1_5xntt")
+normal_enabled = true
+normal_texture = ExtResource("2_q3saq")
+uv1_scale = Vector3(0.5, 0.5, 0.5)

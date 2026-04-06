@@ -1,15 +1,20 @@
 extends Node3D
+
 @export var max_charge: float = 3.0
 @export var stop_particles_on_full: bool = false
 @export var enabled: bool = true
+
 var charge: float = 0.0
 var is_charging: bool = false
 var fully_charged: bool = false
 var is_enabled: bool = true
-signal power_25
-signal power_50
-signal power_75
-signal power_100
+
+signal power_25(amount: float)
+signal power_50(amount: float)
+signal power_75(amount: float)
+signal power_100(amount: float)
+signal power_any(amount: float)
+
 @onready var pressure_ui = get_tree().get_root().find_child("pressure", true, false)
 @onready var hand_grab: Area3D = $HandGrab
 
@@ -25,7 +30,6 @@ func _ready() -> void:
 	audio.stream = stream
 	audio.autoplay = false
 	add_child(audio)
-	# Pre-buffer the sound so first play has no hitch
 	audio.play()
 	audio.stop()
 
@@ -43,20 +47,17 @@ func _process(delta: float) -> void:
 	var should_enable = Grabpack.right_hand.current_hand_node.name == "PressureHand"
 	if hand_grab.enabled != should_enable:
 		hand_grab.enabled = should_enable
-
 	if is_charging:
 		charge += delta
 		charge = clamp(charge, 0.0, max_charge)
 		$Label3D.text = "%.2f" % charge
 		pressure_ui.update_charge(charge / max_charge)
-
 		if charge >= max_charge and not fully_charged:
 			fully_charged = true
 			$ChargeSound.stop()
 			if stop_particles_on_full:
 				for p in _get_particles():
 					p.emitting = false
-
 		if not fully_charged:
 			if not $ChargeSound.playing:
 				$ChargeSound.play()
@@ -83,15 +84,15 @@ func fire():
 	var power = charge / max_charge
 	print("Pressure blast power:", power)
 
+	power_any.emit(power)
 	if power >= 1.0:
-		power_100.emit()
+		power_100.emit(power)
 	elif power >= 0.75:
-		power_75.emit()
+		power_75.emit(power)
 	elif power >= 0.5:
-		power_50.emit()
+		power_50.emit(power)
 	elif power >= 0.25:
-		power_25.emit()
-
+		power_25.emit(power)
 	charge = 0.0
 	fully_charged = false
 	$Label3D.text = "0.00"

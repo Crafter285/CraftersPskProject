@@ -15,9 +15,6 @@ extends CharacterBody3D
 
 @export_category("Settings")
 @export_group("Animations")
-enum type {
-	Ch4
-}
 enum hand_anims {
 	Ch4
 }
@@ -45,7 +42,7 @@ enum mask_types {
 @export var gasmask_toggleable: bool = false
 @export var gasmask_type: mask_types = mask_types.Normal
 @export_subgroup("Grabpack")
-@export var grabpack_type: type = type.Ch4
+@export var EMU_Cuffs: bool = false
 @export var hand_speed: float = 24.944
 @export var start_lowered: bool = false
 #0 is no grabpack, and numbers 1 and 2 are grabpack versions 1 and 2.
@@ -95,8 +92,6 @@ var glowby_flashlight_check: bool = false
 var glowby_blacklight_check: bool = false
 var glowby_flashlight_check2: bool = false
 var glowby_blacklight_check2: bool = false
-
-
 
 #Wire Constraints
 @onready var length_calculator: Node = $Grabpack/Pack/LengthCalculator

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://co0ffh5fb6tw2"]
+[gd_scene format=4 uid="uid://co0ffh5fb6tw2"]
 
 [ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="1_7upni"]
 [ext_resource type="Script" uid="uid://ckpinftbv7efr" path="res://Objects/Gameplay/Pressable/Scripts/button.gd" id="1_uvgfo"]
@@ -169,40 +169,40 @@ _data = {
 &"press": SubResource("Animation_io6g0")
 }
 
-[node name="PowerDirectorButton" type="StaticBody3D"]
+[node name="PowerDirectorButton" type="StaticBody3D" unique_id=1578216617]
 script = ExtResource("1_uvgfo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1134404488]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 0)
 shape = SubResource("CylinderShape3D_c683l")
 
-[node name="SM_PowerDirectingWithButton_A" type="MeshInstance3D" parent="."]
+[node name="SM_PowerDirectingWithButton_A" type="MeshInstance3D" parent="." unique_id=1640119459]
 mesh = SubResource("ArrayMesh_c683l")
 skeleton = NodePath("")
 
-[node name="SM_PowerDirectingBoxPlug_A" type="MeshInstance3D" parent="."]
+[node name="SM_PowerDirectingBoxPlug_A" type="MeshInstance3D" parent="." unique_id=582570116]
 transform = Transform3D(-9.52908e-08, 0, -2.18, 0, 2.18, 0, 2.18, 0, -9.52908e-08, -0.745279, 0.12821, 0)
 mesh = SubResource("ArrayMesh_h787k")
 skeleton = NodePath("")
 
-[node name="SM_PowerDirectingBoxPlug_A2" type="MeshInstance3D" parent="."]
+[node name="SM_PowerDirectingBoxPlug_A2" type="MeshInstance3D" parent="." unique_id=1681581747]
 transform = Transform3D(-2.18, 0, 1.90582e-07, 0, 2.18, 0, -1.90582e-07, 0, -2.18, 0, 0.128, -0.7442)
 mesh = SubResource("ArrayMesh_h787k")
 skeleton = NodePath("")
 
-[node name="Button" type="StaticBody3D" parent="."]
+[node name="Button" type="StaticBody3D" parent="." unique_id=20303965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button" unique_id=2028583359]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.120654, 0)
 shape = SubResource("CylinderShape3D_7upni")
 
-[node name="SM_PowerDirectingButton_A" type="MeshInstance3D" parent="Button"]
+[node name="SM_PowerDirectingButton_A" type="MeshInstance3D" parent="Button" unique_id=1360596615]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0541353, 0)
 mesh = SubResource("ArrayMesh_7upni")
 skeleton = NodePath("")
 
-[node name="HandGrab" type="Area3D" parent="Button" node_paths=PackedStringArray("grab_marker")]
+[node name="HandGrab" type="Area3D" parent="Button" unique_id=384914655 node_paths=PackedStringArray("grab_marker")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
 script = ExtResource("1_7upni")
 update_every_frame = true
@@ -210,19 +210,17 @@ stop_hand = false
 grab_marker = NodePath("HandPositionMarker")
 metadata/_custom_type_script = "uid://d4joakp74nxnn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/HandGrab"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/HandGrab" unique_id=1728635000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 shape = SubResource("BoxShape3D_io6g0")
 
-[node name="HandPositionMarker" type="Marker3D" parent="Button/HandGrab"]
+[node name="HandPositionMarker" type="Marker3D" parent="Button/HandGrab" unique_id=1766544333]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.1, 0)
 
-[node name="Animation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_uvgfo")
-}
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=288350236]
+libraries/ = SubResource("AnimationLibrary_uvgfo")
 
-[node name="PressSound" type="AudioStreamPlayer3D" parent="."]
+[node name="PressSound" type="AudioStreamPlayer3D" parent="." unique_id=1224275398]
 stream = ExtResource("3_ok3ds")
 
 [connection signal="grabbed" from="Button/HandGrab" to="." method="_on_hand_grab_grabbed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=4 uid="uid://b1p6mpsjn5qub"]
+[gd_scene format=4 uid="uid://b1p6mpsjn5qub"]
 
 [ext_resource type="Script" uid="uid://bx5w6t8uuhdip" path="res://Objects/Gameplay/Puzzles/Battery/Scripts/battery_holder.gd" id="1_7lm1g"]
 [ext_resource type="Texture2D" uid="uid://cnmjqgr3mexwy" path="res://Objects/Gameplay/ControlPanel/Mesh/T_ConsolesBatteryReceiver_A_BC.png" id="2_l5lrn"]
@@ -56,59 +56,47 @@ size = Vector3(0.85, 0.9, 0.556714)
 [sub_resource type="BoxShape3D" id="BoxShape3D_okaob"]
 size = Vector3(0.85, 0.2, 0.7)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6k68m"]
-shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_1to5u"]
-material = SubResource("StandardMaterial3D_6k68m")
-size = Vector2(0.475, 0.475)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_7lm1g"]
 size = Vector3(0.3, 0.3, 0.157129)
 
-[node name="ConsoleBatterySocket" type="StaticBody3D"]
+[node name="ConsoleBatterySocket" type="StaticBody3D" unique_id=866753403]
 script = ExtResource("1_7lm1g")
 
-[node name="SM_ConsolsBatteryReciver_A" type="MeshInstance3D" parent="."]
+[node name="SM_ConsolsBatteryReciver_A" type="MeshInstance3D" parent="." unique_id=109732958]
 mesh = SubResource("ArrayMesh_83iof")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=474383788]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45, 0.0283569)
 shape = SubResource("BoxShape3D_mbdj4")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=1214923990]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0.1)
 shape = SubResource("BoxShape3D_okaob")
 
-[node name="black" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0188028, 0.569665, 0.25484)
-mesh = SubResource("PlaneMesh_1to5u")
-
-[node name="Battery" type="Marker3D" parent="."]
+[node name="Battery" type="Marker3D" parent="." unique_id=757714224]
 transform = Transform3D(0.8, 0, 0, 0, 0.381727, -0.703054, 0, 0.703054, 0.381727, 0.0162917, 0.559632, 0.352012)
 
-[node name="BatteryNode" parent="." instance=ExtResource("5_cr13w")]
-transform = Transform3D(0.8, 0, 0, 0, 0.381727, -0.703054, 0, 0.703054, 0.381727, 0.0162917, 0.559632, 0.352012)
+[node name="BatteryNode" parent="." unique_id=136786919 instance=ExtResource("5_cr13w")]
+transform = Transform3D(0.8, 0, 0, 0, 0.11425519, -0.79179937, 0, 0.79179937, 0.11425519, 0.008568935, 0.48964256, 0.38437048)
 
-[node name="Area" type="Area3D" parent="."]
+[node name="Area" type="Area3D" parent="." unique_id=361459056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162917, 0.149788, 0.250396)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area" unique_id=1225389016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45395, 0.0285645)
 shape = SubResource("BoxShape3D_7lm1g")
 
-[node name="PowerUp" type="AudioStreamPlayer3D" parent="."]
+[node name="PowerUp" type="AudioStreamPlayer3D" parent="." unique_id=1558840327]
 stream = ExtResource("6_oitd2")
 
-[node name="PowerDown" type="AudioStreamPlayer3D" parent="."]
+[node name="PowerDown" type="AudioStreamPlayer3D" parent="." unique_id=467914644]
 stream = ExtResource("7_vc346")
 
-[node name="Idle" type="AudioStreamPlayer3D" parent="."]
+[node name="Idle" type="AudioStreamPlayer3D" parent="." unique_id=854601430]
 stream = ExtResource("8_fa2an")
 
-[node name="Lock" type="AudioStreamPlayer3D" parent="."]
+[node name="Lock" type="AudioStreamPlayer3D" parent="." unique_id=1848847349]
 stream = ExtResource("9_wgmpf")
 
 [connection signal="area_entered" from="Area" to="." method="_on_area_area_entered"]
