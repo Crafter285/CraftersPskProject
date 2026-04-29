@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dim0fed1pmpqt"]
 
+[ext_resource type="Script" uid="uid://dismbnxtp1d6i" path="res://Player/Grabpack/Hands/Scripts/ConductiveHand.gd" id="1_3mb2v"]
 [ext_resource type="Texture2D" uid="uid://ggearnyuydxd" path="res://Player/Grabpack/Models/Hands/T_ConductiveHand_Icons_BC.png" id="1_8c03b"]
 [ext_resource type="Script" uid="uid://gs4nfpgi5328" path="res://Player/Grabpack/Hands/SettingsComponents/fire_mode_launch.gd" id="4_kbd8p"]
 [ext_resource type="Texture2D" uid="uid://bwh6hsa0y4lsb" path="res://Player/Grabpack/Models/Hands/T_ConductiveHand_Icon_BNT.png" id="5_ajlgl"]
@@ -3241,6 +3242,7 @@ bind/51/bone = -1
 bind/51/pose = Transform3D(1, -2.449294e-16, 1.4843964e-21, 2.449294e-16, 1, -4.3955943e-06, -4.1867448e-22, 4.35114e-06, 1, 0.00047706562, 0.0014118021, -0.0033890903)
 
 [node name="ConductiveHand" type="Node3D" unique_id=276190465]
+script = ExtResource("1_3mb2v")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=698039735]
 libraries/ = SubResource("AnimationLibrary_ke2pd")

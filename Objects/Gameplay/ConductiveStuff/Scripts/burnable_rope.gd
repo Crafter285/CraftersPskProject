@@ -64,9 +64,10 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(3.0).timeout
 		queue_free()
 
-
+var current_hand_type
 func _on_hand_grab_grabbed(hand: bool) -> void:
 	if hand and Grabpack.right_hand.current_hand_node.name == "ConductiveHand":
+		current_hand_type = hand
 		if conductive_panel.is_fire2 == true:
 			$Heated_Release.play()
 			conductive_panel._reset_uv()

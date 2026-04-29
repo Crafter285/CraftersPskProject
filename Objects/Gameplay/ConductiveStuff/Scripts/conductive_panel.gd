@@ -68,6 +68,9 @@ func _reset_uv() -> void:
 	is_electricity2 = false
 	is_fire2 = false
 	is_ice2 = false
+	var hand_node = Grabpack.right_hand.current_hand_node
+	if hand_node.name == "Conductivehand" or hand_node.name == "ConductiveHand":
+		hand_node.none()
 
 func _get_default_offset_x() -> float:
 	match ConductiveType:
@@ -119,6 +122,9 @@ func _on_hand_grab_grabbed(hand: bool) -> void:
 	if hand and Grabpack.right_hand.current_hand_node.name == "ConductiveHand":
 		_setup_material()
 		if is_electricity:
+			var hand_node = Grabpack.right_hand.current_hand_node
+			if hand_node.name == "Conductivehand" or hand_node.name == "ConductiveHand":
+				hand_node.electra()
 			is_electricity2 = true
 			is_fire2 = false
 			is_ice2 = false
@@ -127,6 +133,9 @@ func _on_hand_grab_grabbed(hand: bool) -> void:
 			$Heat_Attatched.stop()
 			$Chilled_Attatched.stop()
 		elif is_fire:
+			var hand_node = Grabpack.right_hand.current_hand_node
+			if hand_node.name == "Conductivehand" or hand_node.name == "ConductiveHand":
+				hand_node.fire()
 			is_fire2 = true
 			is_electricity2 = false
 			is_ice2 = false
@@ -135,6 +144,9 @@ func _on_hand_grab_grabbed(hand: bool) -> void:
 			$Electrical_Attacthed.stop()
 			$Chilled_Attatched.stop()
 		elif is_ice:
+			var hand_node = Grabpack.right_hand.current_hand_node
+			if hand_node.name == "Conductivehand" or hand_node.name == "ConductiveHand":
+				hand_node.ice()
 			is_ice2 = true
 			is_fire2 = false
 			is_electricity2 = false

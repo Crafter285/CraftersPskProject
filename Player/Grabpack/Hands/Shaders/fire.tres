@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://gsrs275in656"]
+
+[ext_resource type="Shader" uid="uid://djq2flxj1hp56" path="res://Player/Grabpack/Hands/ConductiveShader.gdshader" id="1"]
+[ext_resource type="Texture2D" uid="uid://cexdkpwyy71lc" path="res://Player/Grabpack/Models/Hands/T_Conductive_Hand_IDM.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://v2liu8m001tn" path="res://Player/Grabpack/Hands/Shaders/T_FireNoise1.png" id="3"]
+
+[resource]
+render_priority = 1
+shader = ExtResource("1")
+shader_parameter/emission_mask = ExtResource("2")
+shader_parameter/flow_noise = ExtResource("3")
+shader_parameter/glow_color = Color(1, 0.25490198, 0, 1)
+shader_parameter/flow_speed = 0.40000025650000026
+shader_parameter/intensity = 17.4070008268325
+shader_parameter/fresnel_power = 2.95600013715012
+shader_parameter/base_alpha = 0.5550000263625
+shader_parameter/edge_intensity = 1.34000006365
