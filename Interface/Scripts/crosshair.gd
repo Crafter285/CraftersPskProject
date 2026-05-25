@@ -13,6 +13,7 @@ func set_crosshair(image: Texture2D, color: Color = Color.WHITE, size: Vector2 =
 	circle.visible = ring
 	centre.visible = false
 	custom.visible = true
+
 func reset_crosshair():
 	centre.visible = true
 	circle.visible = true

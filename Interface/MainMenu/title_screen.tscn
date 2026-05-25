@@ -20,7 +20,12 @@
 [ext_resource type="AudioStream" uid="uid://d3q8178oe4ycy" path="res://Interface/MainMenu/Sound/SW_SFX_Menu_Backward.wav" id="16_8kiwb"]
 [ext_resource type="AudioStream" uid="uid://ilcdsxfj7o2g" path="res://Interface/MainMenu/Music/ch4TitleMusic.mp3" id="16_xtj4b"]
 [ext_resource type="AudioStream" uid="uid://bebahieimis82" path="res://Interface/MainMenu/Sound/select2.wav" id="17_8kiwb"]
+[ext_resource type="Texture2D" uid="uid://va7k67a2hfph" path="res://Interface/MainMenu/Texture/T_ch5_logo_horizontal.png" id="22_2lx6b"]
+[ext_resource type="VideoStream" uid="uid://nogdov7fx2sq" path="res://Interface/MainMenu/Texture/MainMenu_60fps_01-29-26.OGV" id="22_cxxfl"]
+[ext_resource type="VideoStream" uid="uid://b4e68ulpeycp5" path="res://Interface/MainMenu/Texture/UI_TitleScreen.OGV" id="22_qj1tc"]
 [ext_resource type="PackedScene" uid="uid://dtpairjbrlucx" path="res://Interface/menu_popup.tscn" id="23_qj1tc"]
+[ext_resource type="AudioStream" uid="uid://in7g01p43jrd" path="res://Interface/MainMenu/Sound/SW_MUS_Menu.wav" id="25_16m4u"]
+[ext_resource type="AudioStream" uid="uid://cyy0jjwr4apmd" path="res://Interface/MainMenu/Sound/SW_MUS_FactoryMenu_LOOP.wav" id="26_6ttfi"]
 
 [sub_resource type="FontVariation" id="FontVariation_cxxfl"]
 base_font = ExtResource("7_sn61t")
@@ -354,8 +359,8 @@ shader_parameter/vignette_opacity = 0.400000019
 base_font = ExtResource("7_sn61t")
 spacing_glyph = 4
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_s7yi2"]
-color = Color(1.92523e-07, 0.6528865, 0.8335215, 1)
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2lx6b"]
+color = Color(0.29411766, 0.8117647, 1, 1)
 thickness = 5
 
 [sub_resource type="FontVariation" id="FontVariation_2lx6b"]
@@ -425,6 +430,10 @@ _data = {
 &"transition": SubResource("Animation_bulru")
 }
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s7yi2"]
+color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+thickness = 5
+
 [node name="title_screen" type="Control" unique_id=1285093143]
 layout_mode = 3
 anchors_preset = 15
@@ -485,7 +494,8 @@ offset_bottom = 1284.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("8_s7yi2")
 theme_override_font_sizes/font_size = 43
-text = "Playtime Starter Kit by Derective"
+text = "Playtime Starter Kit by Derective
+And Upgraded By Crafter285"
 horizontal_alignment = 1
 
 [node name="WarningText3" type="Label" parent="BeforeIntroScreens/PlaytimeStarter" unique_id=1383080719]
@@ -745,7 +755,7 @@ layout_mode = 0
 offset_top = 237.0
 offset_right = 733.0
 offset_bottom = 242.0
-theme_override_styles/separator = SubResource("StyleBoxLine_s7yi2")
+theme_override_styles/separator = SubResource("StyleBoxLine_2lx6b")
 
 [node name="Description" type="Label" parent="menu" unique_id=1177027271]
 layout_mode = 0
@@ -864,6 +874,465 @@ color = Color(0, 0, 0, 0)
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MenuTransition" unique_id=1664510987]
 libraries/ = SubResource("AnimationLibrary_s6w10")
 
+[node name="PP5" type="Control" parent="." unique_id=1991133270]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="BG" type="ColorRect" parent="PP5" unique_id=2049619105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1884.0
+offset_bottom = 1043.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BeforeIntroScreens" type="Control" parent="PP5" unique_id=559817436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s6w10")
+screens = Array[NodePath]([NodePath("PlaytimeStarter"), NodePath("Warning"), NodePath("GameSave")])
+
+[node name="PlaytimeStarter" type="Node2D" parent="PP5/BeforeIntroScreens" unique_id=1334353979]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=283396958]
+offset_left = 3.0
+offset_top = -6.0
+offset_right = 1920.0
+offset_bottom = 218.0
+theme_override_colors/font_color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 72
+text = "THIS IS A FANGAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=1196059106]
+offset_top = 183.0
+offset_right = 1917.0
+offset_bottom = 1114.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Created using the following:"
+horizontal_alignment = 1
+
+[node name="WarningText2" type="Label" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=1309401138]
+offset_top = 907.0
+offset_right = 1182.0
+offset_bottom = 1284.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Playtime Starter Kit by Derective
+And Upgraded By Crafter285"
+horizontal_alignment = 1
+
+[node name="WarningText3" type="Label" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=1874986607]
+offset_left = 857.0
+offset_top = 914.0
+offset_right = 1984.0
+offset_bottom = 1291.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 43
+text = "Godot Game Engine"
+horizontal_alignment = 1
+
+[node name="LogoImage" type="Sprite2D" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=1402583251]
+position = Vector2(558.00006, 591.00006)
+scale = Vector2(0.9320331, 0.92083496)
+texture = ExtResource("5_2834n")
+
+[node name="LogoImage2" type="Sprite2D" parent="PP5/BeforeIntroScreens/PlaytimeStarter" unique_id=866025479]
+position = Vector2(1385, 637)
+scale = Vector2(0.6914062, 0.71014476)
+texture = ExtResource("6_qj1tc")
+
+[node name="Warning" type="Node2D" parent="PP5/BeforeIntroScreens" unique_id=149738368]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="PP5/BeforeIntroScreens/Warning" unique_id=543728678]
+offset_top = 202.0
+offset_right = 1920.0
+offset_bottom = 302.0
+theme_override_colors/font_color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 76
+text = "WARNING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="PP5/BeforeIntroScreens/Warning" unique_id=1126550305]
+offset_left = 296.0
+offset_top = 347.0
+offset_right = 1659.0
+offset_bottom = 862.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 25
+text = "A very small percentage of individuals may experience epileptic seizures when exposed to certain light patterns or flashing
+lights, including some of the visual effects that appear in certain video games. Symptoms may even be experienced by
+individuals with no history of epilepsy or photosensitivity. If you or anyone in your family have an epileptic or photosensitivity
+condition, please consult your physician before playing.
+
+If you experience any of the following symptoms while playing this video game, immediately, discontinue use and consult your
+physician before resuming play: dizziness, altered vision, eye or muscle twitches, loss of awareness, disorientation, any
+involuntary movement, or convulsions.
+
+Parents should watch for or ask their children about the above symptoms. Children and teenagers may be more likely than
+adults to experience these seizures.
+
+You may reduce risk of photosensitive epileptic seizures by taking the following precautions: sit farther from the screen, use a
+smaller screen, play in a well-lit room, take regular breaks, and do not play when you are drowsy or fatigued."
+
+[node name="CompanyLogo" type="Node2D" parent="PP5/BeforeIntroScreens" unique_id=827550553]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="PP5/BeforeIntroScreens/CompanyLogo" unique_id=135399250]
+offset_top = 202.0
+offset_right = 1920.0
+offset_bottom = 867.0
+theme_override_colors/font_color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 76
+text = "YOUR COMPANY LOGO HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSave" type="Node2D" parent="PP5/BeforeIntroScreens" unique_id=232729021]
+visible = false
+
+[node name="WarningTitle" type="Label" parent="PP5/BeforeIntroScreens/GameSave" unique_id=1078303780]
+offset_top = 323.0
+offset_right = 1906.0
+offset_bottom = 458.0
+theme_override_colors/font_color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+theme_override_fonts/font = SubResource("FontVariation_cxxfl")
+theme_override_font_sizes/font_size = 77
+text = "GAME SAVING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarningText" type="Label" parent="PP5/BeforeIntroScreens/GameSave" unique_id=909166266]
+offset_left = 160.0
+offset_top = 473.0
+offset_right = 2077.0
+offset_bottom = 1027.4819
+scale = Vector2(0.83, 0.83)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("8_s7yi2")
+theme_override_font_sizes/font_size = 26
+text = "This title uses an Autosave feature for saving progress.
+Do not close the application or turn off the system's power while the save icon is displayed."
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="PP5/BeforeIntroScreens/GameSave" unique_id=1399490631]
+position = Vector2(955, 635)
+scale = Vector2(0.384, 0.384)
+texture = ExtResource("8_uoyxv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PP5/BeforeIntroScreens/GameSave" unique_id=1375590534]
+libraries/ = SubResource("AnimationLibrary_uoyxv")
+autoplay = &"saving"
+
+[node name="Timer" type="Timer" parent="PP5/BeforeIntroScreens" unique_id=706516327]
+wait_time = 3.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PP5/BeforeIntroScreens" unique_id=288409872]
+libraries/ = SubResource("AnimationLibrary_sn61t")
+
+[node name="title_intro" type="Control" parent="PP5" unique_id=1233056872]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_psfkv")
+
+[node name="RenderBG" type="VideoStreamPlayer" parent="PP5/title_intro" unique_id=1406819180]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_right = 1544.0
+offset_bottom = 762.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.355, 1.355)
+stream = ExtResource("22_qj1tc")
+expand = true
+loop = true
+
+[node name="NameAnimation" type="AnimationPlayer" parent="PP5/title_intro" unique_id=1536210855]
+libraries/ = SubResource("AnimationLibrary_ety4h")
+playback_default_blend_time = 0.5
+
+[node name="PressLabel" type="Label" parent="PP5/title_intro" unique_id=662125750]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 795.0
+offset_top = 801.0
+offset_right = 1084.0
+offset_bottom = 792.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_dj2vu")
+theme_override_font_sizes/font_size = 35
+text = "Press Any Button"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="StudioName" type="Label" parent="PP5/title_intro" unique_id=613417154]
+modulate = Color(1, 1, 1, 0.54902)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 774.0
+offset_top = 973.5
+offset_right = 1115.0
+offset_bottom = 961.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Created by [Your Name / Username]"
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[node name="GameLogo" type="Node2D" parent="PP5/title_intro" unique_id=965435929]
+position = Vector2(960, 342.12)
+
+[node name="LOGO" type="Sprite2D" parent="PP5/title_intro/GameLogo" unique_id=1887089395]
+position = Vector2(27, -74.119995)
+texture = ExtResource("22_2lx6b")
+
+[node name="Music2" type="AudioStreamPlayer" parent="PP5/title_intro" unique_id=1711300264]
+stream = ExtResource("26_6ttfi")
+
+[node name="menu" type="Control" parent="PP5" unique_id=226770554]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pressed" type="AudioStreamPlayer" parent="PP5/menu" unique_id=1075197972]
+stream = ExtResource("7_fg6rl")
+
+[node name="ButtonSFXPlayer" type="Node" parent="PP5/menu" unique_id=1967015562]
+script = ExtResource("12_cxxfl")
+root_path = NodePath("../Buttons")
+
+[node name="Hover" type="AudioStreamPlayer" parent="PP5/menu/ButtonSFXPlayer" unique_id=882273226]
+stream = ExtResource("13_2lx6b")
+volume_db = -5.0
+
+[node name="Forward" type="AudioStreamPlayer" parent="PP5/menu/ButtonSFXPlayer" unique_id=37484375]
+stream = ExtResource("15_6ttfi")
+
+[node name="Backward" type="AudioStreamPlayer" parent="PP5/menu/ButtonSFXPlayer" unique_id=64749739]
+stream = ExtResource("16_8kiwb")
+
+[node name="Forward2" type="AudioStreamPlayer" parent="PP5/menu/ButtonSFXPlayer" unique_id=439356268]
+stream = ExtResource("17_8kiwb")
+
+[node name="RenderBG" type="VideoStreamPlayer" parent="PP5/menu" unique_id=805214985]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -336.0
+offset_right = 1544.0
+offset_bottom = 762.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.355, 1.355)
+stream = ExtResource("22_cxxfl")
+expand = true
+loop = true
+
+[node name="ColorRect" type="ColorRect" parent="PP5/menu" unique_id=1125782925]
+material = SubResource("ShaderMaterial_qj1tc")
+layout_mode = 0
+offset_right = 1924.0
+offset_bottom = 1083.0
+
+[node name="Chapter" type="Label" parent="PP5/menu" unique_id=880231568]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 42.000004
+offset_right = 514.0
+offset_bottom = 238.0
+scale = Vector2(0.745, 0.745)
+theme_override_colors/font_color = Color(0.9779369, 0.97793704, 0.9779369, 1)
+theme_override_fonts/font = ExtResource("7_sn61t")
+theme_override_font_sizes/font_size = 50
+text = "CHAPTER 5"
+vertical_alignment = 1
+uppercase = true
+
+[node name="Title" type="Label" parent="PP5/menu" unique_id=1283321567]
+layout_mode = 0
+offset_left = 174.99998
+offset_top = 128.0
+offset_right = 1110.7516
+offset_bottom = 289.0
+scale = Vector2(0.785, 0.785)
+theme_override_colors/font_color = Color(0.84313726, 0.16078432, 0.14117648, 1)
+theme_override_fonts/font = SubResource("FontVariation_uoyxv")
+theme_override_font_sizes/font_size = 120
+text = "BROKEN THINGS"
+horizontal_alignment = 2
+vertical_alignment = 1
+uppercase = true
+
+[node name="Seperator" type="HSeparator" parent="PP5/menu" unique_id=1511864986]
+layout_mode = 0
+offset_left = 176.0
+offset_top = 250.0
+offset_right = 909.0
+offset_bottom = 255.0
+theme_override_styles/separator = SubResource("StyleBoxLine_s7yi2")
+
+[node name="Description" type="Label" parent="PP5/menu" unique_id=2099987888]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 290.0
+offset_right = 1439.7701
+offset_bottom = 573.0
+scale = Vector2(0.435, 0.435)
+theme_override_colors/font_color = Color(0.7953939, 0.79539394, 0.7953939, 1)
+theme_override_fonts/font = SubResource("FontVariation_2lx6b")
+theme_override_font_sizes/font_size = 50
+text = "Injured and abandoned in the heart of the nightmare:
+The Playtime Laboratories. Here, fantasy is made reality,
+and the broken cower in the shadows of the one who
+pulls all strings- the Prototype."
+
+[node name="Number" type="Label" parent="PP5/menu" unique_id=1781507616]
+layout_mode = 0
+offset_left = 1765.0
+offset_top = 1017.0
+offset_right = 2280.0
+offset_bottom = 1057.0
+theme_override_colors/font_color = Color(0.27387264, 0.27387276, 0.27387285, 1)
+theme_override_fonts/font = SubResource("FontVariation_mh3bh")
+theme_override_font_sizes/font_size = 20
+text = "RC - 105342"
+
+[node name="Buttons" type="Node2D" parent="PP5/menu" unique_id=2138227315]
+position = Vector2(81, 4)
+
+[node name="Continue" type="Button" parent="PP5/menu/Buttons" unique_id=848345372]
+offset_left = 129.0
+offset_top = 578.0
+offset_right = 1030.0
+offset_bottom = 654.0
+theme = ExtResource("9_2653s")
+text = "CONTINUE"
+alignment = 0
+
+[node name="New" type="Button" parent="PP5/menu/Buttons" unique_id=1049349502]
+offset_left = 129.0
+offset_top = 635.0
+offset_right = 554.0
+offset_bottom = 691.0
+theme = ExtResource("9_2653s")
+text = "NEW GAME"
+alignment = 0
+
+[node name="Load" type="Button" parent="PP5/menu/Buttons" unique_id=1887872110]
+offset_left = 129.0
+offset_top = 695.0
+offset_right = 554.0
+offset_bottom = 751.0
+theme = ExtResource("9_2653s")
+text = "LOAD GAME"
+alignment = 0
+
+[node name="SettingsSF2" type="Button" parent="PP5/menu/Buttons" unique_id=2140993478]
+offset_left = 129.0
+offset_top = 755.0
+offset_right = 554.0
+offset_bottom = 811.0
+theme = ExtResource("9_2653s")
+text = "SETTINGS"
+alignment = 0
+
+[node name="Credits" type="Button" parent="PP5/menu/Buttons" unique_id=236624585]
+offset_left = 129.0
+offset_top = 815.0
+offset_right = 554.0
+offset_bottom = 871.0
+theme = ExtResource("9_2653s")
+text = "CREDITS"
+alignment = 0
+
+[node name="QuitNSF" type="Button" parent="PP5/menu/Buttons" unique_id=511573000]
+offset_left = 129.0
+offset_top = 875.0
+offset_right = 554.0
+offset_bottom = 931.0
+theme = ExtResource("9_2653s")
+text = "QUIT"
+alignment = 0
+
+[node name="Current" type="Node2D" parent="PP5/menu/Buttons" unique_id=122729144]
+visible = false
+position = Vector2(79, 578)
+
+[node name="ColorRect" type="ColorRect" parent="PP5/menu/Buttons/Current" unique_id=228474216]
+offset_right = 13.0
+offset_bottom = 55.0
+color = Color(0.19215687, 0.79607844, 1, 1)
+
+[node name="LoadGame" parent="PP5/menu" unique_id=2043829654 instance=ExtResource("15_o37xk")]
+visible = false
+layout_mode = 1
+menu_popup_path = NodePath("../../menu_popup")
+
+[node name="SettingsMenu" parent="PP5/menu" unique_id=962205933 instance=ExtResource("14_2834n")]
+visible = false
+layout_mode = 1
+menu_popup = NodePath("../../menu_popup")
+
+[node name="menu_popup" parent="PP5" unique_id=1671173828 instance=ExtResource("23_qj1tc")]
+layout_mode = 1
+
+[node name="MenuMusic" type="Node" parent="PP5" unique_id=527998951]
+
+[node name="Music" type="AudioStreamPlayer" parent="PP5/MenuMusic" unique_id=425538102]
+stream = ExtResource("25_16m4u")
+
+[node name="MenuTransition" type="Node2D" parent="PP5" unique_id=1392665229]
+visible = false
+
+[node name="Transition" type="ColorRect" parent="PP5/MenuTransition" unique_id=144042871]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="PP5/MenuTransition" unique_id=153817259]
+libraries/ = SubResource("AnimationLibrary_s6w10")
+
 [connection signal="finshed" from="BeforeIntroScreens" to="." method="screens_finished"]
 [connection signal="timeout" from="BeforeIntroScreens/Timer" to="BeforeIntroScreens" method="screen_timeout"]
 [connection signal="pressed" from="title_intro" to="." method="logo_finished"]
@@ -873,3 +1342,12 @@ libraries/ = SubResource("AnimationLibrary_s6w10")
 [connection signal="pressed" from="menu/Buttons/SettingsSF2" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="menu/Buttons/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="menu/Buttons/QuitNSF" to="." method="quit"]
+[connection signal="finshed" from="PP5/BeforeIntroScreens" to="." method="ch5_screens_finished"]
+[connection signal="timeout" from="PP5/BeforeIntroScreens/Timer" to="PP5/BeforeIntroScreens" method="screen_timeout"]
+[connection signal="pressed" from="PP5/title_intro" to="." method="ch5_logo_finished"]
+[connection signal="pressed" from="PP5/menu/Buttons/Continue" to="." method="ch5_on_continue_pressed"]
+[connection signal="pressed" from="PP5/menu/Buttons/New" to="." method="ch5_new_game"]
+[connection signal="pressed" from="PP5/menu/Buttons/Load" to="." method="ch5_on_load_pressed"]
+[connection signal="pressed" from="PP5/menu/Buttons/SettingsSF2" to="." method="ch5_on_settings_pressed"]
+[connection signal="pressed" from="PP5/menu/Buttons/Credits" to="." method="ch5_on_credits_pressed"]
+[connection signal="pressed" from="PP5/menu/Buttons/QuitNSF" to="." method="ch5_quit"]

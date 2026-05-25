@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var hand_grab = $HandGrab
 
-@export_range(1, 3) var grabpack_number: int = 1
+@export_range(1, 5) var grabpack_number: int = 1
 @export var play_collect_sound: bool = true
 
 signal collected

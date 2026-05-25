@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://dmbm8npfgtcbu"]
+[gd_scene format=4 uid="uid://dmbm8npfgtcbu"]
 
 [ext_resource type="Script" uid="uid://b1ur13bemaxrp" path="res://Objects/Characters/MonsterAI/monsterAI.gd" id="1_iguov"]
 [ext_resource type="Script" uid="uid://bj10bhy6c7hoy" path="res://Objects/Characters/MonsterAI/monster_visual.gd" id="2_1a7pt"]
@@ -24,10 +24,6 @@ height = 2.6
 
 [sub_resource type="Resource" id="Resource_tg8ml"]
 script = ExtResource("5_l84yn")
-idle_sounds = Array[AudioStream]([])
-moving_sounds = Array[AudioStream]([])
-footstep_sounds = Array[AudioStream]([ExtResource("4_yr0sh"), ExtResource("5_4eocg"), ExtResource("6_6nmfh")])
-footstep_volume = 0.0
 taunt_sound = ExtResource("2_l84yn")
 jumpscare_sound = ExtResource("3_l84yn")
 metadata/_custom_type_script = "uid://cu5c8w444ft6r"
@@ -35994,7 +35990,7 @@ _data = {
 &"SK_Huggy_New_ao|A_Huggy_WalkNoStride": SubResource("Animation_g6sru")
 }
 
-[node name="HuggyWuggy" type="CharacterBody3D" node_paths=PackedStringArray("monster_visual", "look_at_modifier")]
+[node name="HuggyWuggy" type="CharacterBody3D" unique_id=1270790644 node_paths=PackedStringArray("monster_visual", "look_at_modifier")]
 script = ExtResource("1_iguov")
 monster_visual = NodePath("MonsterVisual")
 head_look_at = true
@@ -36007,25 +36003,25 @@ starting_taunt_animation_speed = 4.0
 walk_speed = 6.0
 run_speed = 8.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1177247082]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
 shape = SubResource("CapsuleShape3D_hueih")
 
-[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=871644711]
 
-[node name="IdleTimer" type="Timer" parent="."]
+[node name="IdleTimer" type="Timer" parent="." unique_id=1304428971]
 one_shot = true
 
-[node name="RayCast" type="RayCast3D" parent="."]
+[node name="RayCast" type="RayCast3D" parent="." unique_id=1831985780]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, -0.800001)
 target_position = Vector3(0, 0, -30)
 
-[node name="PrevLookReset" type="Marker3D" parent="."]
+[node name="PrevLookReset" type="Marker3D" parent="." unique_id=477878125]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
 
-[node name="Taunt" type="AudioStreamPlayer3D" parent="."]
+[node name="Taunt" type="AudioStreamPlayer3D" parent="." unique_id=1885511598]
 
-[node name="MonsterVisual" type="Node3D" parent="." node_paths=PackedStringArray("animation_player", "jumpscare_camera")]
+[node name="MonsterVisual" type="Node3D" parent="." unique_id=1610139294 node_paths=PackedStringArray("animation_player", "jumpscare_camera")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, -0.2, 0)
 script = ExtResource("2_1a7pt")
 sound = SubResource("Resource_tg8ml")
@@ -36038,22 +36034,22 @@ jumpscare_animation_name = "SK_Huggy_New_ao|A_Huggy_Jumpscare_PlayerPOV_Default"
 jumpscare_camera = NodePath("Camera3D")
 metadata/_custom_type_script = "uid://bj10bhy6c7hoy"
 
-[node name="Sketchfab_model" type="Node3D" parent="MonsterVisual"]
+[node name="Sketchfab_model" type="Node3D" parent="MonsterVisual" unique_id=1860669183]
 transform = Transform3D(-6.5, 5.68248e-07, 2.48389e-14, 0, -2.84124e-07, 6.5, 5.68248e-07, 6.5, 2.84124e-07, 0, 0, 0)
 
-[node name="40d0bce0f6474c65ac6defb31bd325d7_fbx" type="Node3D" parent="MonsterVisual/Sketchfab_model"]
+[node name="40d0bce0f6474c65ac6defb31bd325d7_fbx" type="Node3D" parent="MonsterVisual/Sketchfab_model" unique_id=1852325002]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="Object_2" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx"]
+[node name="Object_2" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx" unique_id=2106830408]
 
-[node name="RootNode" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2"]
+[node name="RootNode" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2" unique_id=2076456429]
 
-[node name="SK_Huggy_New_ao" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode"]
+[node name="SK_Huggy_New_ao" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode" unique_id=2125087710]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 
-[node name="Object_5" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao"]
+[node name="Object_5" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao" unique_id=374944534]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5"]
+[node name="Skeleton3D" type="Skeleton3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5" unique_id=1494699050]
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -36748,49 +36744,47 @@ bones/98/position = Vector3(-1.0842e-19, 0.00999999, 0)
 bones/98/rotation = Quaternion(-1.38778e-17, -2.03288e-19, -1.07404e-18, 1)
 bones/98/scale = Vector3(1, 1, 1)
 
-[node name="Object_106" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_106" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1650727973]
 mesh = SubResource("ArrayMesh_3ucod")
 skin = SubResource("Skin_dnw60")
 
-[node name="Object_107" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_107" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1875277751]
 mesh = SubResource("ArrayMesh_m1b1c")
 skin = SubResource("Skin_dnw60")
 
-[node name="Object_108" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_108" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=539787500]
 mesh = SubResource("ArrayMesh_osf1k")
 skin = SubResource("Skin_dnw60")
 
-[node name="Object_109" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_109" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1991961756]
 mesh = SubResource("ArrayMesh_2eypq")
 skin = SubResource("Skin_dnw60")
 
-[node name="Object_110" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_110" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1268704527]
 mesh = SubResource("ArrayMesh_n5jey")
 skin = SubResource("Skin_dnw60")
 
-[node name="Object_111" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="Object_111" type="MeshInstance3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1104728836]
 mesh = SubResource("ArrayMesh_2aqtc")
 skin = SubResource("Skin_dnw60")
 
-[node name="LookAtModifier3D" type="LookAtModifier3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D"]
+[node name="LookAtModifier3D" type="LookAtModifier3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5/Skeleton3D" unique_id=1254076423]
 bone_name = "head_JNT_022"
 bone = 24
 primary_rotation_axis = 0
 
-[node name="Object_105" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5"]
+[node name="Object_105" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode/SK_Huggy_New_ao/Object_5" unique_id=1011655146]
 transform = Transform3D(100, 0, 0, 0, 1.17146e-13, 100, 0, -100, 1.17146e-13, 0, 0, 0)
 
-[node name="SK_Huggy_New_mo" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode"]
+[node name="SK_Huggy_New_mo" type="Node3D" parent="MonsterVisual/Sketchfab_model/40d0bce0f6474c65ac6defb31bd325d7_fbx/Object_2/RootNode" unique_id=1820605505]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MonsterVisual"]
-libraries = {
-&"": SubResource("AnimationLibrary_adld8")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MonsterVisual" unique_id=380545471]
+libraries/ = SubResource("AnimationLibrary_adld8")
 playback_default_blend_time = 0.3
 
-[node name="Camera3D" type="Camera3D" parent="MonsterVisual"]
-transform = Transform3D(-0.988589, 0.074315, 0.131029, 0.130925, 0.854073, 0.503406, -0.0744978, 0.514816, -0.854057, 0, 1.6, -0.900002)
+[node name="Camera3D" type="Camera3D" parent="MonsterVisual" unique_id=1386673553]
+transform = Transform3D(-0.98858887, 0.07431501, 0.13102905, 0.13092521, 0.85407275, 0.5034057, -0.07449779, 0.5148162, -0.85405713, 0, 1.6, -0.900002)
 fov = 60.0
 
 [connection signal="navigation_finished" from="NavigationAgent3D" to="." method="nav_finished"]

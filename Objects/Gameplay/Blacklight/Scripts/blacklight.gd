@@ -69,4 +69,5 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 func _on_area_3d_body_exited(body: Node3D) -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
-		player.glowby_can_notify = true
+		if notify_glowby == true:
+			player.glowby_can_notify = true

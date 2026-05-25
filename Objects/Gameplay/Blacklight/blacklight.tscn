@@ -15,7 +15,7 @@ shader_parameter/threshold = 0.1
 material = SubResource("ShaderMaterial_x3882")
 size = Vector2(0.3, 0.3)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vjge2"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xpyns"]
 render_priority = 0
 shader = ExtResource("1_vb2e5")
 shader_parameter/color = Color(0.894, 0, 0.914, 1)
@@ -30,7 +30,7 @@ cull_mode = 2
 material = SubResource("StandardMaterial3D_vb2e5")
 size = Vector2(0.3, 0.3)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3882"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecimo"]
 transparency = 1
 cull_mode = 2
 
@@ -44,13 +44,13 @@ script = ExtResource("1_vjge2")
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.007701382, 0)
 layers = 2
 mesh = SubResource("PlaneMesh_kqir7")
-surface_material_override/0 = SubResource("ShaderMaterial_vjge2")
+surface_material_override/0 = SubResource("ShaderMaterial_xpyns")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=927648875]
 transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0.007701382, 0)
 layers = 2
 mesh = SubResource("PlaneMesh_vjge2")
-surface_material_override/0 = SubResource("StandardMaterial3D_x3882")
+surface_material_override/0 = SubResource("StandardMaterial3D_ecimo")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=723316431]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)

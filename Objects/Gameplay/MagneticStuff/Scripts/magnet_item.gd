@@ -15,7 +15,7 @@ func _on_basic_interaction_player_interacted() -> void:
 func collect():
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
-		player.EMU_Cuffs = true
+		player.start_with_Magnet_cuffs = true
 
 	hand_grab.release_grabbed()
 	if play_collect_sound == true:

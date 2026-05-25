@@ -1,5 +1,7 @@
 extends Node
 
+var interface = ""
+
 var hud = null
 var checkpoint: int = 0
 

@@ -14,22 +14,9 @@ extends CharacterBody3D
 @onready var crouch_cast = $RayCast3D
 
 @export_category("Settings")
-@export_group("Animations")
-enum hand_anims {
-	Ch4
-}
-enum grabpack_anims {
-	Ch4
-}
-@onready var hand_switch_animation: hand_anims = hand_anims.Ch4
-@onready var movement_animations: grabpack_anims = grabpack_anims.Ch4
 @export_group("Movement")
 @export var movable: bool = true
 @export_group("Equipment")
-@export_subgroup("Glowby")
-@export var start_with_glowby: bool = false
-@export var can_use_blacklight: bool = false
-@export var can_use_flashlight: bool = false
 @export_subgroup("Flashlight")
 @export var flashlight: bool = false
 @export var flashlight_togglable: bool = false
@@ -42,12 +29,29 @@ enum mask_types {
 @export var gasmask_toggleable: bool = false
 @export var gasmask_type: mask_types = mask_types.Normal
 @export_subgroup("Grabpack")
-@export var EMU_Cuffs: bool = false
+enum grabpackbluehandtype {
+	Ch5_old_grabber,
+	Ch4
+}
+
+@export var start_with_glowby: bool = false
+@export var start_with_Magnet_cuffs: bool = false
+@export var blue_hand_type: grabpackbluehandtype = grabpackbluehandtype.Ch4
 @export var hand_speed: float = 24.944
 @export var start_lowered: bool = false
 #0 is no grabpack, and numbers 1 and 2 are grabpack versions 1 and 2.
-@export_range(0, 4) var starting_grabpack: int = 0
+@export_range(0, 5) var starting_grabpack: int = 0
 @export var enabled_hands: Array [PackedScene] = [preload("res://Player/Grabpack/Hands/none.tscn")]
+@export_group("Animations")
+
+enum hand_anims {
+	Ch4
+}
+enum grabpack_anims {
+	Ch4
+}
+@onready var hand_switch_animation: hand_anims = hand_anims.Ch4
+@onready var movement_animations: grabpack_anims = grabpack_anims.Ch4
 
 @export_category("Player")
 var speed: float = 10 # m/s
@@ -88,10 +92,10 @@ var glowby_flashlight: bool = false
 var glowby_notifaction: bool = false
 var glowby_can_notify: bool = true
 var glowby_collected: bool = false
-var glowby_flashlight_check: bool = false
-var glowby_blacklight_check: bool = false
-var glowby_flashlight_check2: bool = false
-var glowby_blacklight_check2: bool = false
+var glowby_check: bool = true
+
+@onready var glowby_blacklight_player = $Neck/Camera3D/glowby_blacklight
+@onready var glowby_flashlight_player = $Neck/Camera3D/glowby_flashlight
 
 #Wire Constraints
 @onready var length_calculator: Node = $Grabpack/Pack/LengthCalculator
@@ -117,13 +121,20 @@ var curC: bool = false
 var togS: bool = false
 
 func _process(delta: float) -> void:
-	if glowby_flashlight_check == true:
-		$Neck/Camera3D/glowby_flashlight.visible = glowby_flashlight
-
-	if glowby_blacklight_check == true:
-		$Neck/Camera3D/glowby_blacklight.visible = glowby_blacklight
+	if start_with_glowby == true:
+		flashlight = false
+		flashlight_togglable = false
 
 func _ready() -> void:
+	
+	match blue_hand_type:
+		grabpackbluehandtype.Ch5_old_grabber:
+			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_001.hide()
+			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_002.show()
+		grabpackbluehandtype.Ch4:
+			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_001.show()
+			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_002.hide()
+	
 	capture_mouse(true)
 	
 	Grabpack.reset_objects()
@@ -132,26 +143,6 @@ func _ready() -> void:
 	Grabpack.hud.crosshair.reset_crosshair()
 	right_hand.set_hand(0)
 	sound_manager.load_soundpack("Concrete")
-
-	if can_use_flashlight == true:
-		flashlight = false
-		flashlight_togglable = false
-	
-	if start_with_glowby == true:
-		glowby_collected = true
-	
-	if can_use_flashlight == true:
-		glowby_flashlight_check2 = true
-	
-	if can_use_blacklight == true:
-		glowby_blacklight_check2 = true
-	
-	if glowby_collected == true:
-		if can_use_flashlight == true:
-			glowby_flashlight_check = true
-	
-		if can_use_blacklight == true:
-			glowby_blacklight_check = true
 
 
 	if 1.0 == 2.0: #FIX LATER

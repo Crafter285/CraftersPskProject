@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqepor71t6ham"]
+[gd_scene format=3 uid="uid://cqepor71t6ham"]
 
 [ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="1_04g53"]
 [ext_resource type="Script" uid="uid://crriwmbbubu6s" path="res://Objects/Gameplay/HandFunctions/grabpack_item.gd" id="1_5wepg"]
@@ -11,31 +11,31 @@ size = Vector3(0.6, 0.3, 0.4)
 [sub_resource type="BoxShape3D" id="BoxShape3D_fdawg"]
 size = Vector3(0.6, 0.3, 0.4)
 
-[node name="GrabpackItem" type="Node3D"]
+[node name="GrabpackItem" type="Node3D" unique_id=945770406]
 script = ExtResource("1_5wepg")
 
-[node name="HandGrab" type="Area3D" parent="." node_paths=PackedStringArray("grab_marker")]
+[node name="HandGrab" type="Area3D" parent="." unique_id=1052405637 node_paths=PackedStringArray("grab_marker")]
 script = ExtResource("1_04g53")
 grab_animation = "sphere"
 grab_marker = NodePath("HandPositionMarker")
 metadata/_custom_type_script = "uid://d4joakp74nxnn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=1537489197]
 transform = Transform3D(1, 0, -1.49012e-08, 7.45058e-09, 1, 0, -5.96046e-08, 0, 1, -0.0197576, 0.175, -2.80142e-06)
 shape = SubResource("BoxShape3D_5wepg")
 
-[node name="HandPositionMarker" type="Marker3D" parent="HandGrab"]
+[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=36875540]
 transform = Transform3D(1, 0, -1.49012e-08, -1.43935e-08, 0.258819, 0.965926, -3.85671e-09, -0.965926, 0.258819, 0, 0.290812, 0.123333)
 
-[node name="BasicInteraction" type="Area3D" parent="."]
+[node name="BasicInteraction" type="Area3D" parent="." unique_id=115360740]
 script = ExtResource("3_jjnn1")
 metadata/_custom_type_script = "uid://cp2nj828ny1um"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction" unique_id=1308945101]
 transform = Transform3D(1, 0, -1.49012e-08, 7.45058e-09, 1, 0, -5.96046e-08, 0, 1, -0.0197576, 0.15, -2.80142e-06)
 shape = SubResource("BoxShape3D_fdawg")
 
-[node name="InteractionIndicator" parent="BasicInteraction" instance=ExtResource("2_5wepg")]
+[node name="InteractionIndicator" parent="BasicInteraction" unique_id=1452652671 instance=ExtResource("2_5wepg")]
 transform = Transform3D(1, 0, -1.49012e-08, 7.45058e-09, 1, 0, -5.96046e-08, 0, 1, 0.00682002, 0.142609, 0.0254529)
 
 [connection signal="let_go" from="HandGrab" to="." method="_on_hand_grab_let_go"]

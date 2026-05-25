@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtpairjbrlucx"]
+[gd_scene format=3 uid="uid://dtpairjbrlucx"]
 
 [ext_resource type="Script" uid="uid://cram086kryr7c" path="res://Interface/MainMenu/Scripts/menu_popup.gd" id="1_t057m"]
 [ext_resource type="Texture2D" uid="uid://ba641twe6vsbv" path="res://Interface/MainMenu/Texture/T_PauseBG.png" id="2_72ean"]
@@ -110,7 +110,7 @@ _data = {
 &"fadeout": SubResource("Animation_xtj4b")
 }
 
-[node name="menu_popup" type="Control"]
+[node name="menu_popup" type="Control" unique_id=1015753099]
 visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
@@ -121,18 +121,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_t057m")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1619743899]
 position = Vector2(960, 540)
 texture = ExtResource("2_72ean")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=680103392]
 layout_mode = 0
 offset_top = 365.0
 offset_right = 1920.0
 offset_bottom = 718.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_fi64f")
 
-[node name="Prompt" type="Label" parent="."]
+[node name="Prompt" type="Label" parent="." unique_id=679503222]
 layout_mode = 0
 offset_left = -1.0
 offset_top = 370.0
@@ -146,7 +146,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="SubPrompt" type="Label" parent="."]
+[node name="SubPrompt" type="Label" parent="." unique_id=326969339]
 layout_mode = 0
 offset_left = -4.0
 offset_top = 493.0
@@ -159,7 +159,7 @@ theme_override_font_sizes/font_size = 21
 text = "Are you sure you want to exit the game?"
 horizontal_alignment = 1
 
-[node name="YesNSF" type="Button" parent="."]
+[node name="YesNSF" type="Button" parent="." unique_id=1965169653]
 layout_mode = 0
 offset_left = 798.0
 offset_top = 614.0
@@ -170,7 +170,7 @@ theme_override_fonts/font = ExtResource("7_3up8h")
 theme_override_font_sizes/font_size = 30
 text = "YES"
 
-[node name="NoNSF" type="Button" parent="."]
+[node name="NoNSF" type="Button" parent="." unique_id=2138791139]
 layout_mode = 0
 offset_left = 996.0
 offset_top = 614.0
@@ -181,25 +181,23 @@ theme_override_fonts/font = ExtResource("7_3up8h")
 theme_override_font_sizes/font_size = 30
 text = "NO"
 
-[node name="Current" type="Node2D" parent="."]
+[node name="Current" type="Node2D" parent="." unique_id=662216485]
 position = Vector2(977, 615)
 script = ExtResource("8_qw6r2")
 root_path = NodePath("..")
 
-[node name="ColorRect" type="ColorRect" parent="Current"]
+[node name="ColorRect" type="ColorRect" parent="Current" unique_id=983681303]
 offset_right = 13.0
 offset_bottom = 55.0
 color = Color(0.19215687, 0.79607844, 1, 1)
 
-[node name="ButtonSFXPlayer" type="Node" parent="."]
+[node name="ButtonSFXPlayer" type="Node" parent="." unique_id=366896080]
 script = ExtResource("9_sfs4p")
 root_path = NodePath("..")
 metadata/_custom_type_script = "uid://d02ndr1cfnfix"
 
-[node name="Animation" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_61gjo")
-}
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1174586925]
+libraries/ = SubResource("AnimationLibrary_61gjo")
 
-[node name="OpenSound" type="AudioStreamPlayer" parent="."]
+[node name="OpenSound" type="AudioStreamPlayer" parent="." unique_id=2040363912]
 stream = ExtResource("10_o4rbj")

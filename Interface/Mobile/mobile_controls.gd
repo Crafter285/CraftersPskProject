@@ -30,19 +30,12 @@ func enable_input(action_name, button):
 func _process(_delta: float) -> void:
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
-		if player.glowby_collected == true:
-			if player.glowby_flashlight_check2 == true:
-				$GF.show()
-			elif player.glowby_flashlight_check2 == false:
-				$GF.hide()
-
-			if player.glowby_blacklight_check2 == true:
-				$GB.show()
-			elif player.glowby_blacklight_check2 == false:
-				$GB.hide()
-		elif player.glowby_collected == false:
-			$GB.hide()
+		if player.start_with_glowby == true:
+			$GF.show()
+			$GB.show()
+		if player.start_with_glowby == false:
 			$GF.hide()
+			$GB.hide()
 
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED: Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	Input.action_press("sprint")

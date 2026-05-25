@@ -15,6 +15,14 @@ albedo_texture = ExtResource("1_ln4xx")
 material = SubResource("StandardMaterial3D_v3y0w")
 size = Vector2(0.7, 0.7)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_67tfk"]
+material = SubResource("StandardMaterial3D_v3y0w")
+size = Vector2(1.2, 1.2)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_x01bm"]
+material = SubResource("StandardMaterial3D_v3y0w")
+size = Vector2(1.6, 1.6)
+
 [node name="GlassPressure" type="Node3D" unique_id=693214987]
 script = ExtResource("1_drsgp")
 
@@ -24,15 +32,27 @@ size = Vector3(0.024291992, 2.1000001, 3.3)
 material = ExtResource("2_pxv2a")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Glass" unique_id=1373189919]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.022294998, -0.4963715, -0.15913773)
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.022294998, 0.02798587, -0.21728373)
 mesh = SubResource("PlaneMesh_64xm1")
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Glass" unique_id=821249104]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.022294998, 0.02798587, -0.21728373)
+visible = false
+mesh = SubResource("PlaneMesh_67tfk")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Glass" unique_id=1402083354]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.022294998, 0.02798587, -0.21728373)
+visible = false
+mesh = SubResource("PlaneMesh_x01bm")
+
 [node name="PressureMachanic" parent="Glass" unique_id=1906056036 instance=ExtResource("2_drsgp")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26399612, -0.4774859, -0.15716171)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26399612, 0.046871483, -0.21530771)
 visible = false
 
 [node name="GlassBreakSound" type="AudioStreamPlayer" parent="." unique_id=989906308]
 stream = ExtResource("4_drsgp")
 
+[connection signal="holding" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_holding"]
 [connection signal="power_100" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_100"]
 [connection signal="power_75" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_75"]
+[connection signal="released" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_released"]

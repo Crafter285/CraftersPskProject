@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=4 uid="uid://dbc3fhhtdwlbf"]
+[gd_scene format=4 uid="uid://dbc3fhhtdwlbf"]
 
 [ext_resource type="Material" uid="uid://dl7krlcnai0qx" path="res://Level/Assets/Materials/ProtoDark.tres" id="1_ddjii"]
 [ext_resource type="PackedScene" uid="uid://dkty77argxwyc" path="res://Player/player.tscn" id="2_ohvug"]
@@ -23,7 +23,7 @@
 [ext_resource type="Script" uid="uid://cu5c8w444ft6r" path="res://Objects/Characters/MonsterAI/monster_sound_pack.gd" id="21_5by5j"]
 [ext_resource type="Script" uid="uid://cr2jbisbr4qh3" path="res://Objects/Characters/MonsterAI/monster_activator.gd" id="22_rcn7h"]
 [ext_resource type="Script" uid="uid://ckdvdouxaw4it" path="res://Objects/Gameplay/Puzzles/ConnectionComponents/puzzle_gate_linker.gd" id="23_1frd8"]
-
+[ext_resource type="PackedScene" uid="uid://edfdp7flvtro" path="res://Objects/Characters/MonsterAI/VisualTemplates/Prototype/Prototype.tscn" id="24_rcn7h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_02c8y"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -44,10 +44,7 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 
 [sub_resource type="Resource" id="Resource_evljn"]
 script = ExtResource("21_5by5j")
-idle_sounds = Array[AudioStream]([])
-moving_sounds = Array[AudioStream]([])
 footstep_sounds = Array[AudioStream]([ExtResource("8_rcn7h"), ExtResource("9_rvi1j"), ExtResource("10_54mgj"), ExtResource("11_xm0cf"), ExtResource("12_wacth"), ExtResource("13_adfgm")])
-footstep_volume = 0.0
 jumpscare_sound = ExtResource("20_61qwl")
 metadata/_custom_type_script = "uid://cu5c8w444ft6r"
 
@@ -83329,137 +83326,143 @@ _data = {
 }
 point_count = 3
 
-[node name="MonsterAITutorial" type="Node3D"]
+[node name="MonsterAITutorial" type="Node3D" unique_id=1878425749]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=423003070]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
 shadow_enabled = true
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=348363668]
 environment = SubResource("Environment_snui3")
 
-[node name="CSG" type="NavigationRegion3D" parent="."]
+[node name="CSG" type="NavigationRegion3D" parent="." unique_id=424664317]
 navigation_mesh = SubResource("NavigationMesh_1frd8")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D" type="CSGBox3D" parent="CSG" unique_id=482454121]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.15, 0)
 use_collision = true
 size = Vector3(32.8, 0.3, 30.5)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D10" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D10" type="CSGBox3D" parent="CSG" unique_id=1455386907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.85, -0.15, 0)
 use_collision = true
 size = Vector3(23.1, 0.3, 3.5)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D13" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D15" type="CSGBox3D" parent="CSG" unique_id=2043835873]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.85, -0.15, 7.750124)
+use_collision = true
+size = Vector3(23.1, 0.3, 8.242676)
+material = ExtResource("1_ddjii")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="CSG" unique_id=603071971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.95, 4.35, 0)
 use_collision = true
 size = Vector3(22.9, 0.3, 3.5)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D14" type="CSGBox3D" parent="CSG" unique_id=879554178]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.6, 3.7, 0)
 use_collision = true
 size = Vector3(0.2, 1.6, 3.5)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSG" unique_id=1745410123]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9, 2.05, 0)
 use_collision = true
 size = Vector3(0.4, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSG" unique_id=1523941576]
 transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -9.2, 2.05, 1)
 use_collision = true
 size = Vector3(0.4, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSG" unique_id=312560776]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 5.5, 2.05, -0.2)
 use_collision = true
 size = Vector3(0.4, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSG" unique_id=1617377222]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 8.8, 2.05, 12.4)
 use_collision = true
 size = Vector3(0.4, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D9" type="CSGBox3D" parent="CSG" unique_id=1510206583]
 transform = Transform3D(1, 0, 5.96046e-08, 0, 1, 0, -5.96046e-08, 0, 1, 12.3, 2.05, 8.9)
 use_collision = true
 size = Vector3(0.4, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D11" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D11" type="CSGBox3D" parent="CSG" unique_id=1318974834]
 transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 27.75, 2.05, 1.9)
 use_collision = true
 size = Vector3(0.4, 4.7, 22.3)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D12" type="CSGBox3D" parent="CSG" unique_id=1201798301]
 transform = Transform3D(-2.98023e-08, 0, 1, 0, 1, 0, -1, 0, -2.98023e-08, 27.7, 2.05, -1.8)
 use_collision = true
 size = Vector3(0.4, 4.7, 22.4)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSG" unique_id=496910947]
 transform = Transform3D(-1, 0, 4.37114e-08, 0, 1, 0, -4.37114e-08, 0, -1, 5.5, 2.05, -0.15)
 use_collision = true
 size = Vector3(0.4, 4.7, 14.7)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSG" unique_id=298281664]
 transform = Transform3D(2.98023e-08, 0, 1, 0, 1, 0, -1, 0, 2.98023e-08, -5, 2.05, -10.7)
 use_collision = true
 size = Vector3(2.5, 4.7, 14.7)
 material = ExtResource("1_ddjii")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="CSG"]
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSG" unique_id=1919363460]
 transform = Transform3D(-1, 0, -1.39091e-08, 0, 1, 0, 1.39091e-08, 0, -1, -4.4, 2.05, 7.25)
 use_collision = true
 size = Vector3(2.5, 4.7, 7.4)
 material = ExtResource("1_ddjii")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="CSG"]
+[node name="OmniLight3D" type="OmniLight3D" parent="CSG" unique_id=735880283]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.4, 2.7, 0.2)
 light_energy = 5.0
 omni_range = 5.5
 
-[node name="OmniLight3D4" type="OmniLight3D" parent="CSG"]
+[node name="OmniLight3D4" type="OmniLight3D" parent="CSG" unique_id=1928534322]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.4, 3.2, -0.1)
 light_color = Color(1, 0.688729, 0.639383, 1)
 light_energy = 3.0
 omni_range = 2.0
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="CSG"]
+[node name="OmniLight3D2" type="OmniLight3D" parent="CSG" unique_id=1990187364]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.7, 2.7, 0.2)
 light_energy = 5.0
 omni_range = 5.5
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="CSG"]
+[node name="OmniLight3D3" type="OmniLight3D" parent="CSG" unique_id=2014554591]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 34.7, 2.7, 0.2)
 light_energy = 5.0
 omni_range = 5.5
 
-[node name="Player" parent="." instance=ExtResource("2_ohvug")]
+[node name="Player" parent="." unique_id=851157102 instance=ExtResource("2_ohvug")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.933676, 0, 7.9621363)
 flashlight = true
 flashlight_togglable = true
 starting_grabpack = 2
 enabled_hands = Array[PackedScene]([ExtResource("3_01lt8"), ExtResource("4_xjw1n"), ExtResource("5_mmy86")])
 
-[node name="MonsterAI" parent="." node_paths=PackedStringArray("monster_visual", "roaming_ai_marks") instance=ExtResource("6_2sb82")]
+[node name="MonsterAI" parent="." unique_id=208286207 node_paths=PackedStringArray("monster_visual", "roaming_ai_marks") instance=ExtResource("6_2sb82")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.4, 0, -12.3)
 monster_visual = NodePath("MonsterVisual")
-default_state = 1
 roaming_ai_marks = NodePath("../AI Points")
 use_sound_tracking = false
 
-[node name="MonsterVisual" type="Node3D" parent="MonsterAI" node_paths=PackedStringArray("animation_player", "jumpscare_camera")]
+[node name="MonsterVisual" type="Node3D" parent="MonsterAI" unique_id=109414070 node_paths=PackedStringArray("animation_player", "jumpscare_camera")]
 transform = Transform3D(-1.25, 0, -1.09278e-07, 0, 1.25, 0, 1.09278e-07, 0, -1.25, 0, -0.6, 0)
 script = ExtResource("7_4wi1y")
 sound = SubResource("Resource_evljn")
@@ -83473,25 +83476,25 @@ jumpscare_animation_name = "SK_Doctor_LOD0_Skeleton|A_Doctor_Jumpscare"
 jumpscare_camera = NodePath("Camera3D")
 metadata/_custom_type_script = "uid://bj10bhy6c7hoy"
 
-[node name="Sketchfab_model" type="Node3D" parent="MonsterAI/MonsterVisual"]
+[node name="Sketchfab_model" type="Node3D" parent="MonsterAI/MonsterVisual" unique_id=711617283]
 transform = Transform3D(0.805625, 0, 0, 0, 1.78885e-16, 0.805625, 0, -0.805625, 1.78885e-16, 0, 0, 0)
 
-[node name="bc61f4a710014d08ba120346bdbaa25c_fbx" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model"]
+[node name="bc61f4a710014d08ba120346bdbaa25c_fbx" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model" unique_id=1597736282]
 transform = Transform3D(0.01, 0, 0, 0, 0, -0.01, 0, 0.01, 0, 0, 0, 0)
 
-[node name="Object_2" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx"]
+[node name="Object_2" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx" unique_id=321703372]
 
-[node name="RootNode" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2"]
+[node name="RootNode" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2" unique_id=740491637]
 
-[node name="SK_Doctor_LOD0" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode"]
+[node name="SK_Doctor_LOD0" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode" unique_id=559878272]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 
-[node name="SK_Doctor_LOD0_Skeleton" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode"]
+[node name="SK_Doctor_LOD0_Skeleton" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode" unique_id=122445570]
 transform = Transform3D(100, 0, 0, 0, -1.19209e-05, 100, 0, -100, -1.19209e-05, 0, 0, 0)
 
-[node name="Object_6" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton"]
+[node name="Object_6" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton" unique_id=33413402]
 
-[node name="Skeleton3D" type="Skeleton3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6"]
+[node name="Skeleton3D" type="Skeleton3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6" unique_id=1842550368]
 bones/0/name = "_rootJoint"
 bones/0/parent = -1
 bones/0/rest = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
@@ -85887,87 +85890,84 @@ bones/341/position = Vector3(0, 0.04, 1.11022e-16)
 bones/341/rotation = Quaternion(3.46945e-18, 3.01408e-17, -3.46945e-18, 1)
 bones/341/scale = Vector3(1, 1, 1)
 
-[node name="Object_9" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D"]
+[node name="Object_9" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D" unique_id=2005648528]
 mesh = SubResource("ArrayMesh_rcn7h")
 skin = SubResource("Skin_rvi1j")
 
-[node name="Object_10" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D"]
+[node name="Object_10" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D" unique_id=525614468]
 mesh = SubResource("ArrayMesh_54mgj")
 skin = SubResource("Skin_rvi1j")
 
-[node name="Object_11" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D"]
+[node name="Object_11" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D" unique_id=1195423594]
 mesh = SubResource("ArrayMesh_xm0cf")
 skin = SubResource("Skin_rvi1j")
 
-[node name="Object_12" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D"]
+[node name="Object_12" type="MeshInstance3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6/Skeleton3D" unique_id=876046084]
 mesh = SubResource("ArrayMesh_wacth")
 skin = SubResource("Skin_rvi1j")
 
-[node name="Object_8" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6"]
+[node name="Object_8" type="Node3D" parent="MonsterAI/MonsterVisual/Sketchfab_model/bc61f4a710014d08ba120346bdbaa25c_fbx/Object_2/RootNode/SK_Doctor_LOD0_Skeleton/Object_6" unique_id=1625207663]
 transform = Transform3D(100, 0, 0, 0, -6.42157e-08, 100, 0, -100, -6.42157e-08, 0, 0, 0)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="MonsterAI/MonsterVisual"]
-libraries = {
-&"": SubResource("AnimationLibrary_8llpw")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MonsterAI/MonsterVisual" unique_id=163389136]
+libraries/ = SubResource("AnimationLibrary_8llpw")
 playback_default_blend_time = 0.15
 
-[node name="Camera3D" type="Camera3D" parent="MonsterAI/MonsterVisual"]
-transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0.2, 1.4, 1.2)
+[node name="Camera3D" type="Camera3D" parent="MonsterAI/MonsterVisual" unique_id=1744011501]
+transform = Transform3D(0.70710707, 0, 0.7071068, 0, 1, 0, -0.7071068, 0, 0.70710707, 0.2, 1.4, 1.2)
 
-[node name="AI Points" type="Node" parent="."]
+[node name="AI Points" type="Node" parent="." unique_id=2022510707]
 
-[node name="Marker3D" type="Marker3D" parent="AI Points"]
+[node name="Marker3D" type="Marker3D" parent="AI Points" unique_id=1894807926]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 0, -12.5)
 
-[node name="Marker3D2" type="Marker3D" parent="AI Points"]
+[node name="Marker3D2" type="Marker3D" parent="AI Points" unique_id=899193674]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7, 0, -13.9)
 
-[node name="Marker3D3" type="Marker3D" parent="AI Points"]
+[node name="Marker3D3" type="Marker3D" parent="AI Points" unique_id=470335003]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7, 0, 12.5)
 
-[node name="Marker3D4" type="Marker3D" parent="AI Points"]
+[node name="Marker3D4" type="Marker3D" parent="AI Points" unique_id=1134975439]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9, 0, 12.5)
 
-[node name="Marker3D5" type="Marker3D" parent="AI Points"]
+[node name="Marker3D5" type="Marker3D" parent="AI Points" unique_id=1750951595]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.8, 0, 8.6)
 
-[node name="Marker3D6" type="Marker3D" parent="AI Points"]
+[node name="Marker3D6" type="Marker3D" parent="AI Points" unique_id=1479118525]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.2, 0, -6.2)
 
-[node name="Marker3D7" type="Marker3D" parent="AI Points"]
+[node name="Marker3D7" type="Marker3D" parent="AI Points" unique_id=1706603821]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 0, 3.5)
 
-[node name="Marker3D8" type="Marker3D" parent="AI Points"]
+[node name="Marker3D8" type="Marker3D" parent="AI Points" unique_id=395982157]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.8, 0, -3.3)
 
-[node name="Marker3D9" type="Marker3D" parent="AI Points"]
+[node name="Marker3D9" type="Marker3D" parent="AI Points" unique_id=1377353655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 6.2)
 
-[node name="Marker3D10" type="Marker3D" parent="AI Points"]
+[node name="Marker3D10" type="Marker3D" parent="AI Points" unique_id=444877753]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3, 0, -3.9)
 
-[node name="HuggyWuggy" parent="." node_paths=PackedStringArray("roaming_ai_marks", "path_follow_node") instance=ExtResource("19_q8mld")]
+[node name="HuggyWuggy" parent="." unique_id=322631763 node_paths=PackedStringArray("roaming_ai_marks", "path_follow_node") instance=ExtResource("19_q8mld")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 37.1, 0.2, -0.1)
 roaming_ai_marks = NodePath("../AI Points")
 path_follow_node = NodePath("../Path3D/PathFollow3D")
 look_at_player_on_path = true
 
-[node name="Gate" parent="." instance=ExtResource("20_snui3")]
+[node name="Gate" parent="." unique_id=1740062488 instance=ExtResource("20_snui3")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.6, 0, 0)
-colour = 2
 
-[node name="Path3D" type="Path3D" parent="."]
+[node name="Path3D" type="Path3D" parent="." unique_id=813741773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 35.1545, 0, 0)
 curve = SubResource("Curve3D_rvi1j")
 
-[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
-transform = Transform3D(-0.00497308, -0.00291607, 0.999983, -2.32831e-10, 0.999993, 0.00291611, -0.999988, 1.45018e-05, -0.00497306, 0, 0.245548, 0)
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1486168646]
+transform = Transform3D(-0.004973079, -0.0029160858, 0.99998343, -2.3283073e-10, 0.999993, 0.0029161298, -0.999988, 1.4501866e-05, -0.0049730563, 0, 0.245548, 0)
 
-[node name="Button" parent="." instance=ExtResource("21_1frd8")]
+[node name="Button" parent="." unique_id=165825386 instance=ExtResource("21_1frd8")]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 16.5, 3.1, 0)
 
-[node name="MonsterActivator" type="Node" parent="." node_paths=PackedStringArray("monster")]
+[node name="MonsterActivator" type="Node" parent="." unique_id=1361954268 node_paths=PackedStringArray("monster")]
 script = ExtResource("22_rcn7h")
 monster = NodePath("../HuggyWuggy")
 state = 2
@@ -85975,10 +85975,15 @@ node = NodePath("../Button")
 node_signal = "pressed"
 metadata/_custom_type_script = "uid://cr2jbisbr4qh3"
 
-[node name="PuzzleGateLinker" type="Node" parent="." node_paths=PackedStringArray("connected_gate")]
+[node name="PuzzleGateLinker" type="Node" parent="." unique_id=2126862397 node_paths=PackedStringArray("connected_gate")]
 script = ExtResource("23_1frd8")
 connected_gate = NodePath("../Gate")
 puzzle = NodePath("../Button")
 enable_signal = "pressed"
 use_disable_signal = false
 metadata/_custom_type_script = "uid://ckdvdouxaw4it"
+
+[node name="Prototype" parent="." unique_id=1306898878 node_paths=PackedStringArray("roaming_ai_marks") instance=ExtResource("24_rcn7h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7899462, 0, 0)
+default_state = 1
+roaming_ai_marks = NodePath("../AI Points")

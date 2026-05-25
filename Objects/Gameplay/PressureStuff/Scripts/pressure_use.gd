@@ -17,7 +17,6 @@ signal power_100
 
 func _ready() -> void:
 	hand_grab.enabled = false
-	# Connect signals in code so they always work
 	hand_grab.pulled.connect(_on_hand_grab_pulled)
 	hand_grab.let_go.connect(_on_hand_grab_let_go)
 	
@@ -63,14 +62,12 @@ func _on_hand_grab_pulled(hand: bool) -> void:
 	if hand and Grabpack.right_hand.current_hand_node.name == "PressureHand":
 		is_charging = true
 		fully_charged = false
-		# Stop the box from being pulled while charging
 		if draggable:
 			draggable.set_pulling_blocked(true)
 
 func _on_hand_grab_let_go(hand: bool) -> void:
 	if is_charging:
 		is_charging = false
-		# Re-enable draggable pulling
 		if draggable:
 			draggable.set_pulling_blocked(false)
 		fire()

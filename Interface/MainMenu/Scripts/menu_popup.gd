@@ -9,6 +9,10 @@ extends Control
 
 signal prompt_result(value: bool)
 
+func _process(delta: float) -> void:
+	if Game.interface == "Ch5":
+		$Prompt.add_theme_color_override("font_color", Color("#d72924"))
+
 func _ready():
 	visible = false
 	yesbutton.connect("pressed", Callable(yes))

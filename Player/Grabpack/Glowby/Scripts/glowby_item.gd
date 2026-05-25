@@ -18,14 +18,8 @@ func collect():
 
 	var player = get_tree().get_first_node_in_group("Player")
 	if player:
-		player.start_with_glowby = true
 		player.glowby_collected = true
-		
-		if player.glowby_flashlight_check2 == true:
-			player.glowby_flashlight_check = true
-		
-		if player.glowby_blacklight_check2 == true:
-			player.glowby_blacklight_check = true
+		player.start_with_glowby = true
 
 	collected.emit()
 	queue_free()

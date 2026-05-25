@@ -33,6 +33,12 @@ signal rail1_complete
 signal rail2_complete
 
 func _ready() -> void:
+	if needs_puzzle == false:
+		usable1 = true
+	
+	if needs_puzzle_ == false:
+		usable2 = true
+	
 	if needs_puzzle and puzzle != null:
 		if use_on_signal and on_signal != "":
 			puzzle.connect(on_signal, on1)
