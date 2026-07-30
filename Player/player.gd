@@ -29,9 +29,11 @@ enum mask_types {
 @export var gasmask_toggleable: bool = false
 @export var gasmask_type: mask_types = mask_types.Normal
 @export_subgroup("Grabpack")
+
 enum grabpackbluehandtype {
-	Ch5_old_grabber,
-	Ch4
+	Ch5 = 2,
+	Ch5_old_grabber = 1,
+	Ch4 = 0
 }
 
 @export var start_with_glowby: bool = false
@@ -120,20 +122,30 @@ var togC: bool = false
 var curC: bool = false
 var togS: bool = false
 
+@onready var b1 = $Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_001
+@onready var b2 = $Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_002
+@onready var b3 = $Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_003
+
 func _process(delta: float) -> void:
+	match blue_hand_type:
+		grabpackbluehandtype.Ch5_old_grabber:
+			b1.hide()
+			b2.show()
+			b3.hide()
+		grabpackbluehandtype.Ch4:
+			b1.show()
+			b2.hide()
+			b3.Hide()
+		grabpackbluehandtype.Ch5:
+			b1.hide()
+			b2.hide()
+			b3.show()
+
 	if start_with_glowby == true:
 		flashlight = false
 		flashlight_togglable = false
 
 func _ready() -> void:
-	
-	match blue_hand_type:
-		grabpackbluehandtype.Ch5_old_grabber:
-			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_001.hide()
-			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_002.show()
-		grabpackbluehandtype.Ch4:
-			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_001.show()
-			$Grabpack/Pack/LeftHandContainer/Hands/Blue/SK_PurpleHand/Skeleton3D/SK_GrabpackHand_002.hide()
 	
 	capture_mouse(true)
 	

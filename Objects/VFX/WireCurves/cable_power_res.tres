@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cupo3sw6ticjb"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cupo3sw6ticjb"]
 
 [ext_resource type="Shader" uid="uid://v4nhtgm0q8aw" path="res://Objects/VFX/WireCurves/cable_power_shader.gdshader" id="1_hklfi"]
 

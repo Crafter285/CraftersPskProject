@@ -2,7 +2,7 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5d4fsagv1vy5"
+uid="uid://bqj2chyba4t5i"
 path.s3tc="res://.godot/imported/T_Door_3m_N.png-47a8ad549c9681e2355339946de24fea.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
@@ -27,7 +27,7 @@ compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
 roughness/mode=1
-roughness/src_normal="res://Objects/Gameplay/Gates/Model/T_Door_3m_N.png"
+roughness/src_normal="res://Crafter's Custom stuff/Gameplay/GateTypes/textures/T_Door_3m_N.png"
 process/channel_remap/red=0
 process/channel_remap/green=1
 process/channel_remap/blue=2

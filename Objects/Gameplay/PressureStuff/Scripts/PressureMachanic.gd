@@ -30,8 +30,6 @@ func _ready() -> void:
 	audio.stream = stream
 	audio.autoplay = false
 	add_child(audio)
-	audio.play()
-	audio.stop()
 
 func _get_particles() -> Array:
 	var hand = Grabpack.right_hand.current_hand_node
@@ -43,37 +41,51 @@ func _get_particles() -> Array:
 			_cached_particles = []
 	return _cached_particles
 
+func _is_pressure_hand() -> bool:
+	var hand = Grabpack.right_hand.current_hand_node
+	return hand != null and hand.name == "PressureHand"
+
 func _process(delta: float) -> void:
-	var should_enable = Grabpack.right_hand.current_hand_node.name == "PressureHand"
+	var should_enable = is_enabled and _is_pressure_hand()
 	if hand_grab.enabled != should_enable:
 		hand_grab.enabled = should_enable
+
 	if is_charging:
+		if not _is_pressure_hand():
+			is_charging = false
+			_stop_charge_effects()
+			return
+
 		charge += delta
 		charge = clamp(charge, 0.0, max_charge)
 		$Label3D.text = "%.2f" % charge
 		pressure_ui.update_charge(charge / max_charge)
+
 		if charge >= max_charge and not fully_charged:
 			fully_charged = true
 			$ChargeSound.stop()
 			if stop_particles_on_full:
 				for p in _get_particles():
 					p.emitting = false
+		
 		if not fully_charged:
 			if not $ChargeSound.playing:
 				$ChargeSound.play()
 			for p in _get_particles():
 				p.emitting = true
 	else:
-		if $ChargeSound.playing:
-			$ChargeSound.stop()
-		for p in _get_particles():
-			p.emitting = false
+		_stop_charge_effects()
+
+func _stop_charge_effects() -> void:
+	if $ChargeSound.playing:
+		$ChargeSound.stop()
+	for p in _get_particles():
+		p.emitting = false
 
 func _on_hand_grab_pulled(hand: bool) -> void:
-	if is_enabled == true:
-		if hand and Grabpack.right_hand.current_hand_node.name == "PressureHand":
-			is_charging = true
-			fully_charged = false
+	if is_enabled and hand and _is_pressure_hand():
+		is_charging = true
+		fully_charged = false
 
 func _on_hand_grab_let_go(hand: bool) -> void:
 	if is_charging:
@@ -82,8 +94,18 @@ func _on_hand_grab_let_go(hand: bool) -> void:
 
 func fire():
 	var power = charge / max_charge
-	print("Pressure blast power:", power)
+	call_deferred("_emit_power_signals", power)
+	charge = 0.0
+	fully_charged = false
+	$Label3D.text = "0.00"
+	$Label3D.visible = false
+	pressure_ui.reset_charge()
+	for p in _get_particles():
+		p.emitting = false
+	_cached_hand_node = null
+	_cached_particles = []
 
+func _emit_power_signals(power: float) -> void:
 	power_any.emit(power)
 	if power >= 1.0:
 		power_100.emit(power)
@@ -93,14 +115,6 @@ func fire():
 		power_50.emit(power)
 	elif power >= 0.25:
 		power_25.emit(power)
-	charge = 0.0
-	fully_charged = false
-	$Label3D.text = "0.00"
-	pressure_ui.reset_charge()
-	for p in _get_particles():
-		p.emitting = false
-	_cached_hand_node = null
-	_cached_particles = []
 
 func enable():
 	is_enabled = true

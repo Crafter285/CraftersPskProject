@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://buloxdyrq3el"
-path.s3tc="res://.godot/imported/T_Prototype_BodyAndLegs_BC.png-166951440f705676e58c9ba2f358cefa.s3tc.ctex"
+path.s3tc="res://.godot/imported/T_Prototype_BodyAndLegs_BC.png-aeab8fab26521628521288ae89f145d7.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Objects/Characters/MonsterAI/VisualTemplates/Prototype/textures/T_Prototype_BodyAndLegs_BC.png"
-dest_files=["res://.godot/imported/T_Prototype_BodyAndLegs_BC.png-166951440f705676e58c9ba2f358cefa.s3tc.ctex"]
+source_file="res://Objects/Characters/MonsterAI/VisualTemplates/Prototype/Textures/T_Prototype_BodyAndLegs_BC.png"
+dest_files=["res://.godot/imported/T_Prototype_BodyAndLegs_BC.png-aeab8fab26521628521288ae89f145d7.s3tc.ctex"]
 
 [params]
 

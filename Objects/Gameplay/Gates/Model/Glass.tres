@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dg4l75rdb4pd5"]
+
+[resource]
+resource_name = "MI_Glass_SM_Door_A_Blue"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.33333334)
+roughness = 0.0
+uv1_scale = Vector3(1.2417766, 1.0356593, 1)
+uv1_offset = Vector3(-0.23025618, -0.008351836, 0)

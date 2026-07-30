@@ -260,3 +260,11 @@ func get_hand_idx(hand_name: String):
 		if hand_instance.name == hand_name: hand_id = i
 		hand_instance.queue_free()
 	return hand_id
+
+func blue_hand_type(hand_type: int) -> void:
+	if hand_type == 0:
+		player.blue_hand_type = 0
+	elif hand_type == 1:
+		player.blue_hand_type = 1
+	elif hand_type == 2:
+		player.blue_hand_type = 2

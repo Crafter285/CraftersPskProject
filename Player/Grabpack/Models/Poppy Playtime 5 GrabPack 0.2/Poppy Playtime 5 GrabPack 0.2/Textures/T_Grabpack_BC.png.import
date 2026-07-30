@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://boil8t11ijfwi"
-path.s3tc="res://.godot/imported/T_Grabpack_BC.png-c39ca936d07986c6256e1d91eadd0a9b.s3tc.ctex"
+path.s3tc="res://.godot/imported/T_Grabpack_BC.png-3538b7d25835609c457c41010dc78d77.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Player/Grabpack/Models/Poppy Playtime 5 GrabPack 0.2/Poppy Playtime 5 GrabPack 0.2/textures/T_Grabpack_BC.png"
-dest_files=["res://.godot/imported/T_Grabpack_BC.png-c39ca936d07986c6256e1d91eadd0a9b.s3tc.ctex"]
+source_file="res://Player/Grabpack/Models/Poppy Playtime 5 GrabPack 0.2/Poppy Playtime 5 GrabPack 0.2/Textures/T_Grabpack_BC.png"
+dest_files=["res://.godot/imported/T_Grabpack_BC.png-3538b7d25835609c457c41010dc78d77.s3tc.ctex"]
 
 [params]
 

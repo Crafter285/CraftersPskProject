@@ -1,4 +1,4 @@
-[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dx2mmlmd517v2"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dx2mmlmd517v2"]
 
 [sub_resource type="Shader" id="Shader_yb2bx"]
 code = "// https://www.shadertoy.com/view/MdffD7

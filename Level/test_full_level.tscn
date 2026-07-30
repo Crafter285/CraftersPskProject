@@ -947,21 +947,21 @@ omni_range = 6.5
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Light" unique_id=1495583759]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3.7, 14.4)
-light_energy = 5.2896214
+light_energy = 5.1572056
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 7.68
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Light" unique_id=1298490036]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.6, 3.7, 19.9)
-light_energy = 9.1926155
+light_energy = 7.9514313
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 12.0
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Light" unique_id=672330413]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4.9, 36.6)
-light_energy = 8.807483
+light_energy = 7.6648393
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 12.0
@@ -969,7 +969,7 @@ max_energy = 12.0
 [node name="OmniLight3D7" type="OmniLight3D" parent="Light" unique_id=518469223]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 3.3, 14.4)
 light_color = Color(1, 0.313726, 0, 1)
-light_energy = 2.216002
+light_energy = 2.0889018
 omni_range = 6.5
 script = ExtResource("18_86uxy")
 max_energy = 3.0

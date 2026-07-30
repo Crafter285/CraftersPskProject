@@ -48,11 +48,10 @@ mesh = SubResource("PlaneMesh_x01bm")
 [node name="PressureMachanic" parent="Glass" unique_id=1906056036 instance=ExtResource("2_drsgp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26399612, 0.046871483, -0.21530771)
 visible = false
+stop_particles_on_full = true
 
 [node name="GlassBreakSound" type="AudioStreamPlayer" parent="." unique_id=989906308]
 stream = ExtResource("4_drsgp")
 
-[connection signal="holding" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_holding"]
 [connection signal="power_100" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_100"]
 [connection signal="power_75" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_power_75"]
-[connection signal="released" from="Glass/PressureMachanic" to="." method="_on_pressure_machanic_released"]

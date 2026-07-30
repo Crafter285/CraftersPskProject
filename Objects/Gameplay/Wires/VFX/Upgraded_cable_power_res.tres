@@ -1,0 +1,43 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://tupf23lrjbew"]
+
+[sub_resource type="Shader" id="Shader_mgvvs"]
+code = "shader_type spatial;
+uniform float speed = 1.0;
+uniform float glow_intensity = 4.0;
+uniform float flow_direction = 1.0;
+uniform float spiral_density = 8.0;
+uniform float transition = 0.0;
+uniform float red_fade = 1.0;
+
+void fragment() {
+    vec2 uv = UV;
+    float stripe = mod(uv.y * spiral_density + TIME * speed * flow_direction, 1.0);
+    float mask = smoothstep(0.0, 0.3, stripe) - smoothstep(0.4, 0.7, stripe);
+    mask = clamp(mask, 0.0, 1.0);
+    float powered_zone = step(transition, uv.y);
+    vec3 off_stripe_a = vec3(1.0, 0.0, 0.0);
+    vec3 off_stripe_b = vec3(0.0, 0.0, 0.0);
+    vec3 off_color = mix(off_stripe_b, off_stripe_a, mask);
+    vec3 on_stripe_a = vec3(0.4, 0.85, 1.0);
+    vec3 on_stripe_b = vec3(0.0, 0.78, 1.0);
+    vec3 on_color = mix(on_stripe_b, on_stripe_a, mask);
+    vec3 final_color = mix(on_color, off_color, powered_zone);
+    final_color = mix(vec3(0.0), final_color, red_fade);
+    vec3 off_emission = mask * off_stripe_a * glow_intensity * 1.5 * powered_zone * red_fade;
+    vec3 on_emission = mask * on_stripe_a * glow_intensity * (1.0 - powered_zone);
+    ALBEDO = final_color;
+    EMISSION = off_emission + on_emission;
+    ROUGHNESS = 0.8;
+    SPECULAR = 0.1;
+}"
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = SubResource("Shader_mgvvs")
+shader_parameter/speed = 1.0
+shader_parameter/glow_intensity = 4.0
+shader_parameter/flow_direction = -1.0
+shader_parameter/spiral_density = 10.0
+shader_parameter/transition = 0.0
+shader_parameter/red_fade = 1.0
