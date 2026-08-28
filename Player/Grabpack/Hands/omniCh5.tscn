@@ -1,9 +1,9 @@
 [gd_scene format=4 uid="uid://b2ahnq0msmw7c"]
 
 [ext_resource type="Script" uid="uid://2ujq3rcpr70b" path="res://Player/Grabpack/Hands/Scripts/omni.gd" id="1_pd036"]
-[ext_resource type="Texture2D" uid="uid://b6wyipydwetst" path="res://Player/Grabpack/Models/poppy_playtime_chapter_5__grabpack_hands_14.png" id="2_pd036"]
-[ext_resource type="Texture2D" uid="uid://dndfjqujpkve6" path="res://Player/Grabpack/Models/poppy_playtime_chapter_5__grabpack_hands_15.png" id="3_dsy5w"]
-[ext_resource type="Texture2D" uid="uid://bndyffooefg11" path="res://Player/Grabpack/Models/poppy_playtime_chapter_5__grabpack_hands_16.png" id="4_atrmu"]
+[ext_resource type="Texture2D" uid="uid://d1s8ic6c0c634" path="res://Player/Grabpack/Models/Hands/T_OmniHand_BC.png" id="2_pd036"]
+[ext_resource type="Texture2D" uid="uid://cyjvafqliagnq" path="res://Player/Grabpack/Models/Hands/T_OmniHand_ORM.png" id="3_dsy5w"]
+[ext_resource type="Texture2D" uid="uid://bsgqx2nu8s7i6" path="res://Player/Grabpack/Models/Hands/T_OmniHand_Nb.png" id="4_atrmu"]
 [ext_resource type="Script" uid="uid://gs4nfpgi5328" path="res://Player/Grabpack/Hands/SettingsComponents/fire_mode_launch.gd" id="5_ndgyq"]
 [ext_resource type="Script" uid="uid://e26flvrrg06t" path="res://Player/Grabpack/Hands/SettingsComponents/hand_inventory_icon.gd" id="6_crtai"]
 [ext_resource type="Texture2D" uid="uid://bt4c2hmy1quwr" path="res://Interface/Inventory/ItemIcons/T_Red_Hand.png" id="7_hqh8s"]
@@ -943,17 +943,14 @@ _data = {
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8r7f2"]
-resource_name = "MI_OmniHand"
-cull_mode = 2
 albedo_texture = ExtResource("2_pd036")
-metallic_specular = 1.0
+metallic = 0.19
+metallic_specular = 0.55
 metallic_texture = ExtResource("3_dsy5w")
-metallic_texture_channel = 2
+roughness = 0.2
 roughness_texture = ExtResource("3_dsy5w")
-roughness_texture_channel = 1
 normal_enabled = true
 normal_texture = ExtResource("4_atrmu")
-metadata/_gltf_primary_texture_coord = 0
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_xsbt7"]
 resource_name = "MESHomnihand_OmniHandMesh_OmniHandMat_0"

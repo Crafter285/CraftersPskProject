@@ -95,6 +95,7 @@ var glowby_notifaction: bool = false
 var glowby_can_notify: bool = true
 var glowby_collected: bool = false
 var glowby_check: bool = true
+var glowby_lose: bool = false
 
 @onready var glowby_blacklight_player = $Neck/Camera3D/glowby_blacklight
 @onready var glowby_flashlight_player = $Neck/Camera3D/glowby_flashlight

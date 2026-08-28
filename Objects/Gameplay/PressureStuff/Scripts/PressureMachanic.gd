@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var max_charge: float = 3.0
+@export var max_charge: float = 2.70
 @export var stop_particles_on_full: bool = false
 @export var enabled: bool = true
 

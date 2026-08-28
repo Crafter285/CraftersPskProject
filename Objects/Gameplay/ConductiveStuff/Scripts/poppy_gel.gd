@@ -46,7 +46,7 @@ func _tween_gel_alpha() -> void:
 	frozen.emit()
 	$PressureMachanic.enable()
 
-func _on_pressure_machanic_power_100() -> void:
+func _on_pressure_machanic_power_100(amount: float) -> void:
 	$BreakSFX.play()
 	pressured.emit()
 	$PoppyGels.queue_free()
