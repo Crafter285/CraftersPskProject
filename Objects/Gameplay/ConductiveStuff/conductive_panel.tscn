@@ -4,10 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://13f3eqy4bx8d" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Floaters_A_BC.png" id="3_okv8m"]
 [ext_resource type="Texture2D" uid="uid://083syby167gi" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Floaters_A_ORMK.png" id="4_dihcw"]
 [ext_resource type="Texture2D" uid="uid://b5owrbx3gngny" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_Floaters_A_N.png" id="5_burff"]
-[ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="6_okv8m"]
-[ext_resource type="AudioStream" uid="uid://x7gnkp1xjuk" path="res://Objects/Gameplay/ConductiveStuff/SFX/SW_SFX_ConduvtiveHand_Electrical_Attacthed.wav" id="7_bylxy"]
-[ext_resource type="AudioStream" uid="uid://bopvkgohyke8g" path="res://Objects/Gameplay/ConductiveStuff/SFX/SW_SFX_ConduvtiveHand_Heat_Attatched.wav" id="8_hb0x4"]
-[ext_resource type="AudioStream" uid="uid://d1fwe03dbyax1" path="res://Objects/Gameplay/ConductiveStuff/SFX/SW_SFX_ConduvtiveHand_Chilled_Attatched.wav" id="9_c4n3g"]
+[ext_resource type="PackedScene" uid="uid://5juhuy4axu23" path="res://Objects/Gameplay/ConductiveStuff/conductive_machanic.tscn" id="5_mbcgo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hb0x4"]
 albedo_color = Color(0.8901961, 0.7019608, 0, 1)
@@ -216,9 +213,6 @@ shadow_mesh = SubResource("ArrayMesh_gj5g6")
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_rt3y8"]
 points = PackedVector3Array(-0.003063165, -0.0003403155, -0.0034252498, -0.0029669392, -0.0026116923, -0.0032828152, -0.003177433, -0.0003403155, -0.003394792, -0.003063165, -7.367227e-06, -0.0034252498, 0.0030822507, -0.0003403155, -0.0034252498, -0.0022582768, -0.0027590408, -0.0030534866, -0.002920831, -0.0027140551, -0.003060653, -0.003032092, -0.0027140551, -0.0030310913, -0.0030771978, -0.0026116923, -0.0032532534, 0.0029860246, -0.0026116923, -0.0032828152, -0.003177433, -7.367227e-06, -0.003394792, -0.0035623359, -0.0003403155, -0.00317263, 0.0030822507, -7.367227e-06, -0.0034252498, 0.0031965184, -0.0003403155, -0.003394792, -0.0015105228, -0.0027587714, -0.0019695507, -0.00025658123, -0.0027366825, 0.0053573195, -0.0046879766, -0.00271621, 3.1699892e-05, -0.004710028, -0.00271621, -0.000167171, -0.004703012, -0.0027140551, -0.00048608123, -0.004152721, -0.0027178263, -0.0014822274, -0.0038951165, -0.0027178263, -0.001919385, -0.0033648727, -0.0027140551, -0.0028017627, -0.0032816776, -0.0027140551, -0.002886865, 0.0013852702, -0.0027590408, -0.0030534866, -0.003451075, -0.0026116923, -0.003037362, 0.0030962839, -0.0026116923, -0.0032532534, 0.003051178, -0.0027140551, -0.0030310913, 0.0029399167, -0.0027140551, -0.003060653, -0.0035623359, -7.367227e-06, -0.00317263, -0.0036485381, -0.0003403155, -0.003085736, 0.0031965184, -7.367227e-06, -0.003394792, 0.003581422, -0.0003403155, -0.00317263, 0.0021320218, -0.0027587714, -0.0019695507, 0.0002506082, -0.0027366825, 0.0053591104, -0.0013782126, -0.0026116923, 0.0055830646, -0.0013321044, -0.0027140551, 0.0053609023, -0.0014433654, -0.0027140551, 0.0053313402, -0.0015867015, -0.0027199814, 0.00514949, -0.0017460755, -0.0027199814, 0.005028555, -0.0028386384, -0.0027151324, 0.0032503628, -0.004703012, -0.0027140551, 3.4387223e-05, -0.004735087, -0.0027140551, -8.5651875e-05, -0.00213599, -0.0027151324, 0.004466879, -0.004735087, -0.0027140551, -0.0003651462, -0.0049505923, -0.0026116923, -0.00043681148, -0.004917515, -0.0026116923, -0.0005568506, -0.00353427, -0.0026116923, -0.0029531554, 0.0029138555, -0.0027242913, -0.003031987, 0.0030932766, -0.0027242913, -0.002945093, 0.003914202, -0.0027366825, -0.0018584696, 0.0034701605, -0.0026116923, -0.003037362, 0.0033007632, -0.0027140551, -0.002886865, -0.0036485381, -7.367227e-06, -0.003085736, -0.0050768885, -0.0003403155, -0.0006114952, 0.003581422, -7.367227e-06, -0.00317263, 0.0036676242, -0.0003403155, -0.003085736, 0.0041677975, -0.0027366825, -0.0014195202, 0.004679999, -0.0027242913, 5.8574136e-05, 0.0018283091, -0.0027199814, 0.005059013, 0.0016679331, -0.0027199814, 0.0051781563, 0.0014624512, -0.0027140551, 0.0053313402, 0.0013511898, -0.0027140551, 0.0053609023, 0.0013972982, -0.0026116923, 0.0055830646, -0.0014233184, -0.0003403155, 0.005726395, -0.0014894735, -0.0026116923, 0.0055535026, -0.0016929507, -0.0027140551, 0.0051871147, -0.0017771483, -0.0027140551, 0.0051020123, -0.004917515, -0.0026116923, 0.00010515656, -0.0049505923, -0.0026116923, -1.4882535e-05, -0.0019455433, -0.0026116923, 0.0052534044, -0.0051099663, -0.0003403155, -0.00048697693, 0.0033839582, -0.0027140551, -0.0028017627, 0.0035533556, -0.0026116923, -0.0029531554, -0.0050768885, -7.367227e-06, -0.0006114952, 0.0036676242, -7.367227e-06, -0.003085736, 0.005095974, -0.0003403155, -0.0006114952, 0.0049366006, -0.0026116923, -0.0005568506, 0.0047220974, -0.0027140551, -0.00048608123, 0.0047090664, -0.0027242913, -0.00013850513, 0.004754172, -0.0027140551, -8.5651875e-05, 0.0047220974, -0.0027140551, 3.4387223e-05, 0.0049366006, -0.0026116923, 0.00010515656, 0.0019646292, -0.0026116923, 0.0052534044, 0.0018814337, -0.0026116923, 0.005337612, 0.0017120363, -0.0027140551, 0.0051871147, 0.0015085591, -0.0026116923, 0.0055535026, 0.001442404, -0.0003403155, 0.0057254992, -0.0014233184, -7.367227e-06, 0.005726395, -0.0015375863, -0.0003403155, 0.0056950413, -0.0019224891, -0.0003403155, 0.005472879, -0.001862348, -0.0026116923, 0.005337612, -0.0050768885, -0.0003403155, 7.111556e-05, -0.0051099663, -0.0003403155, -5.2506803e-05, -0.0020086914, -0.0003403155, 0.0053859856, -0.0051099663, -7.367227e-06, -0.00048697693, 0.005095974, -7.367227e-06, -0.0006114952, 0.005130054, -0.0003403155, -0.00048697693, 0.0049696784, -0.0026116923, -0.00043681148, 0.004754172, -0.0027140551, -0.0003651462, 0.0049696784, -0.0026116923, -1.4882535e-05, 0.005095974, -0.0003403155, 7.111556e-05, 0.002027777, -0.0003403155, 0.0053859856, 0.0019415747, -0.0003403155, 0.005472879, 0.0015566722, -0.0003403155, 0.0056950413, 0.001442404, -7.367227e-06, 0.0057254992, -0.0015375863, -7.367227e-06, 0.0056950413, -0.0019224891, -7.367227e-06, 0.005472879, -0.0050768885, -7.367227e-06, 7.111556e-05, -0.0051099663, -7.367227e-06, -5.2506803e-05, -0.0020086914, -7.367227e-06, 0.0053859856, 0.005130054, -7.367227e-06, -0.00048697693, 0.005129052, -0.0003403155, -5.2506803e-05, 0.005095974, -7.367227e-06, 7.111556e-05, 0.002027777, -7.367227e-06, 0.0053859856, 0.0019415747, -7.367227e-06, 0.005472879, 0.0015566722, -7.367227e-06, 0.0056950413, 0.005129052, -7.367227e-06, -5.2506803e-05)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dihcw"]
-size = Vector3(0.68814695, 0.58762205, 0.56708986)
-
 [node name="ConductivePanel" type="Node3D" unique_id=1231403567]
 script = ExtResource("1_p4iel")
 
@@ -232,6 +226,12 @@ transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, 5.551115e-17, 0, -5.5
 light_color = Color(0, 1, 0, 1)
 omni_range = 0.4853757
 
+[node name="ConductiveMachanic" parent="Electricity" unique_id=913893482 instance=ExtResource("5_mbcgo")]
+transform = Transform3D(0.010000001, 0, 0, 0, -4.3711393e-10, -0.010000002, 0, 0.010000002, -4.3711393e-10, 0.0007955632, -0.0022282237, -0.00063932315)
+visible = false
+is_Conductive_source = true
+one_time_use = false
+
 [node name="Fire" type="MeshInstance3D" parent="." unique_id=1131516337]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0.33108968, 0)
 visible = false
@@ -242,6 +242,14 @@ skeleton = NodePath("")
 transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, 5.551115e-17, 0, -5.551115e-17, 0.010000002, 0, -0.003788082, -2.3283064e-10)
 light_color = Color(1, 0, 0, 1)
 omni_range = 0.4853757
+
+[node name="ConductiveMachanic2" parent="Fire" unique_id=925514640 instance=ExtResource("5_mbcgo")]
+transform = Transform3D(0.010000002, 0, 0, 0, -4.3711396e-10, -0.010000003, 0, 0.010000003, -4.3711396e-10, 0.0007955633, -0.002228224, -0.00063932315)
+visible = false
+ConductiveType = 1
+is_Conductive_source = true
+enabled = false
+one_time_use = false
 
 [node name="Ice" type="MeshInstance3D" parent="." unique_id=1579648615]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0.33108968, 0)
@@ -254,34 +262,20 @@ transform = Transform3D(0.010000001, 0, 0, 0, 0.010000002, 5.551115e-17, 0, -5.5
 light_color = Color(0.11764706, 0.96862745, 1, 1)
 omni_range = 0.4853757
 
+[node name="ConductiveMachanic3" parent="Ice" unique_id=1182817813 instance=ExtResource("5_mbcgo")]
+transform = Transform3D(0.010000002, 0, 0, 0, -4.3711396e-10, -0.010000003, 0, 0.010000003, -4.3711396e-10, 0.0007955633, -0.002228224, -0.00063932315)
+visible = false
+ConductiveType = 2
+is_Conductive_source = true
+enabled = false
+one_time_use = false
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=655524404]
 transform = Transform3D(100, 0, 0, 0, -4.3711384e-06, 99.99999, 0, -99.99999, -4.3711384e-06, 0, 0.33108968, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=35428290]
 shape = SubResource("ConvexPolygonShape3D_rt3y8")
 
-[node name="HandGrab" type="Area3D" parent="." unique_id=1457718013 node_paths=PackedStringArray("grab_marker")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.33092654, -0.021820009)
-input_ray_pickable = false
-script = ExtResource("6_okv8m")
-stop_hand = false
-grab_marker = NodePath("HandPositionMarker")
-metadata/_custom_type_script = "uid://d4joakp74nxnn"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=697033092]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0070373416, 0.10045165, 0.3164551)
-shape = SubResource("BoxShape3D_dihcw")
-
-[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=479635361]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0665892, 0.272283)
-
-[node name="Electrical_Attacthed" type="AudioStreamPlayer" parent="." unique_id=224358647]
-stream = ExtResource("7_bylxy")
-
-[node name="Heat_Attatched" type="AudioStreamPlayer" parent="." unique_id=228697414]
-stream = ExtResource("8_hb0x4")
-
-[node name="Chilled_Attatched" type="AudioStreamPlayer" parent="." unique_id=895140985]
-stream = ExtResource("9_c4n3g")
-
-[connection signal="grabbed" from="HandGrab" to="." method="_on_hand_grab_grabbed"]
+[connection signal="electric_grabbed" from="Electricity/ConductiveMachanic" to="." method="_on_conductive_machanic_electric_grabbed"]
+[connection signal="fire_grabbed" from="Fire/ConductiveMachanic2" to="." method="_on_conductive_machanic_2_fire_grabbed"]
+[connection signal="ice_grabbed" from="Ice/ConductiveMachanic3" to="." method="_on_conductive_machanic_3_ice_grabbed"]

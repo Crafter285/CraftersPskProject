@@ -2,7 +2,6 @@ extends Node3D
 
 signal burned
 
-@export var conductive_panel: Node3D
 @export var burn_duration : float = 1.0
 
 const SHADER_PATH : String = "res://Objects/Gameplay/ConductiveStuff/Shaders/burnable_rope.gdshader"
@@ -48,7 +47,6 @@ func _setup_shader() -> void:
 
 func start_burn() -> void:
 	_burning = true
-	$HandGrab.queue_free()
 
 
 func _process(delta: float) -> void:
@@ -64,19 +62,13 @@ func _process(delta: float) -> void:
 		await get_tree().create_timer(3.0).timeout
 		queue_free()
 
-var current_hand_type
-func _on_hand_grab_grabbed(hand: bool) -> void:
-	if hand and Grabpack.right_hand.current_hand_node.name == "ConductiveHand":
-		current_hand_type = hand
-		if conductive_panel.is_fire2 == true:
-			$Heated_Release.play()
-			conductive_panel._reset_uv()
-			$GPUParticles3D.emitting = true
-			start_burn()
-			await get_tree().create_timer(burn_duration).timeout
-			if is_instance_valid(_mesh):
-				_mesh.queue_free()
-			await get_tree().create_timer(1.0).timeout
-			if is_instance_valid($GPUParticles3D):
-				$GPUParticles3D.emitting = false
-			burned.emit()
+func _on_conductive_machanic_fire_released() -> void:
+	$GPUParticles3D.emitting = true
+	start_burn()
+	await get_tree().create_timer(burn_duration).timeout
+	if is_instance_valid(_mesh):
+		_mesh.queue_free()
+	await get_tree().create_timer(1.0).timeout
+	if is_instance_valid($GPUParticles3D):
+		$GPUParticles3D.emitting = false
+	burned.emit()

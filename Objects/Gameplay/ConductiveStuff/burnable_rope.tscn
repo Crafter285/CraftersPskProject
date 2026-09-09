@@ -4,10 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://c73o75w4c056s" path="res://Objects/Gameplay/ConductiveStuff/Textures/hempen_rope_model_0.png" id="1_2c4ym"]
 [ext_resource type="Texture2D" uid="uid://bwbpp3cx3wgbh" path="res://Objects/Gameplay/ConductiveStuff/Textures/hempen_rope_model_1.png" id="2_rt4rq"]
 [ext_resource type="Texture2D" uid="uid://c1fgul88mefvn" path="res://Objects/Gameplay/ConductiveStuff/Textures/hempen_rope_model_2.png" id="3_v6rrb"]
-[ext_resource type="Script" uid="uid://d4joakp74nxnn" path="res://Objects/Gameplay/HandFunctions/hand_grab.gd" id="4_rt4rq"]
 [ext_resource type="Shader" uid="uid://bns7tvgejggso" path="res://Objects/Gameplay/ConductiveStuff/Shaders/burnable_rope.gdshader" id="5_e5qd6"]
-[ext_resource type="Texture2D" uid="uid://djka3fjororvb" path="res://Objects/Gameplay/ConductiveStuff/Textures/pngtree-realistic-3d-fire-flame-effect-for-designs-png-image_13631567.png" id="5_v6rrb"]
-[ext_resource type="AudioStream" uid="uid://cxiaqv08xckhh" path="res://Objects/Gameplay/ConductiveStuff/SFX/SW_SFX_ConductiveHand_Heated_Release.wav" id="8_2cxqe"]
+[ext_resource type="Texture2D" uid="uid://dnsleetrcyq2o" path="res://Objects/Gameplay/ConductiveStuff/Textures/T_fire01.png" id="7_e4g3s"]
+[ext_resource type="PackedScene" uid="uid://5juhuy4axu23" path="res://Objects/Gameplay/ConductiveStuff/conductive_machanic.tscn" id="8_e4g3s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_w5odv"]
 render_priority = 0
@@ -59,24 +58,63 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_8fpek")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_v6rrb"]
-size = Vector3(0.7013672, 0.9376953, 0.6)
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1hj58"]
-emission_shape = 1
-emission_sphere_radius = 0.7
-angle_min = -720.0
-angle_max = 720.0
-gravity = Vector3(0, 0, 0)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e5qd6"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5rr06"]
 transparency = 1
-cull_mode = 2
-albedo_texture = ExtResource("5_v6rrb")
+shading_mode = 0
+vertex_color_use_as_albedo = true
+vertex_color_is_srgb = true
+albedo_texture = ExtResource("7_e4g3s")
+albedo_texture_force_srgb = true
+billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
-[sub_resource type="QuadMesh" id="QuadMesh_w5odv"]
-material = SubResource("StandardMaterial3D_e5qd6")
-size = Vector2(0.4, -0.4)
+[sub_resource type="Curve" id="Curve_i1imy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.55763245, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_thjfm"]
+texture_mode = 1
+curve = SubResource("Curve_i1imy")
+
+[sub_resource type="Gradient" id="Gradient_ofm16"]
+offsets = PackedFloat32Array(0.19965278, 0.4809028, 0.7934028)
+colors = PackedColorArray(1, 1, 1, 1, 0.62, 0.4836, 0.4836, 1, 0.08, 0.08, 0.08, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_u1y5f"]
+gradient = SubResource("Gradient_ofm16")
+
+[sub_resource type="Curve" id="Curve_fewe4"]
+_data = [Vector2(0.0031152666, 0.50000006), 0.0, 1.5356482, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_eq1bl"]
+curve = SubResource("Curve_fewe4")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k46hw"]
+lifetime_randomness = 0.08
+particle_flag_rotate_y = true
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -179.99998
+angle_max = 180.00002
+direction = Vector3(0, 1, 0)
+spread = 15.0
+initial_velocity_min = 1.0
+initial_velocity_max = 2.0
+radial_velocity_min = -2.2351742e-05
+radial_velocity_max = 0.49997765
+gravity = Vector3(0, 1, 0)
+scale_min = 0.9
+scale_max = 1.4
+scale_curve = SubResource("CurveTexture_eq1bl")
+color = Color(2.0002677, 1.2002393, 0.5002145, 1)
+color_ramp = SubResource("GradientTexture1D_u1y5f")
+alpha_curve = SubResource("CurveTexture_thjfm")
+
+[sub_resource type="QuadMesh" id="QuadMesh_22d7q"]
+size = Vector2(0.5, 0.5)
 
 [node name="BurnableRope" type="Node3D" unique_id=819097466]
 script = ExtResource("1_1hj58")
@@ -86,34 +124,22 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_1hj58")
 skeleton = NodePath("")
 
-[node name="HandGrab" type="Area3D" parent="." unique_id=1073344620 node_paths=PackedStringArray("grab_marker")]
-transform = Transform3D(0.99627036, 0, 0.086286366, 0, 1, 0, -0.086286366, 0, 0.99627036, 0.34033, 0.45379454, -0.23396495)
-script = ExtResource("4_rt4rq")
-stop_hand = false
-grab_marker = NodePath("HandPositionMarker")
-only_usable_by = 1
-metadata/_custom_type_script = "uid://d4joakp74nxnn"
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=192829050]
-transform = Transform3D(1.0000138, 0, 1.937151e-07, 0, 1, 0, -1.937151e-07, 0, 1.0000138, -0.050683796, -0.16884765, 0.2000003)
-shape = SubResource("BoxShape3D_v6rrb")
-
-[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=567003127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0544591, 0.254949)
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1329082172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.4, -0.1)
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1936908075]
+transform = Transform3D(1.0000001, 0, 7.450581e-09, 0, 1, 0, -7.450581e-09, 0, 1.0000001, 0.26525408, 0.30256087, 0.05555874)
+material_override = SubResource("StandardMaterial3D_5rr06")
 emitting = false
 amount = 50
-lifetime = 0.36
+lifetime = 0.73
 interp_to_end = 0.08
 explosiveness = 0.02
 randomness = 0.21
+local_coords = true
 transform_align = 3
-process_material = SubResource("ParticleProcessMaterial_1hj58")
-draw_pass_1 = SubResource("QuadMesh_w5odv")
+process_material = SubResource("ParticleProcessMaterial_k46hw")
+draw_pass_1 = SubResource("QuadMesh_22d7q")
 
-[node name="Heated_Release" type="AudioStreamPlayer" parent="." unique_id=578038314]
-stream = ExtResource("8_2cxqe")
+[node name="ConductiveMachanic" parent="." unique_id=913893482 instance=ExtResource("8_e4g3s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.3423833, 0.008005753)
+ConductiveType = 1
 
-[connection signal="grabbed" from="HandGrab" to="." method="_on_hand_grab_grabbed"]
+[connection signal="fire_released" from="ConductiveMachanic" to="." method="_on_conductive_machanic_fire_released"]

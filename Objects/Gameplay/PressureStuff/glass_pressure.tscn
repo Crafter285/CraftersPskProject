@@ -47,8 +47,64 @@ mesh = SubResource("PlaneMesh_x01bm")
 
 [node name="PressureMachanic" parent="Glass" unique_id=1906056036 instance=ExtResource("2_drsgp")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.26399612, 0.046871483, -0.21530771)
-visible = false
 stop_particles_on_full = true
+
+[node name="BrokenGlass" type="Node3D" parent="." unique_id=385164062]
+visible = false
+
+[node name="Glass2" type="CSGBox3D" parent="BrokenGlass" unique_id=2071050470]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, 0.921645, 1.35)
+use_collision = true
+size = Vector3(0.024291992, 0.18808594, 0.6)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass3" type="CSGBox3D" parent="BrokenGlass" unique_id=1176787100]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, 0.94591695, -1.549861)
+use_collision = true
+size = Vector3(0.024291992, 0.18808594, 0.2)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass5" type="CSGBox3D" parent="BrokenGlass" unique_id=2048112701]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, 0.7951535, -1.5967338)
+use_collision = true
+size = Vector3(0.024291992, 0.18808594, 0.10618897)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass6" type="CSGBox3D" parent="BrokenGlass" unique_id=1548942604]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, -0.95046717, -1.5757585)
+use_collision = true
+size = Vector3(0.024291992, 0.18808594, 0.14816895)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass7" type="CSGBox3D" parent="BrokenGlass" unique_id=882183901]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, -0.83199483, 1.5642043)
+use_collision = true
+size = Vector3(0.024291992, 0.42424315, 0.17369385)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass8" type="CSGBox3D" parent="BrokenGlass" unique_id=1964718012]
+transform = Transform3D(1, 0, 0, 0, 0.9993048, -0.037282735, 0, 0.037282735, 0.9993048, 0, -0.9811647, 1.4531323)
+use_collision = true
+size = Vector3(0.024291992, 0.1256958, 0.17369385)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass9" type="CSGBox3D" parent="BrokenGlass" unique_id=1374004660]
+transform = Transform3D(1, 0, 0, 0, 0.8995638, 0.4367894, 0, -0.4367894, 0.8995638, 0, -0.930298, 1.4636438)
+use_collision = true
+size = Vector3(0.024291992, 0.1256958, 0.15032348)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass10" type="CSGBox3D" parent="BrokenGlass" unique_id=1960943108]
+transform = Transform3D(1, 0, 0, 0, 0.8995638, 0.4367894, 0, -0.4367894, 0.8995638, 0, -0.68135333, 1.5679933)
+use_collision = true
+size = Vector3(0.024291992, 0.1256958, 0.12191467)
+material = ExtResource("2_pxv2a")
+
+[node name="Glass4" type="CSGBox3D" parent="BrokenGlass" unique_id=1980749952]
+transform = Transform3D(1, 0, 0, 0, 0.99268925, 0.1206992, 0, -0.1206992, 0.99268925, 0, 0.8021945, 1.3694884)
+use_collision = true
+size = Vector3(0.024291992, 0.12531738, 0.54697263)
+material = ExtResource("2_pxv2a")
 
 [node name="GlassBreakSound" type="AudioStreamPlayer" parent="." unique_id=989906308]
 stream = ExtResource("4_drsgp")

@@ -22,7 +22,6 @@ var _cached_particles: Array = []
 var _cached_hand_node = null
 
 func _ready() -> void:
-	is_enabled = enabled
 	hand_grab.enabled = false
 	var audio = AudioStreamPlayer3D.new()
 	audio.name = "ChargeSound"
@@ -46,6 +45,7 @@ func _is_pressure_hand() -> bool:
 	return hand != null and hand.name == "PressureHand"
 
 func _process(delta: float) -> void:
+	is_enabled = enabled
 	var should_enable = is_enabled and _is_pressure_hand()
 	if hand_grab.enabled != should_enable:
 		hand_grab.enabled = should_enable

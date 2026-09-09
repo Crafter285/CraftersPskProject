@@ -20,6 +20,9 @@ func _process(delta: float) -> void:
 		
 		if player.start_with_glowby == true:
 			startup(player)
+		
+		if player.glowby_lose == true:
+			lose_glowby(player)
 
 func startup(player):
 	if player.glowby_check == true:
@@ -56,6 +59,13 @@ func notifaction():
 		blacklight()
 	elif blacklight_var == false and flashlight_var == false:
 		idle()
+
+func lose_glowby(player):
+	if player.glowby_lose == true:
+		player.glowby_lose = false
+		player.glowby_collected = false
+		disable_controls = true
+		player.glowby_check = true
 
 func _input(_event):
 	if disable_controls == false:

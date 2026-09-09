@@ -97,6 +97,12 @@ var glowby_collected: bool = false
 var glowby_check: bool = true
 var glowby_lose: bool = false
 
+var conductive_has_elec: bool = false
+var conductive_has_fire: bool = false
+var conductive_has_ice: bool = false
+var conductive_reset_uv: bool = false
+var conductive_mat: ORMMaterial3D
+
 @onready var glowby_blacklight_player = $Neck/Camera3D/glowby_blacklight
 @onready var glowby_flashlight_player = $Neck/Camera3D/glowby_flashlight
 
@@ -163,6 +169,25 @@ func _ready() -> void:
 			var mobile = load("res://Interface/Mobile/mobile_controls.tscn").instantiate()
 			mobile.name = "MobileControls"
 			Grabpack.player.add_child(mobile)
+
+func reset_uv():
+	var conductive_scene = get_tree().get_first_node_in_group("ConductiveScene")
+	if conductive_scene:
+		conductive_scene.none()
+
+	conductive_has_elec = false
+	conductive_has_fire = false
+	conductive_has_ice = false
+
+	var conductive_mesh = get_tree().get_first_node_in_group("conductive_mesh")
+	if conductive_mesh and conductive_mat != null:
+		conductive_mesh.set_surface_override_material(0, conductive_mat)
+		conductive_mat.uv1_scale = Vector3(0.27, 0.49, 1.0)
+		conductive_mat.uv1_offset = Vector3(-0.005, 0.315, 0.0)
+
+	var hand_node = Grabpack.right_hand.current_hand_node
+	if hand_node and (hand_node.name == "Conductivehand" or hand_node.name == "ConductiveHand"):
+		hand_node.none()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:

@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://gg6btkek4uo1"]
+
+[ext_resource type="Texture2D" uid="uid://d3jgcphe2kh67" path="res://Objects/Gameplay/ConductiveStuff/Model/Gel/Textures/T_PoppyGel_BC.png" id="1_vw0ha"]
+[ext_resource type="Texture2D" uid="uid://0ujga06mdw0y" path="res://Objects/Gameplay/ConductiveStuff/Model/Gel/Textures/T_Foam.png" id="2_rq7vr"]
+[ext_resource type="Texture2D" uid="uid://c1j78aedvvdie" path="res://Objects/Gameplay/ConductiveStuff/Model/Gel/Textures/T_Bubbles_01.png" id="3_4r1ro"]
+[ext_resource type="Texture2D" uid="uid://bg65cvee6180h" path="res://Objects/Gameplay/ConductiveStuff/Model/Gel/Textures/T_Sclera_N.png" id="4_1yu68"]
+
+[resource]
+albedo_texture = ExtResource("1_vw0ha")
+detail_enabled = true
+detail_mask = ExtResource("3_4r1ro")
+detail_blend_mode = 1
+detail_albedo = ExtResource("2_rq7vr")
+detail_normal = ExtResource("4_1yu68")

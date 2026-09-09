@@ -1,6 +1,5 @@
 extends Node3D
 
-@export var conductive_panel: Node3D
 ##if true then it loses power after 15 seconds
 @export var Loses_Power: bool = true
 
@@ -23,20 +22,22 @@ func _ready() -> void:
 	_reset_timer.timeout.connect(_on_reset_timer_timeout)
 
 func _on_hand_grab_grabbed(hand: bool) -> void:
-	if hand and Grabpack.right_hand.current_hand_node.name == "ConductiveHand":
-		if conductive_panel.is_electricity2 == true:
-			if ONOLoses_Power == false:
-				if Loses_Power == false:
-					ONOLoses_Power = true
-					$Electric_Panel_LOOP.play()
-				else:
-					_reset_timer.start()
-					$Electric_Panel_LOOP.play()
-				conductive_panel._reset_uv()
-				$HandGrab.enabled = false
-				$OmniLight3D.show()
-				gained_power.emit()
-				charged.play()
+	var player = get_tree().get_first_node_in_group("Player")
+	if player:
+		if hand and Grabpack.right_hand.current_hand_node.name == "ConductiveHand":
+			if player.conductive_has_elec == true:
+				if ONOLoses_Power == false:
+					if Loses_Power == false:
+						ONOLoses_Power = true
+						$Electric_Panel_LOOP.play()
+					else:
+						_reset_timer.start()
+						$Electric_Panel_LOOP.play()
+					player.reset_uv()
+					$HandGrab.enabled = false
+					$OmniLight3D.show()
+					gained_power.emit()
+					charged.play()
 
 func _on_reset_timer_timeout() -> void:
 	$HandGrab.enabled = true

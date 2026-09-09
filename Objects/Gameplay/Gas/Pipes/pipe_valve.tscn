@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://tgj85w0xfm5k"]
+[gd_scene format=4 uid="uid://tgj85w0xfm5k"]
 
 [ext_resource type="Script" uid="uid://desigrp0smliv" path="res://Objects/Gameplay/Gas/Scripts/pipe_valve.gd" id="1_etc8b"]
 [ext_resource type="Material" uid="uid://dnia3t1wv87a0" path="res://Objects/Materials/Trims/PaintedMetalTrim.tres" id="1_p6tpf"]
@@ -47,7 +47,7 @@ shadow_mesh = SubResource("ArrayMesh_36bbe")
 height = 0.75
 radius = 0.4
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_lkcv6"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ikf07"]
 _surfaces = [{
 "aabb": AABB(-0.22705, -0.218921, -0.152279, 0.45193, 0.45193, 0.182245),
 "format": 34900799489,
@@ -79,7 +79,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("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")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_lkcv6")
+shadow_mesh = SubResource("ArrayMesh_ikf07")
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_wnhkc"]
 height = 0.0507813
@@ -115,31 +115,31 @@ orientation = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fr7m"]
 size = Vector3(0.5, 0.4, 0.343359)
 
-[node name="PipeValve" type="StaticBody3D"]
+[node name="PipeValve" type="StaticBody3D" unique_id=1917379709]
 script = ExtResource("1_etc8b")
 
-[node name="SM_GasPipeValve_A" type="MeshInstance3D" parent="."]
+[node name="SM_GasPipeValve_A" type="MeshInstance3D" parent="." unique_id=519046491]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7998e-07, 0, 0)
 mesh = SubResource("ArrayMesh_mq5al")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=241429529]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.375, 0)
 shape = SubResource("CylinderShape3D_n2rw3")
 
-[node name="Valve" type="StaticBody3D" parent="."]
+[node name="Valve" type="StaticBody3D" parent="." unique_id=1498790964]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108017, 0.378816, 0.454262)
 
-[node name="Valve" type="MeshInstance3D" parent="Valve"]
+[node name="Valve" type="MeshInstance3D" parent="Valve" unique_id=1926683138]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 mesh = SubResource("ArrayMesh_j5plm")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Valve"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Valve" unique_id=1852750007]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0108017, -0.00381625, 0.101988)
 shape = SubResource("CylinderShape3D_wnhkc")
 
-[node name="HandGrab" type="Area3D" parent="Valve" node_paths=PackedStringArray("grab_marker")]
+[node name="HandGrab" type="Area3D" parent="Valve" unique_id=352200663 node_paths=PackedStringArray("grab_marker")]
 script = ExtResource("1_wnhkc")
 update_every_frame = true
 grab_animation = "handle"
@@ -147,38 +147,38 @@ grab_marker = NodePath("HandPositionMarker")
 only_usable_by = 1
 metadata/_custom_type_script = "uid://d4joakp74nxnn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Valve/HandGrab"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Valve/HandGrab" unique_id=470799594]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 shape = SubResource("BoxShape3D_wnhkc")
 
-[node name="HandPositionMarker" type="Marker3D" parent="Valve/HandGrab"]
+[node name="HandPositionMarker" type="Marker3D" parent="Valve/HandGrab" unique_id=1866353759]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.1, 0, 0.12)
 
-[node name="GasParticles" type="GPUParticles3D" parent="."]
+[node name="GasParticles" type="GPUParticles3D" parent="." unique_id=1505152149]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.44368, 0.8, 0)
 emitting = false
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_etc8b")
 draw_pass_1 = SubResource("PlaneMesh_y0l6g")
 
-[node name="Started" type="AudioStreamPlayer3D" parent="."]
+[node name="Started" type="AudioStreamPlayer3D" parent="." unique_id=1876502340]
 stream = ExtResource("5_ikf07")
 
-[node name="Stopped" type="AudioStreamPlayer3D" parent="."]
+[node name="Stopped" type="AudioStreamPlayer3D" parent="." unique_id=56897869]
 stream = ExtResource("6_0umur")
 
-[node name="Turning" type="AudioStreamPlayer3D" parent="."]
+[node name="Turning" type="AudioStreamPlayer3D" parent="." unique_id=503072514]
 stream = ExtResource("7_1fr7m")
 
-[node name="Loop" type="AudioStreamPlayer3D" parent="."]
+[node name="Loop" type="AudioStreamPlayer3D" parent="." unique_id=1968785102]
 stream = ExtResource("5_y0l6g")
 volume_db = 6.0
 max_db = 6.0
 
-[node name="ValveArea" type="Area3D" parent="."]
+[node name="ValveArea" type="Area3D" parent="." unique_id=1671721966]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0.5)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="ValveArea"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ValveArea" unique_id=34761152]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.12168)
 shape = SubResource("BoxShape3D_1fr7m")
 
