@@ -13,6 +13,3 @@ export_presets.cfg
 .mono/
 data_*/
 mono_crash.*.json
-Objects/Gameplay/ConductiveStuff/GelTypes.tscn
-Objects/Gameplay/ConductiveStuff/Model/Gel/Models/poppygel.fbx
-Player/Grabpack/Models/poppy_playtime_chapter_5__grabpack_hands.glb

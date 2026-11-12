@@ -77,15 +77,8 @@ func equip_gasmask(give_to_player: bool = false, give_to_player_type: int = 0):
 		player.gasmask = true
 		player.gasmask_type = give_to_player_type
 	hud.gas_mask.equip_mask()
-func equip_gasmask_no_sound(give_to_player: bool = false, give_to_player_type: int = 0):
-	if give_to_player:
-		player.gasmask = true
-		player.gasmask_type = give_to_player_type
-	hud.gas_mask.equip_mask_no_sound()
 func unequip_gasmask():
 	hud.gas_mask.unequip_mask()
-func unequip_gasmask_no_sound():
-	hud.gas_mask.unequip_mask_no_sound()
 func await_unequip_mask():
 	if hud.gas_mask.animation_player.is_playing():
 		await hud.gas_mask.animation_player.animation_finished
@@ -275,11 +268,3 @@ func blue_hand_type(hand_type: int) -> void:
 		player.blue_hand_type = 1
 	elif hand_type == 2:
 		player.blue_hand_type = 2
-
-func set_grabpack(grabpack_idx: int):
-	grabpack.set_grabpack2(grabpack_idx)
-
-func lower_grabpack_no_sound():
-	grabpack.lower_grabpack_no_sound()
-	if not left_hand.hand_attached: left_hand.retract_hand()
-	if not right_hand.hand_attached: right_hand.retract_hand()

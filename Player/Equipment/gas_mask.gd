@@ -59,25 +59,6 @@ func equip_mask():
 	await animation_player.animation_finished
 	breathing.play()
 
-func equip_mask_no_sound():
-	if not Grabpack.player.gasmask: return
-	equipped = true
-	current_mask = Grabpack.player.gasmask_type
-	broken_equip.hide()
-	broken_overlay.hide()
-	normal_overlay.hide()
-	counter.hide()
-	if current_mask == MaskType.Broken:
-		broken_equip.show()
-		counter.show()
-		count_label.text = str(current_o2)
-		broken_equip.hide()
-		broken_overlay.show()
-		timer.start(1.0)
-	elif current_mask == MaskType.Normal:
-		normal_overlay.show()
-	breathing.play()
-
 func unequip_mask():
 	equipped = false
 	broken_equip.hide()
@@ -94,19 +75,6 @@ func unequip_mask():
 		broken_equip.hide()
 	elif current_mask == MaskType.Normal:
 		await animation_player.animation_finished
-		normal_overlay.hide()
-
-func unequip_mask_no_sound():
-	equipped = false
-	broken_equip.hide()
-	breathing.stop()
-	if current_mask == MaskType.Broken:
-		await get_tree().create_timer(0.1).timeout
-		broken_overlay.hide()
-		counter.hide()
-		broken_equip.show()
-		broken_equip.hide()
-	elif current_mask == MaskType.Normal:
 		normal_overlay.hide()
 
 func recharge():

@@ -10,12 +10,7 @@ enum TrophyType {
 	Kissy,
 	Mommy,
 	Pj,
-	Train,
-	Chum,
-	Giblet,
-	Lilly,
-	Limon,
-	Prototype
+	Train
 }
 
 @export var Trophy_Type: TrophyType = TrophyType.Barry:
@@ -100,21 +95,6 @@ func _update_model() -> void:
 		TrophyType.Mommy:
 			if models_node.has_node("trophy_mommy"):
 				models_node.get_node("trophy_mommy").show()
-		TrophyType.Chum:
-			if models_node.has_node("trophy_chum"):
-				models_node.get_node("trophy_chum").show()
-		TrophyType.Giblet:
-			if models_node.has_node("trophy_giblet"):
-				models_node.get_node("trophy_giblet").show()
-		TrophyType.Lilly:
-			if models_node.has_node("trophy_lilly"):
-				models_node.get_node("trophy_lilly").show()
-		TrophyType.Limon:
-			if models_node.has_node("trophy_limon"):
-				models_node.get_node("trophy_limon").show()
-		TrophyType.Prototype:
-			if models_node.has_node("trophy_prototype"):
-				models_node.get_node("trophy_prototype").show()
 
 func _process(delta: float) -> void:
 	if Engine.is_editor_hint():

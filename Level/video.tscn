@@ -4,17 +4,8 @@
 [ext_resource type="Script" uid="uid://drmtonmawnvmw" path="res://Level/video.gd" id="1_y0ps4"]
 [ext_resource type="PackedScene" uid="uid://dkty77argxwyc" path="res://Player/player.tscn" id="2_qgyir"]
 [ext_resource type="PackedScene" uid="uid://bgjssh21nyjjk" path="res://Player/Grabpack/Hands/OldRed.tscn" id="3_f5c4j"]
-[ext_resource type="Material" uid="uid://lj4hokjat77v" path="res://Decoration/Materials/ConcreteBlocksDirty.tres" id="3_phmgv"]
-[ext_resource type="Material" uid="uid://c8r8y33u8klij" path="res://Decoration/Materials/WoodenTiles.tres" id="3_x8wcp"]
 [ext_resource type="PackedScene" uid="uid://dim0fed1pmpqt" path="res://Player/Grabpack/Hands/Conductive.tscn" id="5_jbde4"]
 [ext_resource type="PackedScene" uid="uid://c7tu7cv5ogi8l" path="res://Player/Grabpack/Hands/Pressure.tscn" id="6_phmgv"]
-[ext_resource type="PackedScene" uid="uid://suk08mb56uwp" path="res://Objects/Gameplay/Puzzles/OutletPower/power_outlet.tscn" id="7_t60h4"]
-[ext_resource type="PackedScene" uid="uid://bqbhkd8ba6j1o" path="res://Objects/Gameplay/Puzzles/OutletPower/power_pole.tscn" id="8_mup48"]
-[ext_resource type="PackedScene" uid="uid://cvh1jtt03kmwl" path="res://Objects/Gameplay/Puzzles/OutletPower/power_receiver.tscn" id="9_wgkdf"]
-[ext_resource type="PackedScene" uid="uid://deq7ex0086p58" path="res://Objects/Gameplay/Trophy/trophy.tscn" id="10_wgkdf"]
-[ext_resource type="PackedScene" uid="uid://dvkybqmmhtucf" path="res://Objects/Gameplay/Extra/Hallucination sequences.tscn" id="11_dlta6"]
-[ext_resource type="PackedScene" uid="uid://xmerc1mcwygl" path="res://Player/Grabpack/Hands/green.tscn" id="12_y0ps4"]
-[ext_resource type="PackedScene" uid="uid://bwbl64vce1slx" path="res://Objects/Gameplay/GlowbyStuff/glowby_faces.tscn" id="13_y0ps4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_007dg"]
 sky_horizon_color = Color(1, 0.841716, 0.366897, 1)
@@ -36,12 +27,6 @@ adjustment_enabled = true
 adjustment_contrast = 1.2
 adjustment_saturation = 1.2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uud5k"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0nwo"]
-transparency = 1
-albedo_color = Color(0, 0.5775, 0.77, 1)
-
 [node name="Video" type="Node3D" unique_id=1211296415]
 script = ExtResource("1_y0ps4")
 
@@ -58,124 +43,9 @@ use_collision = true
 size = Vector3(16.4, 0.2, 16.4)
 material = ExtResource("1_ckxam")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1246526868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.95, 2.4, -4.249999)
-use_collision = true
-size = Vector3(0.4, 5, 13.8)
-material = ExtResource("3_phmgv")
-
-[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1392856838]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.75, 0, -4.249999)
-use_collision = true
-size = Vector3(6, 0.2, 13.8)
-material = ExtResource("3_x8wcp")
-
 [node name="Player" parent="." unique_id=594077626 instance=ExtResource("2_qgyir")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4999995, 0.10000012, 4.1)
 start_with_glowby = true
-blue_hand_type = 1
+start_with_Magnet_cuffs = true
 starting_grabpack = 4
 enabled_hands = Array[PackedScene]([ExtResource("3_f5c4j"), ExtResource("5_jbde4"), ExtResource("6_phmgv")])
-
-[node name="PowerOutlet" parent="." unique_id=1798538062 instance=ExtResource("7_t60h4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8000002, 1.2999997, -5.3000007)
-ch5_model = true
-
-[node name="PowerPole" parent="." unique_id=1985449893 instance=ExtResource("8_mup48")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.7000003, 0.1, -2.9000006)
-
-[node name="PowerReceiver" parent="." unique_id=1451912439 instance=ExtResource("9_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.500001, 1.2999998, -5.3000007)
-ch5_model = true
-power_poles = Array[NodePath]([NodePath("../PowerPole")])
-
-[node name="Trophy" parent="." unique_id=1845569801 instance=ExtResource("10_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.1, -0.5999999)
-Trophy_Type = 9
-
-[node name="Trophy2" parent="." unique_id=103679449 instance=ExtResource("10_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.1, -0.5999999)
-Trophy_Type = 10
-
-[node name="Trophy3" parent="." unique_id=697097891 instance=ExtResource("10_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1, 0.1, -0.5999999)
-Trophy_Type = 11
-
-[node name="Trophy4" parent="." unique_id=564771193 instance=ExtResource("10_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1999998, 0.1, -0.5999999)
-Trophy_Type = 12
-
-[node name="Trophy5" parent="." unique_id=459763436 instance=ExtResource("10_wgkdf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2999997, 0.1, -0.5999999)
-Trophy_Type = 13
-
-[node name="HallucinationSequences2" parent="." unique_id=282950998 node_paths=PackedStringArray("Marker3d", "area3d") instance=ExtResource("11_dlta6")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.75, 1.2, -3.8499994)
-start_Hallucination = false
-end_Hallucination = true
-Marker3d = NodePath("Marker3D2")
-area3d = NodePath("Area3D")
-grabpack_type = 4
-blue_hand_type = 1
-has_glowby_ = true
-has_magnet_ = true
-enabled_hands_ = Array[PackedScene]([ExtResource("3_f5c4j"), ExtResource("6_phmgv"), ExtResource("5_jbde4")])
-
-[node name="Marker3D2" type="Marker3D" parent="HallucinationSequences2" unique_id=486589776]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7683716e-07, -1.1, 10.800001)
-
-[node name="Area3D" type="Area3D" parent="HallucinationSequences2" unique_id=1927956141]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HallucinationSequences2/Area3D" unique_id=674361105]
-shape = SubResource("BoxShape3D_uud5k")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="HallucinationSequences2/Area3D" unique_id=70224056]
-transparency = 0.85
-material = SubResource("StandardMaterial3D_k0nwo")
-
-[node name="HallucinationSequences" parent="." unique_id=63712137 node_paths=PackedStringArray("Marker3d", "area3d") instance=ExtResource("11_dlta6")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.7500002, 1.2, -3.8499994)
-Marker3d = NodePath("Marker3D2")
-area3d = NodePath("Area3D")
-gasmask_type_ = 1
-grabpack_type = 1
-enabled_hands_ = Array[PackedScene]([ExtResource("12_y0ps4")])
-
-[node name="Marker3D2" type="Marker3D" parent="HallucinationSequences" unique_id=1054184887]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1, -13.000002)
-
-[node name="Area3D" type="Area3D" parent="HallucinationSequences" unique_id=1148704069]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HallucinationSequences/Area3D" unique_id=173733671]
-shape = SubResource("BoxShape3D_uud5k")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="HallucinationSequences/Area3D" unique_id=294755151]
-transparency = 0.85
-material = SubResource("StandardMaterial3D_k0nwo")
-
-[node name="GlowbyFaces" parent="." unique_id=1971493996 node_paths=PackedStringArray("area3d") instance=ExtResource("13_y0ps4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5000005, 1.1, -0.4000001)
-area3d = NodePath("Area3D")
-face_type = 1
-
-[node name="Area3D" type="Area3D" parent="GlowbyFaces" unique_id=985611807]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GlowbyFaces/Area3D" unique_id=1033483469]
-shape = SubResource("BoxShape3D_uud5k")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="GlowbyFaces/Area3D" unique_id=130943038]
-transparency = 0.85
-material = SubResource("StandardMaterial3D_k0nwo")
-
-[node name="GlowbyFaces2" parent="." unique_id=555812313 node_paths=PackedStringArray("area3d") instance=ExtResource("13_y0ps4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.3000007, 1.1, -0.4000001)
-area3d = NodePath("Area3D")
-
-[node name="Area3D" type="Area3D" parent="GlowbyFaces2" unique_id=991798145]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="GlowbyFaces2/Area3D" unique_id=468555238]
-shape = SubResource("BoxShape3D_uud5k")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="GlowbyFaces2/Area3D" unique_id=1282423968]
-transparency = 0.85
-material = SubResource("StandardMaterial3D_k0nwo")

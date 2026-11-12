@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://jwxx7wssjsy3"]
+[gd_scene load_steps=19 format=4 uid="uid://jwxx7wssjsy3"]
 
 [ext_resource type="Script" uid="uid://ofn3gg5t6guv" path="res://Objects/Gameplay/Gas/Mask/gas_mask.gd" id="1_ql3dq"]
 [ext_resource type="Texture2D" uid="uid://dhgibiulnlim8" path="res://Player/Equipment/Resources/T_GasMask_BC.png" id="2_4nkjj"]
@@ -89,38 +89,38 @@ size = Vector3(0.3, 0.4, 0.3)
 [sub_resource type="BoxShape3D" id="BoxShape3D_7pgn2"]
 size = Vector3(0.224365, 0.317383, 0.218506)
 
-[node name="GasMask" type="StaticBody3D" unique_id=2841265]
+[node name="GasMask" type="StaticBody3D"]
 script = ExtResource("1_ql3dq")
 
-[node name="SM_GasMask" type="MeshInstance3D" parent="." unique_id=1423729700]
+[node name="SM_GasMask" type="MeshInstance3D" parent="."]
 mesh = SubResource("ArrayMesh_i2yjk")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111806908]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_mqey3")
 
-[node name="HandGrab" type="Area3D" parent="." unique_id=253820620 node_paths=PackedStringArray("grab_marker")]
+[node name="HandGrab" type="Area3D" parent="." node_paths=PackedStringArray("grab_marker")]
 script = ExtResource("7_qchjn")
 grab_animation = "sphere"
 grab_marker = NodePath("HandPositionMarker")
 metadata/_custom_type_script = "uid://d4joakp74nxnn"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab" unique_id=61323831]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandGrab"]
 shape = SubResource("BoxShape3D_oilgo")
 
-[node name="HandPositionMarker" type="Marker3D" parent="HandGrab" unique_id=873116394]
+[node name="HandPositionMarker" type="Marker3D" parent="HandGrab"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0526374, 0.144409)
 
-[node name="BasicInteraction" type="Area3D" parent="." unique_id=184215246]
+[node name="BasicInteraction" type="Area3D" parent="."]
 script = ExtResource("8_sapyw")
 metadata/_custom_type_script = "uid://cp2nj828ny1um"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction" unique_id=128432708]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="BasicInteraction"]
 shape = SubResource("BoxShape3D_7pgn2")
 
-[node name="InteractionIndicator" parent="BasicInteraction" unique_id=429340354 instance=ExtResource("9_4nkjj")]
+[node name="InteractionIndicator" parent="BasicInteraction" instance=ExtResource("9_4nkjj")]
 
-[node name="InventoryItem" type="Node" parent="." unique_id=1275121423]
+[node name="InventoryItem" type="Node" parent="."]
 script = ExtResource("9_l5pxj")
 item_type = 3
 item_name = "Gas Mask"
