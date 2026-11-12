@@ -1,8 +1,16 @@
 extends Node3D
 
+enum grabpacktype {
+	grabpack_1 = 1,
+	grabpack_2_Ch4 = 2,
+	grabpack_2_with_watch = 3,
+	old_grabber = 4,
+	grabpack_2_Ch5 = 5
+}
+
 @onready var hand_grab = $HandGrab
 
-@export_range(1, 5) var grabpack_number: int = 1
+@export var grabpack_number: grabpacktype = grabpacktype.grabpack_1
 @export var play_collect_sound: bool = true
 
 signal collected

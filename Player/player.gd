@@ -36,13 +36,22 @@ enum grabpackbluehandtype {
 	Ch4 = 0
 }
 
+enum grabpacktype {
+	none = 0,
+	grabpack_1 = 1,
+	grabpack_2_Ch4 = 2,
+	grabpack_2_with_watch = 3,
+	old_grabber = 4,
+	grabpack_2_Ch5 = 5
+}
+
 @export var start_with_glowby: bool = false
 @export var start_with_Magnet_cuffs: bool = false
 @export var blue_hand_type: grabpackbluehandtype = grabpackbluehandtype.Ch4
 @export var hand_speed: float = 24.944
 @export var start_lowered: bool = false
 #0 is no grabpack, and numbers 1 and 2 are grabpack versions 1 and 2.
-@export_range(0, 5) var starting_grabpack: int = 0
+@export var starting_grabpack: grabpacktype = grabpacktype.none
 @export var enabled_hands: Array [PackedScene] = [preload("res://Player/Grabpack/Hands/none.tscn")]
 @export_group("Animations")
 
@@ -96,6 +105,18 @@ var glowby_can_notify: bool = true
 var glowby_collected: bool = false
 var glowby_check: bool = true
 var glowby_lose: bool = false
+var glowby_back_to_default: bool = false
+var glowby_Curous_Concerned: bool = false
+var glowby_Scared: bool = false
+var glowby_Shock_Frightend: bool = false
+var glowby_dead_very_scared: bool = false
+var glowby_eyes_closed: bool = false
+var glowby_laoding: bool = false
+var glowby_super_happy: bool = false
+var glowby_very_very_happy: bool = false
+var glowby_very_worried: bool = false
+var glowby_disable_controls: bool = false
+var glowby_enable_controls: bool = false
 
 var conductive_has_elec: bool = false
 var conductive_has_fire: bool = false
@@ -142,7 +163,7 @@ func _process(delta: float) -> void:
 		grabpackbluehandtype.Ch4:
 			b1.show()
 			b2.hide()
-			b3.Hide()
+			b3.hide()
 		grabpackbluehandtype.Ch5:
 			b1.hide()
 			b2.hide()
