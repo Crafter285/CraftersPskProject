@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bwbl64vce1slx"]
+
+[ext_resource type="Script" uid="uid://5r1qmvh6vs4g" path="res://Objects/Gameplay/GlowbyStuff/Scripts/glowby_faces.gd" id="1_r42ul"]
+
+[node name="GlowbyFaces" type="Node3D" unique_id=1971493996]
+script = ExtResource("1_r42ul")

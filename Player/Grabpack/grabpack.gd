@@ -96,6 +96,19 @@ func switch_grabpack(grabpack_index: int):
 	update_grabpack_data(); update_grabpack_visibility(true)
 	grabpack_lowered = true
 	raise_grabpack()
+
+func set_grabpack2(grabpack_index: int):
+	if grabpack_index == current_grabpack:
+		return
+		
+	_reset_attachments()
+	grabpack_queue = grabpack_index
+	queue_grabpack(grabpack_index)
+	
+	await Game.delay(0.5)
+	set_queued_grabpack()
+	update_grabpack_data(); update_grabpack_visibility(true)
+
 func set_queued_grabpack():
 	set_grabpack(grabpack_queue)
 func set_grabpack(grabpack_index: int):
@@ -199,3 +212,12 @@ func _reset_attachments():
 	attachment_right.bone_idx = 0
 	attachment_right.override_pose = false
 	attachment_right.set_use_external_skeleton(false)
+
+func lower_grabpack_no_sound():
+	if not grabpack_lowered:
+		animation.animation_tree.set("parameters/RaiseLower/blend_amount", 0.0)
+		animation.animation_tree.set("parameters/ToggleAnimation/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
+		grabpack_usable = false
+		grabpack_lowered = true
+		if not left_hand.hand_attached: left_hand.retract_hand()
+		if not right_hand.hand_attached: right_hand.retract_hand()

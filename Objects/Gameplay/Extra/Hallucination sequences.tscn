@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dvkybqmmhtucf"]
+
+[ext_resource type="Script" uid="uid://diq1rcest3aq4" path="res://Objects/Gameplay/Extra/Scripts/hallucination_sequences.gd" id="1_qvlhs"]
+[ext_resource type="Script" uid="uid://f1ql8nf8705p" path="res://Objects/Gameplay/HandFunctions/inventory_item.gd" id="3_b55gb"]
+[ext_resource type="Script" uid="uid://cwbtmmhbbm3ic" path="res://addons/DurielUtilities-main/ScreenTransition/FadeTransition/FadeTransition.gd" id="3_rj3qd"]
+[ext_resource type="Texture2D" uid="uid://dpt0v7bsudgtm" path="res://Interface/Inventory/ItemIcons/mask_inv.png" id="4_skmgt"]
+[ext_resource type="Texture2D" uid="uid://b7etjka7gfyo2" path="res://Interface/Inventory/ItemIcons/maskbroken_inv.png" id="5_b55gb"]
+
+[node name="HallucinationSequences" type="Node3D" unique_id=63712137]
+script = ExtResource("1_qvlhs")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=775949707]
+
+[node name="iFadeTransition" type="Control" parent="Node2D" unique_id=1101866734 node_paths=PackedStringArray("color_rect")]
+visible = false
+light_mask = 524288
+visibility_layer = 524288
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1928.0
+offset_bottom = 1096.0
+script = ExtResource("3_rj3qd")
+fade_time = 2.0
+color_rect = NodePath("ColorRect")
+metadata/_custom_type_script = "uid://cwbtmmhbbm3ic"
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/iFadeTransition" unique_id=1270683105]
+light_mask = 524288
+visibility_layer = 524288
+layout_mode = 0
+offset_right = 1945.0
+offset_bottom = 1096.0
+color = Color(0, 0, 0, 1)
+
+[node name="InventoryItemGasMask" type="Node" parent="." unique_id=443772856]
+script = ExtResource("3_b55gb")
+item_type = 3
+item_name = "Gas Mask"
+item_has_description = true
+item_description = "Useful in areas containing Red Smoke."
+item_image = ExtResource("4_skmgt")
+play_collect_sound = false
+metadata/_custom_type_script = "uid://f1ql8nf8705p"
+
+[node name="InventoryItemGasMaskBroken" type="Node" parent="." unique_id=622009160]
+script = ExtResource("3_b55gb")
+item_type = 3
+item_name = "Broken Gas Mask"
+item_has_description = true
+item_description = "Requires an almost constant supply of oxygen."
+item_image = ExtResource("5_b55gb")
+play_collect_sound = false
+metadata/_custom_type_script = "uid://f1ql8nf8705p"

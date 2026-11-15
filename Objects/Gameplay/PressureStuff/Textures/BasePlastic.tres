@@ -6,6 +6,7 @@
 
 [resource]
 cull_mode = 2
+albedo_color = Color(0.40146014, 0.40146014, 0.40146014, 1)
 albedo_texture = ExtResource("1_ut5l7")
 metallic = 1.0
 metallic_texture = ExtResource("2_is4ov")

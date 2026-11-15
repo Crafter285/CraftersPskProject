@@ -1,5 +1,6 @@
 extends StaticBody3D
 
+@export var ch5_model: bool = false
 @export var enabled: bool = true
 
 @onready var light = $OmniLight3D
@@ -14,6 +15,13 @@ var using: bool = false
 const WIRE_OUTLET_MATERIAL = preload("res://Player/Grabpack/Wire/WireOutletMaterial.tres")
 
 func _ready():
+	if ch5_model == true:
+		$PowerReceiver/SM_PowerSource_A_mo_004.show()
+		$PowerReceiver/PowerReceiver_MI_PowerReceiver_0.hide()
+	elif ch5_model == false:
+		$PowerReceiver/PowerReceiver_MI_PowerReceiver_0.show()
+		$PowerReceiver/SM_PowerSource_A_mo_004.hide()
+	
 	if not enabled:
 		set_power(false)
 
